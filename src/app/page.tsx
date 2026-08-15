@@ -76,8 +76,8 @@ function Glance() {
             <h3 className="mt-2.5 text-[1.3rem] font-medium tracking-[-0.02em]">
               {lane.title}
             </h3>
-            <p className="mt-2 text-[14px] leading-[1.6] text-ink-muted">{lane.body}</p>
-            <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-hairline pt-3.5">
+            <p className="mt-2 mb-4 text-[14px] leading-[1.6] text-ink-muted">{lane.body}</p>
+            <div className="mt-auto flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-hairline pt-3.5">
               <span className="text-[13px] text-ink">{lane.owner}</span>
               <span className="font-mono text-[11.5px] text-ink-faint">{lane.clock}</span>
             </div>

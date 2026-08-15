@@ -43,7 +43,7 @@ export function SiteNav() {
             {site.wordmark.right}
           </span>
         </a>
-        <nav className="nav-scroll flex min-w-0 flex-1 items-center justify-end gap-4 overflow-x-auto sm:gap-6">
+        <nav className="nav-scroll flex min-w-0 flex-1 items-center justify-start gap-4 overflow-x-auto sm:justify-end sm:gap-6">
           {nav.map((item) => (
             <a
               key={item.id}
