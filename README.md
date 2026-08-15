@@ -18,10 +18,16 @@ npm run dev
 | --- | --- |
 | `SITE_PASSWORD` | The password visitors type on `/login`. |
 | `SESSION_SECRET` | Long random string that signs the session cookie. `openssl rand -hex 32` works. |
+| `POSTGRES_URL` | Storage for the live action plan (Vercel Postgres / Neon). The `plan_state` table is created automatically and seeded on first load. |
+| `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Optional fallback storage (Vercel KV / Upstash), used only when `POSTGRES_URL` is unset. |
 
-The gate fails closed in production: if either variable is missing, every route returns 503 until both are set in the hosting environment. In development the gate stays open so the site runs without setup.
+The gate fails closed in production: if `SITE_PASSWORD` or `SESSION_SECRET` is missing, every route returns 503 until both are set in the hosting environment. In development the gate stays open so the site runs without setup.
 
-Sessions are httpOnly cookies signed with HMAC-SHA256. There is no database.
+Sessions are httpOnly cookies signed with HMAC-SHA256.
+
+## The live plan
+
+The "Who does what, by when" section is editable: statuses, owners, timing, and the working-date bars save through `GET`/`PUT /api/state` (one JSON document, last write wins) and survive refresh. The API sits behind the same session gate; there is no public write path. Without any storage env vars the plan uses in-process memory, which works locally but does not survive a redeploy. Seed content lives in `src/content/plan.ts` and only applies to the first load.
 
 ## Editing content
 

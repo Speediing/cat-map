@@ -52,6 +52,9 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
   }
 
   if (!authed) {
+    if (pathname.startsWith("/api/")) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     return NextResponse.redirect(new URL("/login", request.url));
   }
 

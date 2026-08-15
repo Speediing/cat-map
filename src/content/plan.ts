@@ -34,6 +34,7 @@ export const nav = [
   { id: "pilot", label: "The pilot" },
   { id: "support", label: "Support" },
   { id: "minestar", label: "MineStar" },
+  { id: "actions", label: "Actions" },
 ] as const;
 
 export const hero = {
@@ -371,6 +372,198 @@ export const minestar = {
   ] satisfies NextStep[],
   note: "Priority two, per Ritesh: fine if the pilot gets to it, fine if it does not. Richard's internal team runs full tilt either way." as string | null,
 };
+
+export const actionsSection = {
+  id: "actions",
+  kicker: "The working plan",
+  title: "Who does what, by when",
+  lede: "Live for the working group: every move with a status, an owner, and timing, plus a calendar of working dates. Edits save on change and survive refresh. Dates are working dates, not commitments, until the agreement signs.",
+  savedLabel: "Saved",
+  savingLabel: "Saving",
+  errorLabel: "Save failed, edit again to retry",
+  memoryLabel: "Temporary storage. Set POSTGRES_URL for the shared database.",
+  actionsCaption: "The action list",
+  ganttCaption: "Working dates",
+  ganttBadge: "Not yet agreed",
+  todayLabel: "Today",
+};
+
+/**
+ * Seed for the live plan. Only moves and windows named on the three calls.
+ * The gantt is working placement, labeled as such on the page; nothing here
+ * is an agreed date. Once a database is connected this seed only applies to
+ * the first load.
+ */
+export const planSeed = {
+  gantt: {
+    target:
+      "Working read: signature inside August, trial verdict by the end of September. Not yet agreed.",
+    rows: [
+      {
+        id: "g-agreement",
+        name: "Trial evaluation agreement",
+        owner: "Joe + Cat legal",
+        start: "2026-08-15",
+        end: "2026-08-29",
+        kind: "gate",
+      },
+      {
+        id: "g-infra",
+        name: "Infra + SSO readiness (Rossi)",
+        owner: "Dustin + Dhamu",
+        start: "2026-08-18",
+        end: "2026-08-29",
+        kind: "infra",
+      },
+      {
+        id: "g-architecture",
+        name: "Cat IT architecture deep dive",
+        owner: "Sai Praveen",
+        start: "2026-08-18",
+        end: "2026-09-04",
+        kind: "infra",
+      },
+      {
+        id: "g-support-plan",
+        name: "Support plan: director session, problem list",
+        owner: "Ritesh + Swaran + Matt",
+        start: "2026-08-18",
+        end: "2026-09-04",
+        kind: "support",
+      },
+      {
+        id: "g-trial",
+        name: "30-day trial (starts at signature)",
+        owner: "Everyone in the pilot",
+        start: "2026-09-01",
+        end: "2026-09-30",
+        kind: "trial",
+      },
+      {
+        id: "g-roadmap",
+        name: "MineStar roadmap deep dive",
+        owner: "Richard's team + Ritesh",
+        start: "2026-09-07",
+        end: "2026-09-11",
+        kind: "minestar",
+      },
+      {
+        id: "g-sx-session",
+        name: "SpaceXAI session on the roadmap",
+        owner: "Ritesh + SpaceXAI",
+        start: "2026-09-14",
+        end: "2026-09-18",
+        kind: "minestar",
+      },
+    ],
+  },
+  actions: [
+    {
+      id: "a-agreement",
+      act: "Trial evaluation agreement through Cat legal. Gates every download and sign-in.",
+      side: "SpaceXAI",
+      owner: "Joe, Dustin, Cat legal",
+      when: "A couple of weeks",
+      stat: "in_progress",
+    },
+    {
+      id: "a-terms",
+      act: "Trial terms and success criteria in the paper, per Sai.",
+      side: "SpaceXAI",
+      owner: "Joe, with Sai's criteria",
+      when: "With the agreement",
+      stat: "not_started",
+    },
+    {
+      id: "a-sourcing",
+      act: "Sourcing-director check on Cat policy.",
+      side: "SpaceXAI",
+      owner: "Joe Masello",
+      when: "Now",
+      stat: "in_progress",
+    },
+    {
+      id: "a-blessing",
+      act: "Richard and Jamie's blessing for the pilot.",
+      side: "Caterpillar",
+      owner: "Richard Green + Jamie, via Joe",
+      when: "Now",
+      stat: "not_started",
+    },
+    {
+      id: "a-architecture",
+      act: "Architecture and security deep dive with Cat IT.",
+      side: "Caterpillar",
+      owner: "Sai Praveen",
+      when: "Being scheduled",
+      stat: "not_started",
+    },
+    {
+      id: "a-infra",
+      act: "Infrastructure and SSO readiness with Brian Rossi.",
+      side: "Caterpillar",
+      owner: "Dustin + Dhamu",
+      when: "In parallel with legal",
+      stat: "in_progress",
+    },
+    {
+      id: "a-problems",
+      act: "Prioritized support problem list, small pieces first.",
+      side: "Caterpillar",
+      owner: "Swaran Unni",
+      when: "Now",
+      stat: "in_progress",
+    },
+    {
+      id: "a-access",
+      act: "SpaceXAI and Grok Bot access and credits for Swaran and Sai.",
+      side: "SpaceXAI",
+      owner: "Jason Wiker",
+      when: "Now",
+      stat: "in_progress",
+    },
+    {
+      id: "a-director",
+      act: "Support director session with Matt Mansfield.",
+      side: "Caterpillar",
+      owner: "Ritesh Gupta",
+      when: "Tue or Wed",
+      stat: "not_started",
+    },
+    {
+      id: "a-roadmap",
+      act: "September MineStar roadmap deep dive, then SpaceXAI the week after.",
+      side: "Caterpillar",
+      owner: "Ritesh Gupta",
+      when: "September",
+      stat: "not_started",
+    },
+    {
+      id: "a-writeup",
+      act: "How-it-works and funding writeup for Richard's team and CFO.",
+      side: "SpaceXAI",
+      owner: "Joe Masello",
+      when: "Now",
+      stat: "in_progress",
+    },
+    {
+      id: "a-trial",
+      act: "Run the 30-day trial.",
+      side: "SpaceXAI",
+      owner: "Everyone in the pilot",
+      when: "After signature",
+      stat: "not_started",
+    },
+    {
+      id: "a-tokens",
+      act: "Cover all token costs, all models, all participants.",
+      side: "SpaceXAI",
+      owner: "SpaceXAI",
+      when: "Through the trial",
+      stat: "not_started",
+    },
+  ],
+} as const;
 
 export const footer = {
   workingGroupLabel: "The working group",

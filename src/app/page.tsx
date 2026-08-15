@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
 import { GateSplit, MinestarLoop, PlanPath, SupportFlow } from "@/components/diagrams";
+import { PlanBoard } from "@/components/plan-board";
 import {
+  actionsSection,
   footer,
   glance,
   hero,
@@ -367,6 +369,14 @@ export default function Page() {
         <PilotSection />
         <UseCaseSection data={support} diagram={<SupportFlow />} />
         <UseCaseSection data={minestar} diagram={<MinestarLoop />} />
+        <DrillSection
+          id={actionsSection.id}
+          kicker={actionsSection.kicker}
+          title={actionsSection.title}
+          lede={actionsSection.lede}
+        >
+          <PlanBoard />
+        </DrillSection>
       </main>
       <SiteFooter />
     </>
