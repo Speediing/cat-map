@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f6f4ef;
+  --color-panel: #edeae1;
+  --color-paper: #fdfcf8;
+  --color-ink: #26251e;
+  --color-ink-muted: #5d5b52;
+  --color-ink-faint: #8b8980;
+  --color-hairline: rgb(38 37 30 / 0.12);
+  --color-hairline-strong: rgb(38 37 30 / 0.22);
+  --color-orange: #f54e00;
+  --color-cat-yellow: #ffcd11;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* Paper grain over everything. Kept faint on purpose. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgb(245 78 0 / 0.25);
+  color: var(--color-ink);
+}
+
+section[id] {
+  scroll-margin-top: 4.75rem;
+}
+
+/* Horizontal nav scroll on small screens, without a visible scrollbar. */
+.nav-scroll {
+  scrollbar-width: none;
+}
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
