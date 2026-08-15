@@ -36,6 +36,8 @@ export const nav = [
   { id: "stack", label: "Voice + Bot" },
   { id: "minestar", label: "MineStar" },
   { id: "actions", label: "Live plan" },
+  { id: "stories", label: "Stories" },
+  { id: "gartner", label: "Gartner" },
 ] as const;
 
 export const hero = {
@@ -432,9 +434,157 @@ export const actionsSection = {
   errorLabel: "Save failed, edit again to retry",
   memoryLabel: "Temporary storage. Set POSTGRES_URL for the shared database.",
   actionsCaption: "The action list",
-  ganttCaption: "Working dates",
+  pathCaption: "The two phases",
+  pathNote: "Phase 2 is gated. Agreement and readiness both required.",
+  ganttCaption: "From this week to the verdict",
   ganttBadge: "Not yet agreed",
   todayLabel: "Today",
+  addStepLabel: "+ Add step",
+  stepLabel: "Step",
+};
+
+/**
+ * Phase cards above the live gantt. Same owners as the seed and glance,
+ * laid out as a two-phase path (agreement + readiness, then the trial).
+ */
+export const livePlanPhases = {
+  phase1: {
+    kicker: "Phase 1 · Now",
+    title: "Agreement + readiness",
+    when: "Paper and readiness in parallel. Nothing waits twice.",
+    tracks: [
+      {
+        who: "Joe + Cat legal",
+        what: "Trial evaluation agreement, terms, and success criteria",
+      },
+      {
+        who: "Dustin + Dhamu + Rossi",
+        what: "Infrastructure and SSO readiness call",
+      },
+      {
+        who: "Sai Praveen",
+        what: "Architecture and security deep dive with Cat IT",
+      },
+      {
+        who: "Swaran Unni",
+        what: "Prioritized support problem list, small pieces first",
+      },
+    ],
+  },
+  gate: {
+    label: "Both gates",
+    items: ["Trial agreement signed", "Readiness confirmed"],
+  },
+  phase2: {
+    kicker: "Phase 2 · After both gates",
+    title: "30-day trial",
+    when: "Starts at signature. SpaceXAI-funded, all models, everyone in.",
+    tracks: [
+      {
+        who: "Onboarding",
+        what: "Access, installs behind SSO, and a shared Slack channel",
+      },
+      {
+        who: "Cadence",
+        what: "Short weekly status; Jason, Brian, and Joe on call",
+      },
+      {
+        who: "Evaluation",
+        what: "Desktop-first trial against Copilot and the tools you run",
+      },
+      {
+        who: "The verdict",
+        what: "Viability plus a real consumption baseline for funding",
+      },
+    ],
+  },
+};
+
+/**
+ * Published Cursor / SpaceXAI proof. Not Caterpillar results.
+ * Metrics and quotes only from the named public posts.
+ */
+export const stories = {
+  id: "stories",
+  kicker: "Customer stories",
+  title: "How peers evaluated Cursor and what they shipped.",
+  lede: "Verified from cursor.com/blog. Metrics below are from those published stories only.",
+  sourceLabel: "Published on cursor.com/blog",
+  items: [
+    {
+      company: "NVIDIA",
+      title: "30-year interconnected codebases. 30,000 developers daily.",
+      bullets: [
+        "Large, interconnected product-line codebases that evolve quickly.",
+        "30,000 developers using Cursor daily.",
+        "3x committed code, with bug rates flat.",
+        "SDLC beyond generation: review, test, and debug.",
+      ],
+      quote:
+        "Each of NVIDIA's product lines has a complex codebase that is evolving quickly. It's very hard for developers to stay on top of these changes and understand the entirety of the codebase. This is where Cursor really shines.",
+      attribution: "Wei Luo, VP of Engineering, NVIDIA",
+      href: "https://cursor.com/blog/nvidia",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "National Australia Bank",
+      title: "Evaluated GitHub Copilot and Amazon Q. Standardized on Cursor.",
+      bullets: [
+        "Legacy monolith and mainframe modernization, 3x faster than expected.",
+        "6,000 developers in the first cohort, expanding to 10,000.",
+        "BizCalc Silverlight monolith: pre-dev in 1 week vs 2 months; full migration expected 2 months vs 6.",
+        "Assembly mainframe 3x faster. Greenfield payment app 3 weeks vs 4 months.",
+      ],
+      quote:
+        "Using plugin-based coding assistants is like trying to bolt AI onto your workflow from the outside. With Cursor, the agent understands our codebase and works the way NAB works.",
+      attribution: "Chris De Lorenzo, Principal Engineer",
+      href: "https://cursor.com/blog/nab",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Box",
+      title: "Enterprise security, privacy, and governance first.",
+      bullets: [
+        "Cursor stood out in a serious enterprise vendor review for data privacy and security controls.",
+        "85% daily adoption.",
+        "30-50% roadmap throughput.",
+        "Migrations 80-90% faster.",
+      ],
+      quote:
+        "We vet developer tools very seriously. Cursor stood out from other vendors for its data privacy and security controls.",
+      attribution: "Swaroop Butala, Senior Director of Engineering",
+      href: "https://cursor.com/blog/box",
+      linkLabel: "Read the story",
+    },
+  ],
+  video: {
+    company: "Video · Cursor",
+    title: "How Intuit, DoorDash, and Atlassian are adopting AI coding.",
+    lede: "Jordan Topoleski with Chris (Intuit), Ryan (DoorDash), and Tarun (Atlassian).",
+    embedSrc: "https://www.youtube-nocookie.com/embed/aF-rolD9W7I",
+    href: "https://www.youtube.com/watch?v=aF-rolD9W7I",
+    linkLabel: "Watch on YouTube",
+  },
+};
+
+export const gartner = {
+  id: "gartner",
+  kicker: "Analyst",
+  title:
+    "Cursor is a Leader in the 2026 Gartner Magic Quadrant for Enterprise AI Coding Agents.",
+  lede: "Furthest on Completeness of Vision. Report date 20 May 2026. Authors: Philip Walsh, Nitish Tyagi, Keith Holloway, Matt Brasier, Neha Agarwal.",
+  links: [
+    {
+      label: "Read the complimentary Gartner report",
+      href: "https://cursor.com/lp/2026-gartner-mq",
+    },
+    {
+      label: "Read the Cursor announcement",
+      href: "https://cursor.com/blog/cursor-leads-gartner-mq-2026",
+    },
+  ],
+  disclaimer:
+    "Gartner, Magic Quadrant for Enterprise AI Coding Agents, Philip Walsh, Nitish Tyagi, Keith Holloway, Matt Brasier, Neha Agarwal, 20 May 2026. Gartner does not endorse any vendor, product or service depicted in its research publications, and does not advise technology users to select only those vendors with the highest ratings or other designation. Gartner research publications consist of the opinions of Gartner's research organization and should not be construed as statements of fact. Gartner disclaims all warranties, expressed or implied, with respect to this research, including any warranties of merchantability or fitness for a particular purpose. GARTNER is a registered trademark and service mark of Gartner, Inc. and/or its affiliates in the U.S. and internationally, and MAGIC QUADRANT is a registered trademark of Gartner, Inc. and/or its affiliates and are used herein with permission. All rights reserved.",
 };
 
 /**
