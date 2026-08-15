@@ -83,23 +83,6 @@ export const planPath = {
 export const glance = {
   id: "plan",
   kicker: "At a glance",
-  clocks: [
-    {
-      value: "30 days",
-      label: "The trial",
-      body: "SpaceXAI-funded. All models, all participants, no cost to Caterpillar. The output is a viability verdict and a real token-spend baseline.",
-    },
-    {
-      value: "A couple of weeks",
-      label: "The gate",
-      body: "A trial evaluation agreement with terms and success criteria, beyond the signed NDA. Cat policy allows no click-through, so nothing downloads before signature.",
-    },
-    {
-      value: "Open",
-      label: "Cat Cloud vs SaaS",
-      body: "Sai's rule: LLMs and agent APIs stay inside the Cat firewall, vendors deploy into Cat Cloud. SpaceXAI is mostly SaaS. An architecture deep dive with Cat IT settles it.",
-    },
-  ],
   lanes: [
     {
       label: "Priority 1",
