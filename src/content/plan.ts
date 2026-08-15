@@ -2,10 +2,11 @@
  * All copy for the leave-behind lives here.
  * Edit this file to change what the page says; layout stays put.
  *
- * Sourced from the call transcripts of 11 August 2026 (Richard Green) and
- * 14 August 2026 (Dhamu Sankaran, Dustin Ziegler, Andy Lofgreen). A 13 August
- * demo session is in scope and folds in when its transcript lands.
+ * Sourced from three call transcripts: 11 August 2026 (Richard Green),
+ * 13 August 2026 (demo: Swaran Unni, Sai Praveen, Ritesh Gupta), and
+ * 14 August 2026 (Dhamu Sankaran, Dustin Ziegler, Andy Lofgreen).
  * No numbers, dates, or claims beyond what was said on those calls.
+ * Cat-said and Anysphere-pitched are labeled as such in the copy.
  */
 
 export type NextStep = {
@@ -23,7 +24,7 @@ export type Beat = {
 export const site = {
   title: "Caterpillar × Cursor",
   description:
-    "The mutual action plan for the Caterpillar and Cursor pilot: a 30-day trial across MineStar modernization and a product support agent framework, with owners, gates, and dates.",
+    "The mutual action plan for the Caterpillar and Cursor pilot: a 30-day trial across a product support agent framework and MineStar modernization, with owners, gates, and dates.",
   wordmark: { left: "Caterpillar", right: "Cursor" },
   navLabel: "Private · August 2026",
 };
@@ -31,16 +32,16 @@ export const site = {
 export const nav = [
   { id: "plan", label: "The plan" },
   { id: "pilot", label: "The pilot" },
-  { id: "minestar", label: "MineStar" },
   { id: "support", label: "Support" },
+  { id: "minestar", label: "MineStar" },
 ] as const;
 
 export const hero = {
   kicker: "Mutual action plan · August 2026",
   title: "Thirty days to a verdict.",
   standfirst:
-    "Caterpillar named two use cases: MineStar modernization, and an agent framework for product support. Cursor funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Legal and infrastructure run in parallel so neither waits on the other. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
-  meta: "Compiled from the working sessions of 11 and 14 August 2026.",
+    "Caterpillar named two use cases and put them in order: an agent framework for product support first, MineStar modernization second. Cursor funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
+  meta: "Compiled from the working sessions of 11, 13, and 14 August 2026.",
 };
 
 export const glance = {
@@ -55,30 +56,30 @@ export const glance = {
     {
       value: "A couple of weeks",
       label: "The gate",
-      body: "A formal trial evaluation agreement, Joe's paperwork through Cat legal. Cat policy allows no click-through terms, so nothing downloads before signature.",
+      body: "A trial evaluation agreement with terms and success criteria, beyond the signed NDA. Cat policy allows no click-through, so nothing downloads before signature.",
     },
     {
-      value: "End of 2027",
-      label: "The deadline",
-      body: "MineStar 2.0 goes GA, with field follow at partner customers in March or April. Richard's math: less than eighteen months end to end, most of the work in the next six.",
+      value: "Open",
+      label: "Cat Cloud vs SaaS",
+      body: "Sai's rule: LLMs and agent APIs stay inside the Cat firewall, vendors deploy into Cat Cloud. Cursor is mostly SaaS. An architecture deep dive with Cat IT settles it.",
     },
   ],
   lanes: [
     {
-      label: "Use case 1",
-      tag: null as string | null,
-      title: "MineStar modernization",
-      body: "Richard's team is already decomposing the 20-year monolith with agents they built last October. His question for Cursor: can you go faster, at lower cost?",
-      owner: "Richard Green's team",
-      clock: "Roadmap deep dive in September",
+      label: "Priority 1",
+      tag: "Starts first" as string | null,
+      title: "Product support",
+      body: "Ritesh's frame: do not hire another thousand engineers as MineStar's time to market speeds up. Agents start the moment a ticket hits Salesforce, atoms first, then molecules.",
+      owner: "Swaran Unni + Ritesh Gupta",
+      clock: "Director session Tue or Wed",
     },
     {
-      label: "Use case 2",
-      tag: "Preferred first",
-      title: "Product support",
-      body: "Manual and reactive today. Richard wants a ground-level build: people, process, tools, and agents that gather data and predict issues instead of reacting to them.",
-      owner: "Matt Mansfield, with Richard Green",
-      clock: "Outreach late Aug / early Sep",
+      label: "Priority 2",
+      tag: null as string | null,
+      title: "MineStar modernization",
+      body: "A 20-year monolith, two to two and a half million lines, moving to microservices. Richard's team is on it with in-house agents 400 people use. The ask: faster, at lower cost.",
+      owner: "Richard Green's team",
+      clock: "Deep dive in September · GA end of 2027",
     },
   ],
   gate: {
@@ -93,12 +94,13 @@ export const glance = {
     moving: {
       title: "Moving now, in parallel",
       items: [
-        { what: "Trial evaluation agreement paperwork to Cat legal", owner: "Joe Masello" },
-        { what: "Infrastructure readiness call with Brian Rossi, network and SSO", owner: "Dustin + Dhamu" },
-        { what: "Benchmark and ROI material for the tool comparison", owner: "Jason Wiker" },
-        { what: "How-it-works and funding-model writeup for Richard", owner: "Joe Masello" },
-        { what: "MSA track, checking existing Starlink paper as a base", owner: "Joe Masello" },
+        { what: "Trial paper plus sourcing-director check on Cat policy", owner: "Joe Masello" },
+        { what: "Architecture and security deep dive with Cat IT", owner: "Sai Praveen" },
+        { what: "Infrastructure readiness call with Brian Rossi", owner: "Dustin + Dhamu" },
+        { what: "Prioritized support problem list, small pieces first", owner: "Swaran Unni" },
+        { what: "Cursor and Grok Bot access for Swaran and Sai", owner: "Jason Wiker" },
         { what: "September MineStar roadmap deep dive", owner: "Ritesh Gupta" },
+        { what: "How-it-works and funding writeup for Richard", owner: "Joe Masello" },
       ],
     },
   },
@@ -110,17 +112,22 @@ export const pilot = {
   title: "One trial, built to end in evidence.",
   lede: "Not a demo and not a workshop. One 30-day trial on your code, against the tools you already run, with the numbers your budget cycle needs.",
   problem: [
-    "Caterpillar cannot take this on impressions. Richard's team already runs Copilot-based agents and an internal agentic framework they stood up last October, and it is producing real productivity gains. So the live question is his, build versus buy: is Cursor faster and cheaper than the path already working?",
-    "Procurement sets the tempo. Cat policy allows no click-through agreements, so nothing can be downloaded until a trial evaluation agreement is signed, and legal is the bottleneck, a couple of weeks. Budgets run on a calendar year and Caterpillar is already looking at 2027, so the trial has to produce numbers a CFO can plan with. Richard's phrase for the moment: a justify-your-existence discussion.",
+    "Caterpillar cannot take this on impressions. Richard's engineers already run an in-house family of agents that more than 400 people use, built since last October, plus Copilot-based agents and Microsoft 365 Copilot Studio on the support side. The live question is build versus buy: is Cursor faster and cheaper than what is already working?",
+    "Procurement sets the tempo. Cat policy allows no click-through agreements, so nothing downloads until a trial evaluation agreement is signed, and legal is the bottleneck, a couple of weeks. Sai wants terms and success criteria in that paper, not just the NDA. Budgets run on a calendar year, Caterpillar is already looking at 2027, and the trial has to produce numbers a CFO can plan with. Richard's phrase: a justify-your-existence discussion.",
+    "And architecture is a live question, not a detail. Sai's rule today: every LLM and agent API stays inside the Caterpillar firewall, nothing goes out, and vendors deploy into Cat Cloud, Copilot included. Cursor is mostly SaaS. That has to get settled, not assumed.",
   ],
   solution: [
     {
       lead: "Use the window.",
-      text: "While the agreement works through legal, everything else gets ready. Dhamu Sankaran is setting up the infrastructure readiness call with Brian Rossi, network and SSO, and Dustin Ziegler wants as much in parallel as possible, with Rossi's cyber review the one possible roadblock. SSO itself typically takes under a day. The NDA is already signed and folds into the MSA later; the MSA runs behind the trial without gating it, and Joe Masello is checking whether existing Starlink paper can carry big parts of it.",
+      text: "While the paper works through legal, everything else moves. Joe is on with Richard and the sourcing director about the pilot and Cat policy; per Joe, the approvals that matter are Richard's and Jamie's. Dhamu and Dustin are setting the infrastructure readiness call with Brian Rossi. The NDA is signed and folds into the MSA later; the MSA runs behind the trial without gating it, and Joe is checking whether existing Starlink paper can carry big parts of it.",
     },
     {
       lead: "Where it runs is still open.",
-      text: "Dhamu's frame for the evaluation: what is the minimum effort required to start? Desktop is close to zero, download Cursor and sign in with a Cat email on the enterprise trial, though Caterpillar would rather gate the download behind SSO than send people to the public internet. Cloud agents can be Anysphere-managed, unlimited VMs at no extra cost with AWS PrivateLink back to your VPC, or self-hosted under Caterpillar infrastructure. Desktop only versus both is Dhamu's security question, and the plan does not assume the answer.",
+      text: "Sai's deep dive with Cat IT is the venue: architecture, components, security diagrams. Our side of the table: Cursor is mostly SaaS with little to deploy, no Cat team is on it yet (the first are about to start), and the real decision is where agents execute, hosted by Cursor with a tunnel back or inside Caterpillar infrastructure. Sai's IP guardrails make the tunnel the hard option, and Swaran flags that reaching Salesforce, internal databases, and Snowflake takes the most time if Cursor sits outside Cat Cloud. Dhamu's desktop-versus-cloud question is part of the same decision. The plan does not assume the answer.",
+    },
+    {
+      lead: "Cat builds, Cursor supplies.",
+      text: "Ritesh set the ownership rule and Swaran asked for it straight: Cursor provides the platform and stays in lockstep; Caterpillar's AI team and engineers build the agents. The pilot is Caterpillar gaining the experience, not shipping the work off.",
     },
     {
       lead: "Compare in the open.",
@@ -132,14 +139,14 @@ export const pilot = {
     },
     {
       lead: "Keep help close.",
-      text: "Enablement up front, working sessions on your use cases during, and Jason, Brian, and Joe on call ad hoc throughout, with a shared Slack channel if that is easier.",
+      text: "Enablement up front, working sessions on your use cases during, and Jason, Brian, and Joe on call ad hoc throughout, with a shared Slack channel if that is easier. A recurring cadence starts next week.",
     },
   ] satisfies Beat[],
   constraintsLabel: "The trial runs under two constraints",
   constraints: [
     {
       title: "Build vs buy can be hybrid",
-      body: "Richard asked whether Cursor can integrate the library of agents his team already built on Copilot. The answer: mix and match as much as you want. Nobody big-bangs this; Cursor picks off pieces of the SDLC incrementally, and nothing his team built gets thrown out.",
+      body: "Richard asked whether Cursor can integrate the agents his team built on Copilot; Swaran asked whether the Python automations and Copilot Studio agents can migrate over outright. The answer to both: mix and match, and migrate gradually, nothing thrown out overnight.",
     },
     {
       title: "Cost has to be governable",
@@ -149,7 +156,12 @@ export const pilot = {
   nextSteps: [
     {
       owner: "Joe Masello",
-      what: "Send the trial evaluation agreement paperwork. It gates every download and sign-in.",
+      what: "Send the trial paper with terms and success criteria; clear Cat policy with the sourcing director.",
+      when: "Now",
+    },
+    {
+      owner: "Sai Praveen",
+      what: "Set the architecture and security deep dive with Cat IT and Cursor.",
       when: "Now",
     },
     {
@@ -159,37 +171,82 @@ export const pilot = {
     },
     {
       owner: "Jason Wiker",
+      what: "Set up Cursor and Grok Bot access and credits for Swaran and Sai.",
+      when: "Now",
+    },
+    {
+      owner: "Jason Wiker",
       what: "Share benchmark and ROI material ahead of the working session.",
       when: "Before the session",
+    },
+    {
+      owner: "Joe Masello",
+      what: "Send Richard's how-it-works and funding writeup, and Swaran's support case studies.",
+      when: "Now",
     },
     {
       owner: "Joe Masello",
       what: "Check existing Starlink paper as a base for the MSA.",
       when: "Now",
     },
+  ] satisfies NextStep[],
+};
+
+export const support = {
+  id: "support",
+  kicker: "Priority one",
+  title: "Product support agent framework",
+  lede: "Richard's first pilot, confirmed on the demo call. Support is reactive and manual today, and in Ritesh's words, Caterpillar does not want to hire another thousand engineers to support the product as MineStar speeds up.",
+  problem: [
+    "Support today runs on people pulling reports by hand and asking \"do you remember when this happened.\" Richard's example: a release met one site's combination of truck, drivetrain, and a 7% grade, and a fully loaded 260-ton truck rolled back because validation had covered a 5% grade, not 7%. The fix exists. Finding who else needs it means manually checking every mine site, and mine sites change shape constantly.",
+    "The raw material is already in one place. Every ticket logs into Salesforce first, and Caterpillar holds about ten years of closed tickets, a process map, and a definition of what a good close looks like. What is missing is the layer that reads all of it: log files today are, in their words, gibberish that an engineer decodes by hand.",
+  ],
+  solution: [
     {
-      owner: "Joe Masello",
-      what: "Write up how Cursor works and the funding model, for Richard's team and his CFO.",
+      text: "The pipeline Caterpillar sketched, in their order: when a ticket hits Salesforce an agent kicks off and does the prep, drafts the first response, flags missing information, pulls the history, analyzes the log file, routes the dispatch, and watches for recurring issues to hand engineering. Swaran's build model: atoms, then molecules, then a full support agent. His team runs Microsoft 365 Copilot and Copilot Studio today, with in-house micro-agents already working.",
+    },
+    {
+      text: "Caterpillar builds it; Cursor is the harness under it, in lockstep. Matt Mansfield and Richard are drafting the people-process-tools plan, Ritesh and Swaran sit down with Matt, the support director, Tuesday or Wednesday, and Swaran is writing the prioritized problem list, small pieces first. Ritesh's read on the agent-factory demo: exactly what he had in mind for support.",
+    },
+    {
+      text: "Also named on the calls, not yet lanes: Swaran's wider ship-to-customer stream (sales, first-time implementation, ongoing operations), change management for landing agents inside teams, vector search or a vector database over the support data, and migrating the existing Python automations and Copilot agents. Swaran keeps the bigger list; support starts first.",
+    },
+  ] satisfies Beat[],
+  nextSteps: [
+    {
+      owner: "Swaran Unni",
+      what: "Prioritize the support problem list, small pieces first.",
       when: "Now",
     },
+    {
+      owner: "Ritesh Gupta",
+      what: "Session with Matt Mansfield, the support director; WhatsApp Jason the next steps.",
+      when: "Tue or Wed",
+    },
+    {
+      owner: "Matt Mansfield or Ritesh Gupta",
+      what: "Bring Cursor into the plan when it reaches tools.",
+      when: "Late Aug / early Sep",
+    },
   ] satisfies NextStep[],
+  note: "MineStar modernization follows as priority two." as string | null,
 };
 
 export const minestar = {
   id: "minestar",
-  kicker: "Use case 1",
+  kicker: "Priority two",
   title: "MineStar modernization",
   lede: "The site management system for autonomous mining machines, rebuilt in place before MineStar 2.0 ships.",
   problem: [
-    "MineStar orchestrates autonomous machines on a mine site: a digital twin of the mine, the machines run against it, productivity measured from it. It is twenty years of tightly coupled code, built on and built on, much of it by the engineers who needed it rather than software developers. Richard's words: a Jenga stack. Look at it funny and the whole thing breaks.",
-    "The deadline is fixed and Richard walked it backward: general release of MineStar 2.0 at the end of 2027, field follow with partner customers around March or April, a long robotics validation cycle before that. That leaves less than eighteen months end to end and puts most of the modernization and new feature work in the next six. His internal framework has been decomposing the monolith into business functions since last October, and he is going full tilt. The question he handed us is narrow: can Cursor beat the path already in motion on speed and cost?",
+    "MineStar orchestrates autonomous machines against a digital twin of the mine. It is twenty years of tightly coupled code, two to two and a half million lines by Sai's count, much of it written by the engineers who needed it rather than software developers. Richard's words: a Jenga stack. Look at it funny and the whole thing breaks.",
+    "The deadline is fixed and Richard walked it backward: MineStar 2.0 general release at the end of 2027, field follow with partner customers around March or April, a long robotics validation cycle in between. That leaves less than eighteen months end to end, most of the modernization and feature work in the next six. And the in-house path is real: a family of agents his team built, in use by more than 400 people, decomposing the monolith toward microservices since last October. The question for Cursor is narrow: beat that path on speed and cost.",
   ],
   solution: [
     {
-      text: "Richard set the structure himself. In September his team does a deep dive on the technical roadmap, the full picture 15 to 18 months out. The week after, we go through it together: his team says what they plan to build, and where we think Cursor does it faster or cheaper, we say so and take that piece on. Ritesh Gupta, his lead, sets up both sessions.",
+      text: "Richard set the structure himself. In September his team does the roadmap deep dive, the full picture 15 to 18 months out. The week after, Cursor sits down against that baseline: his team says what they plan to build, and where we think we do it faster or cheaper, we say so and take that piece on. Ritesh sets up both sessions.",
     },
     {
-      text: "Our proposal for the how: run Cursor inside the loop his team already proved. Decompose into business functions, modernize each module, validate it, put it back, with agents working the queue in parallel and engineers approving everything that ships. Hybrid is the default, mix and match with the Copilot-based agents they already have, incremental across the SDLC, no big bang.",
+      text: "Our proposal for the how: run Cursor inside the loop the team already proved. Decompose into business functions, modernize module by module, validate, put it back, with agents working the queue in parallel and engineers approving everything that ships. Mix and match with the agents already in use, incremental, no big bang.",
     },
   ] satisfies Beat[],
   nextSteps: [
@@ -204,34 +261,7 @@ export const minestar = {
       when: "September",
     },
   ] satisfies NextStep[],
-  note: "Ritesh shares the urgency. The clock on 2.0 is already running." as string | null,
-};
-
-export const support = {
-  id: "support",
-  kicker: "Use case 2",
-  title: "Product support agent framework",
-  lede: "Richard's preferred first pilot. Support is reactive and manual today; he wants agents gathering the data and predicting the issue before it happens.",
-  problem: [
-    "Support today runs on people pulling reports by hand and asking \"do you remember when this happened.\" Richard's example: a release met one site's combination of truck, drivetrain, and a 7% grade, and a fully loaded 260-ton truck rolled back because validation had covered a 5% grade, not 7%. The fix exists. Finding who else needs it means manually checking every mine site, and mine sites change shape constantly, so a site without that grade today can have it after the next road change.",
-    "Nothing watches the data and brings findings to an engineer. Building that is ground-level work across people, process, and tools, starting from scratch. On modernization Richard is asking whether we are faster. Here he is asking for help building it, and it is the use case he wants to pilot first.",
-  ],
-  solution: [
-    {
-      text: "Richard and Matt Mansfield, his product support director, are drafting the plan now: people, process, technology, in that order. When it reaches the tools, Matt or Ritesh brings us in, probably late August or early September. We come in at ground level and help shape it rather than quote against it.",
-    },
-    {
-      text: "The direction he described: a knowledge base with agents on top for responsive support, then a framework of agents that gathers site data and runs analytics to predict issues instead of reacting to them. The next 7% grade question gets answered from data already gathered, not a manual sweep of every site.",
-    },
-  ] satisfies Beat[],
-  nextSteps: [
-    {
-      owner: "Matt Mansfield or Ritesh Gupta",
-      what: "Reach out to set up the product support plan session.",
-      when: "Late Aug / early Sep",
-    },
-  ] satisfies NextStep[],
-  note: "Both use cases likely land in the same window. Support may move first." as string | null,
+  note: "Priority two, per Ritesh: fine if the pilot gets to it, fine if it does not. Richard's internal team runs full tilt either way." as string | null,
 };
 
 export const footer = {
@@ -254,7 +284,7 @@ export const footer = {
     label: "Cursor",
     people: ["Jason Wiker", "Brian Fox", "Joe Masello"],
   },
-  line: "Private. Prepared for the Caterpillar working group. Sourced from the working sessions of 11 and 14 August 2026.",
+  line: "Private. Prepared for the Caterpillar working group. Sourced from the working sessions of 11, 13, and 14 August 2026.",
 };
 
 export const login = {

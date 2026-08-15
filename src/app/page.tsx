@@ -335,8 +335,8 @@ export default function Page() {
         <Hero />
         <Glance />
         <PilotSection />
-        <UseCaseSection data={minestar} />
         <UseCaseSection data={support} />
+        <UseCaseSection data={minestar} />
       </main>
       <SiteFooter />
     </>
