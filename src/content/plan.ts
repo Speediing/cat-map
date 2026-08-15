@@ -33,7 +33,7 @@ export const nav = [
   { id: "plan", label: "The plan" },
   { id: "pilot", label: "The pilot" },
   { id: "support", label: "Support" },
-  { id: "stack", label: "The stack" },
+  { id: "stack", label: "Voice + Bot" },
   { id: "minestar", label: "MineStar" },
   { id: "actions", label: "Actions" },
 ] as const;
@@ -297,12 +297,29 @@ export const support = {
       text: "The pipeline above is Caterpillar's own sketch, in their order: when a ticket hits Salesforce an agent kicks off and does the prep, drafts the first response, flags missing information, pulls the history, analyzes the log file, routes the dispatch, and watches for recurring issues to hand engineering. Swaran's build model: atoms, then molecules, then a full support agent. His team runs Microsoft 365 Copilot and Copilot Studio today, with in-house micro-agents already working.",
     },
     {
-      text: "Caterpillar builds it; SpaceXAI is the harness under it, in lockstep. Matt Mansfield and Richard are drafting the people-process-tools plan, Ritesh and Swaran sit down with Matt, the support director, Tuesday or Wednesday, and Swaran is writing the prioritized problem list, small pieces first. Ritesh's read on the agent-factory demo: exactly what he had in mind for support.",
-    },
-    {
-      text: "Also named on the calls, not yet lanes: Swaran's wider ship-to-customer stream (sales, first-time implementation, ongoing operations), change management for landing agents inside teams, vector search or a vector database over the support data, and migrating the existing Python automations and Copilot agents. Swaran keeps the bigger list; support starts first.",
+      text: "Caterpillar builds it; SpaceXAI is the harness under it, in lockstep. Matt Mansfield and Richard are drafting the people-process-tools plan, Ritesh and Swaran sit down with Matt, the support director, Tuesday or Wednesday, and Swaran is writing the prioritized problem list, small pieces first.",
     },
   ] satisfies Beat[],
+  /** The Voice + Bot block, anchored inside this section. Same problem, two intakes. */
+  stackAnchor: "stack",
+  stackLabel: "Two intakes, one problem",
+  stackBeats: [
+    {
+      lead: "Grok Bot, the ticket side.",
+      text: "Swaran's atoms and molecules need an operator, and Caterpillar has seen the one we would use. Grok Bot was demoed on 13 August and it landed: Ritesh called it exactly what he had in mind for support, Sai's words were \"nothing less than a magic,\" Swaran asked for access before the call ended, and Dustin's four-walls question got the same answer as Cursor, data does not leave. The product: named, persistent Bots with their own cloud computer, routines, and memory, watching the Salesforce queue instead of waiting for prompts. In beta.",
+    },
+    {
+      lead: "Grok Voice, the call-in side.",
+      text: "Tickets are one intake; the other is a human on the line. If Caterpillar ever wants an agent there, this is what we would put on it: Voice Agent Builder, no-code phone agents with telephony and tools built in, sub-second speech to speech, more than 25 languages. The wiring, a site line with MineStar context that closes simple issues and hands Matt's team a brief, is SpaceXAI-pitched, not something Caterpillar asked for. The whole record on these calls is Joe's line, maybe next time we can show some of the voice agents. We demo it the day someone wants that line.",
+    },
+    {
+      lead: "When it becomes code.",
+      text: "A Bot that traces a recurring issue to software hands it to a Cloud Agent and gets back a pull request for an engineer to judge. Run the grade rollback through this as a scenario, not a case study: telemetry watched overnight, the 7% combination flagged from data already gathered, a fix drafted by morning. That is the proposed wiring and the ceiling to aim at, pitched, not promised.",
+    },
+  ] satisfies Beat[],
+  alsoNamed: {
+    text: "Also named on the calls, not yet lanes: Swaran's wider ship-to-customer stream (sales, first-time implementation, ongoing operations), change management for landing agents inside teams, vector search or a vector database over the support data, and migrating the existing Python automations and Copilot agents. Swaran keeps the bigger list; support starts first.",
+  } satisfies Beat,
   nextSteps: [
     {
       owner: "Swaran Unni",
@@ -315,12 +332,27 @@ export const support = {
       when: "Tue or Wed",
     },
     {
+      owner: "Jason Wiker",
+      what: "Grok Bot access, credits, and a short how-it-works for Swaran and Sai. Already on the live action list.",
+      when: "Now",
+    },
+    {
+      owner: "Jason Wiker",
+      what: "Cover Grok Bot at the working session as a new capability, not a feature bake-off.",
+      when: "At the session",
+    },
+    {
       owner: "Matt Mansfield or Ritesh Gupta",
       what: "Bring SpaceXAI into the plan when it reaches tools.",
       when: "Late Aug / early Sep",
     },
+    {
+      owner: "SpaceXAI",
+      what: "Demo voice agents only if Caterpillar asks for a site line.",
+      when: "Only if asked",
+    },
   ] satisfies NextStep[],
-  note: "MineStar modernization follows as priority two." as string | null,
+  note: "MineStar modernization follows as priority two. The Voice and Bot stack above reports to this pilot, not a third lane." as string | null,
 };
 
 /**
@@ -353,49 +385,6 @@ export const stackDiagram = {
   direction: ["Reactive", "Proactive", "Predictive"],
   footnote:
     "The products are real. The Caterpillar wiring on this rung row is proposed, not agreed.",
-};
-
-export const stack = {
-  id: "stack",
-  kicker: "Under priority one",
-  title: "The stack under support",
-  lede: "Three rungs under Richard's first pilot: Grok Voice as the proposed first line, Grok Bot always on, Cursor Cloud Agents when it is code. The products are real; the Caterpillar wiring stays labeled proposed. Grok Bot is the rung Caterpillar has seen and reacted to.",
-  problem: [
-    "Our read of the build: Swaran's atoms and molecules need an operator. Something has to keep the small agents alive, hand them tickets, watch their output, and escalate what matters, around the clock. A chat window does not do that, and most of support is general-purpose knowledge work that never touches an IDE.",
-    "Caterpillar has seen the layer that does. Grok Bot was demoed on 13 August. Ritesh: \"what you're showing here is exactly what I had in mind when it comes to support.\" Sai's words: \"nothing less than a magic.\" Swaran asked for access before the call ended, and Dustin's question the next day was the right one, whether data leaves the four walls. Same answer as Cursor: it does not.",
-  ],
-  solution: [
-    {
-      lead: "Grok Bot, one layer up.",
-      text: "Jason's framing from the demo: not a chat you go into, a factory of agents you run. Named, persistent Bots with their own cloud computer, routines, and memory; they keep context and logins, watch queues instead of waiting for prompts, and finish real work across tools. Under the support pilot they would operate Caterpillar's own sketch: intake, log reading, history pulls, dispatch. The product is in beta.",
-    },
-    {
-      lead: "When a finding becomes a code fix.",
-      text: "A Bot that traces a recurring issue to software hands it to a Cloud Agent and gets back a pull request for an engineer to judge. Run the grade rollback through this as a scenario, not a case study: telemetry watched overnight, the 7% combination flagged from data already gathered, a fix drafted by morning. That is the proposed wiring and the ceiling to aim at, pitched, not promised.",
-    },
-    {
-      lead: "Voice, first line, only if asked.",
-      text: "Voice Agent Builder is a real product: no-code phone agents with telephony and tools built in, sub-second speech to speech, more than 25 languages. The Caterpillar wiring is only proposed: a site line a tech can phone or radio into, answered with MineStar context, closing simple issues and handing Matt's team a full brief. The entire record on these calls is Joe's one line, maybe next time we can show some of the voice agents. Until someone at Caterpillar asks for that line, voice stays a pitch, not a plan.",
-    },
-  ] satisfies Beat[],
-  nextSteps: [
-    {
-      owner: "Jason Wiker",
-      what: "Grok Bot access, credits, and a short how-it-works for Swaran and Sai. Already on the live action list.",
-      when: "Now",
-    },
-    {
-      owner: "Jason Wiker",
-      what: "Cover Grok Bot at the working session as a new capability, not a feature bake-off.",
-      when: "At the session",
-    },
-    {
-      owner: "SpaceXAI",
-      what: "Demo voice agents only if Caterpillar asks for a site line.",
-      when: "Only if asked",
-    },
-  ] satisfies NextStep[],
-  note: "Not a third lane. Support stays priority one, MineStar priority two, and this stack reports to the first." as string | null,
 };
 
 /** MineStar factory diagram: the loop plus the clock. */

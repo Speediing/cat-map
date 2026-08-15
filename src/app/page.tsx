@@ -16,7 +16,6 @@ import {
   minestar,
   pilot,
   site,
-  stack,
   support,
   type Beat as BeatText,
   type NextStep,
@@ -289,6 +288,44 @@ function PilotSection() {
   );
 }
 
+function SupportSection() {
+  return (
+    <DrillSection
+      id={support.id}
+      kicker={support.kicker}
+      title={support.title}
+      lede={support.lede}
+    >
+      <BeatRow label="Problem">
+        <Paragraphs items={support.problem} />
+      </BeatRow>
+      <BeatRow label="Solution">
+        <div className="mb-6">
+          <SupportFlow />
+        </div>
+        <SolutionBeats beats={support.solution} />
+        <div id={support.stackAnchor} className="mt-9 scroll-mt-20">
+          <div className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
+            {support.stackLabel}
+          </div>
+          <div className="mt-3">
+            <SupportStack />
+          </div>
+          <div className="mt-6">
+            <SolutionBeats beats={support.stackBeats} />
+          </div>
+        </div>
+        <div className="mt-6">
+          <SolutionBeats beats={[support.alsoNamed]} />
+        </div>
+      </BeatRow>
+      <BeatRow label="Next steps">
+        <NextStepsList steps={support.nextSteps} note={support.note} />
+      </BeatRow>
+    </DrillSection>
+  );
+}
+
 function UseCaseSection({
   data,
   diagram,
@@ -376,8 +413,7 @@ export default function Page() {
         <Hero />
         <Glance />
         <PilotSection />
-        <UseCaseSection data={support} diagram={<SupportFlow />} />
-        <UseCaseSection data={stack} diagram={<SupportStack />} />
+        <SupportSection />
         <UseCaseSection data={minestar} diagram={<MinestarLoop />} />
         <DrillSection
           id={actionsSection.id}
