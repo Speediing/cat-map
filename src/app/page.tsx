@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
+import { GateSplit, MinestarLoop, PlanPath, SupportFlow } from "@/components/diagrams";
 import {
   footer,
   glance,
@@ -20,15 +22,30 @@ function Kicker({ children }: { children: React.ReactNode }) {
 
 function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-6xl px-6 pt-14 pb-12 sm:px-10 sm:pt-20">
-      <Kicker>{hero.kicker}</Kicker>
-      <h1 className="mt-4 max-w-[17ch] text-[2.5rem] leading-[1.04] font-medium tracking-[-0.035em] sm:text-[3.3rem]">
-        {hero.title}
-      </h1>
-      <p className="mt-6 max-w-[44rem] text-[16px] leading-[1.62] text-ink-muted sm:text-[17px]">
-        {hero.standfirst}
-      </p>
-      <p className="mt-5 font-mono text-[11.5px] text-ink-faint">{hero.meta}</p>
+    <section id="top" className="mx-auto max-w-6xl px-6 pt-10 pb-10 sm:px-10 sm:pt-14">
+      <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+        <div>
+          <Kicker>{hero.kicker}</Kicker>
+          <h1 className="mt-4 max-w-[14ch] text-[2.6rem] leading-[1.04] font-medium tracking-[-0.035em] sm:text-[3.3rem]">
+            {hero.title}
+          </h1>
+          <p className="mt-6 max-w-[40rem] text-[16px] leading-[1.62] text-ink-muted sm:text-[16.5px]">
+            {hero.standfirst}
+          </p>
+          <p className="mt-5 font-mono text-[11.5px] text-ink-faint">{hero.meta}</p>
+        </div>
+        <div className="lg:-my-4">
+          <Image
+            src={hero.art.src}
+            width={hero.art.width}
+            height={hero.art.height}
+            alt={hero.art.alt}
+            priority
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="h-auto w-full select-none mix-blend-multiply"
+          />
+        </div>
+      </div>
     </section>
   );
 }
@@ -38,7 +55,11 @@ function Glance() {
     <section id={glance.id} className="mx-auto max-w-6xl px-6 pb-16 sm:px-10 sm:pb-24">
       <Kicker>{glance.kicker}</Kicker>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-3">
+      <div className="mt-5">
+        <PlanPath />
+      </div>
+
+      <div className="mt-3 grid gap-3 md:grid-cols-3">
         {glance.clocks.map((clock) => (
           <div
             key={clock.label}
@@ -166,14 +187,14 @@ function BeatRow({
       <div className="pt-0.5 text-[12px] uppercase tracking-[0.09em] text-ink-faint">
         {label}
       </div>
-      <div className="max-w-[44rem]">{children}</div>
+      <div className="min-w-0">{children}</div>
     </div>
   );
 }
 
 function Paragraphs({ items }: { items: string[] }) {
   return (
-    <div className="space-y-4">
+    <div className="max-w-[44rem] space-y-4">
       {items.map((text) => (
         <p key={text.slice(0, 24)} className="text-[15px] leading-[1.65] text-ink-muted">
           {text}
@@ -185,7 +206,7 @@ function Paragraphs({ items }: { items: string[] }) {
 
 function SolutionBeats({ beats }: { beats: BeatText[] }) {
   return (
-    <div className="space-y-4">
+    <div className="max-w-[44rem] space-y-4">
       {beats.map((beat) => (
         <p key={beat.text.slice(0, 24)} className="text-[15px] leading-[1.65]">
           {beat.lead ? <span className="font-medium text-ink">{beat.lead} </span> : null}
@@ -198,7 +219,7 @@ function SolutionBeats({ beats }: { beats: BeatText[] }) {
 
 function NextStepsList({ steps, note }: { steps: NextStep[]; note?: string | null }) {
   return (
-    <div>
+    <div className="max-w-[48rem]">
       <ul>
         {steps.map((step) => (
           <li
@@ -225,8 +246,14 @@ function PilotSection() {
         <Paragraphs items={pilot.problem} />
       </BeatRow>
       <BeatRow label="Solution">
-        <SolutionBeats beats={pilot.solution} />
-        <div className="mt-9">
+        <SolutionBeats beats={[pilot.solution[0]]} />
+        <div className="mt-6">
+          <GateSplit />
+        </div>
+        <div className="mt-6">
+          <SolutionBeats beats={pilot.solution.slice(1)} />
+        </div>
+        <div className="mt-9 max-w-[48rem]">
           <div className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
             {pilot.constraintsLabel}
           </div>
@@ -254,6 +281,7 @@ function PilotSection() {
 
 function UseCaseSection({
   data,
+  diagram,
 }: {
   data: {
     id: string;
@@ -265,6 +293,7 @@ function UseCaseSection({
     nextSteps: NextStep[];
     note: string | null;
   };
+  diagram?: React.ReactNode;
 }) {
   return (
     <DrillSection id={data.id} kicker={data.kicker} title={data.title} lede={data.lede}>
@@ -272,6 +301,7 @@ function UseCaseSection({
         <Paragraphs items={data.problem} />
       </BeatRow>
       <BeatRow label="Solution">
+        {diagram ? <div className="mb-6">{diagram}</div> : null}
         <SolutionBeats beats={data.solution} />
       </BeatRow>
       <BeatRow label="Next steps">
@@ -335,8 +365,8 @@ export default function Page() {
         <Hero />
         <Glance />
         <PilotSection />
-        <UseCaseSection data={support} />
-        <UseCaseSection data={minestar} />
+        <UseCaseSection data={support} diagram={<SupportFlow />} />
+        <UseCaseSection data={minestar} diagram={<MinestarLoop />} />
       </main>
       <SiteFooter />
     </>

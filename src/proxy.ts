@@ -12,7 +12,15 @@ import { SESSION_COOKIE, verifySessionToken } from "@/lib/session";
  *   before any setup.
  */
 
-const PUBLIC_PATHS = new Set(["/login", "/robots.txt", "/favicon.ico", "/icon.svg"]);
+// hero-truck.jpg is decorative art; the next/image optimizer fetches it
+// server-side without cookies, so it must stay public.
+const PUBLIC_PATHS = new Set([
+  "/login",
+  "/robots.txt",
+  "/favicon.ico",
+  "/icon.svg",
+  "/hero-truck.jpg",
+]);
 
 function isConfigured(): boolean {
   return Boolean(process.env.SITE_PASSWORD && process.env.SESSION_SECRET);

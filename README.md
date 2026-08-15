@@ -1,6 +1,6 @@
-# Caterpillar × Cursor
+# Caterpillar × SpaceXAI
 
-A private, password-gated leave-behind for the Caterpillar and Cursor pilot. One page: the plan at a glance (clocks, the two use cases, owners, what the agreement gates and what runs in parallel), then a drill into the pilot and each use case as Problem / Solution / Next steps.
+A private, password-gated leave-behind for the Caterpillar and SpaceXAI pilot. One page: the plan at a glance (a path, clocks, the two use cases, owners, what the agreement gates and what runs in parallel), then a drill into the pilot and each use case as Problem / Solution / Next steps, with drawn diagrams for the ticket flow and the modernization loop.
 
 Built with Next.js (App Router), TypeScript, and Tailwind CSS. Light mode only, `noindex` everywhere.
 

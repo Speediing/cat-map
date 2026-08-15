@@ -1,12 +1,12 @@
 /**
- * All copy for the leave-behind lives here.
+ * All copy for the leave-behind lives here, including diagram labels.
  * Edit this file to change what the page says; layout stays put.
  *
  * Sourced from three call transcripts: 11 August 2026 (Richard Green),
  * 13 August 2026 (demo: Swaran Unni, Sai Praveen, Ritesh Gupta), and
  * 14 August 2026 (Dhamu Sankaran, Dustin Ziegler, Andy Lofgreen).
  * No numbers, dates, or claims beyond what was said on those calls.
- * Cat-said and Anysphere-pitched are labeled as such in the copy.
+ * Cat-said and SpaceXAI-pitched are labeled as such in the copy.
  */
 
 export type NextStep = {
@@ -22,10 +22,10 @@ export type Beat = {
 };
 
 export const site = {
-  title: "Caterpillar × Cursor",
+  title: "Caterpillar × SpaceXAI",
   description:
-    "The mutual action plan for the Caterpillar and Cursor pilot: a 30-day trial across a product support agent framework and MineStar modernization, with owners, gates, and dates.",
-  wordmark: { left: "Caterpillar", right: "Cursor" },
+    "The pilot plan for Caterpillar and SpaceXAI: a 30-day trial across a product support agent framework and MineStar modernization, with owners, gates, and dates.",
+  wordmark: { left: "Caterpillar", right: "SpaceXAI" },
   navLabel: "Private · August 2026",
 };
 
@@ -37,11 +37,44 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  kicker: "Mutual action plan · August 2026",
-  title: "Thirty days to a verdict.",
+  kicker: "The pilot plan · August 2026",
+  title: "Support first. Then MineStar.",
   standfirst:
-    "Caterpillar named two use cases and put them in order: an agent framework for product support first, MineStar modernization second. Cursor funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
+    "Caterpillar named the use cases and the order. SpaceXAI funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
   meta: "Compiled from the working sessions of 11, 13, and 14 August 2026.",
+  art: {
+    src: "/hero-truck.jpg",
+    width: 1536,
+    height: 1024,
+    alt: "Watercolor painting of a mining haul truck",
+  },
+};
+
+/** Glance path diagram: the plan as a line. */
+export const planPath = {
+  caption: "The path",
+  stops: [
+    {
+      state: "now" as "now" | "gate" | "later",
+      label: "Now",
+      sub: "Paper with legal, infrastructure in parallel",
+    },
+    {
+      state: "gate" as "now" | "gate" | "later",
+      label: "Signature",
+      sub: "Trial agreement, terms, success criteria",
+    },
+    {
+      state: "later" as "now" | "gate" | "later",
+      label: "30-day trial",
+      sub: "SpaceXAI-funded, all models, everyone in",
+    },
+    {
+      state: "later" as "now" | "gate" | "later",
+      label: "The verdict",
+      sub: "Viability, plus a real spend baseline",
+    },
+  ],
 };
 
 export const glance = {
@@ -51,7 +84,7 @@ export const glance = {
     {
       value: "30 days",
       label: "The trial",
-      body: "Cursor-funded. All models, all participants, no cost to Caterpillar. The output is a viability verdict and a real token-spend baseline.",
+      body: "SpaceXAI-funded. All models, all participants, no cost to Caterpillar. The output is a viability verdict and a real token-spend baseline.",
     },
     {
       value: "A couple of weeks",
@@ -61,7 +94,7 @@ export const glance = {
     {
       value: "Open",
       label: "Cat Cloud vs SaaS",
-      body: "Sai's rule: LLMs and agent APIs stay inside the Cat firewall, vendors deploy into Cat Cloud. Cursor is mostly SaaS. An architecture deep dive with Cat IT settles it.",
+      body: "Sai's rule: LLMs and agent APIs stay inside the Cat firewall, vendors deploy into Cat Cloud. SpaceXAI is mostly SaaS. An architecture deep dive with Cat IT settles it.",
     },
   ],
   lanes: [
@@ -98,7 +131,7 @@ export const glance = {
         { what: "Architecture and security deep dive with Cat IT", owner: "Sai Praveen" },
         { what: "Infrastructure readiness call with Brian Rossi", owner: "Dustin + Dhamu" },
         { what: "Prioritized support problem list, small pieces first", owner: "Swaran Unni" },
-        { what: "Cursor and Grok Bot access for Swaran and Sai", owner: "Jason Wiker" },
+        { what: "SpaceXAI access and credits for Swaran and Sai", owner: "Jason Wiker" },
         { what: "September MineStar roadmap deep dive", owner: "Ritesh Gupta" },
         { what: "How-it-works and funding writeup for Richard", owner: "Joe Masello" },
       ],
@@ -106,15 +139,39 @@ export const glance = {
   },
 };
 
+/** Pilot split diagram: what the signature gates vs what moves now. */
+export const gateSplit = {
+  caption: "The gate, drawn",
+  before: {
+    title: "Moving now, in parallel",
+    items: [
+      "Trial paper and sourcing check",
+      "Rossi infrastructure call",
+      "Cat IT architecture deep dive",
+      "Support problem list",
+      "Access for Swaran and Sai",
+    ],
+  },
+  gateLabel: "Signature",
+  after: {
+    title: "After signature",
+    items: [
+      "Downloads and installs",
+      "SSO go-live and sign-ins",
+      "The 30-day clock starts",
+    ],
+  },
+};
+
 export const pilot = {
   id: "pilot",
   kicker: "The pilot",
-  title: "One trial, built to end in evidence.",
-  lede: "Not a demo and not a workshop. One 30-day trial on your code, against the tools you already run, with the numbers your budget cycle needs.",
+  title: "The 30-day trial.",
+  lede: "Not a demo, not a workshop. Your code, the tools you already run, and the numbers your budget cycle needs.",
   problem: [
-    "Caterpillar cannot take this on impressions. Richard's engineers already run an in-house family of agents that more than 400 people use, built since last October, plus Copilot-based agents and Microsoft 365 Copilot Studio on the support side. The live question is build versus buy: is Cursor faster and cheaper than what is already working?",
+    "Caterpillar cannot take this on impressions. Richard's engineers already run an in-house family of agents that more than 400 people use, built since last October, plus Copilot-based agents and Microsoft 365 Copilot Studio on the support side. The live question is build versus buy: is SpaceXAI faster and cheaper than what is already working?",
     "Procurement sets the tempo. Cat policy allows no click-through agreements, so nothing downloads until a trial evaluation agreement is signed, and legal is the bottleneck, a couple of weeks. Sai wants terms and success criteria in that paper, not just the NDA. Budgets run on a calendar year, Caterpillar is already looking at 2027, and the trial has to produce numbers a CFO can plan with. Richard's phrase: a justify-your-existence discussion.",
-    "And architecture is a live question, not a detail. Sai's rule today: every LLM and agent API stays inside the Caterpillar firewall, nothing goes out, and vendors deploy into Cat Cloud, Copilot included. Cursor is mostly SaaS. That has to get settled, not assumed.",
+    "And architecture is a live question, not a detail. Sai's rule today: every LLM and agent API stays inside the Caterpillar firewall, nothing goes out, and vendors deploy into Cat Cloud, Copilot included. SpaceXAI is mostly SaaS. That has to get settled, not assumed.",
   ],
   solution: [
     {
@@ -123,15 +180,15 @@ export const pilot = {
     },
     {
       lead: "Where it runs is still open.",
-      text: "Sai's deep dive with Cat IT is the venue: architecture, components, security diagrams. Our side of the table: Cursor is mostly SaaS with little to deploy, no Cat team is on it yet (the first are about to start), and the real decision is where agents execute, hosted by Cursor with a tunnel back or inside Caterpillar infrastructure. Sai's IP guardrails make the tunnel the hard option, and Swaran flags that reaching Salesforce, internal databases, and Snowflake takes the most time if Cursor sits outside Cat Cloud. Dhamu's desktop-versus-cloud question is part of the same decision. The plan does not assume the answer.",
+      text: "Sai's deep dive with Cat IT is the venue: architecture, components, security diagrams. Our side of the table: SpaceXAI is mostly SaaS with little to deploy, no Cat team is on the platform yet (the first are about to start), and the real decision is where agents execute, hosted by SpaceXAI with a tunnel back or inside Caterpillar infrastructure. Sai's IP guardrails make the tunnel the hard option, and Swaran flags that reaching Salesforce, internal databases, and Snowflake takes the most time if the platform sits outside Cat Cloud. Dhamu's frame is minimum effort to start: the Cursor desktop is close to zero (sign in with a Cat email, downloads gated behind SSO rather than the public internet), and cloud is the open security question. The plan does not assume the answer.",
     },
     {
-      lead: "Cat builds, Cursor supplies.",
-      text: "Ritesh set the ownership rule and Swaran asked for it straight: Cursor provides the platform and stays in lockstep; Caterpillar's AI team and engineers build the agents. The pilot is Caterpillar gaining the experience, not shipping the work off.",
+      lead: "Cat builds, SpaceXAI supplies.",
+      text: "Ritesh set the ownership rule and Swaran asked for it straight: SpaceXAI provides the platform and stays in lockstep; Caterpillar's AI team and engineers build the agents. The pilot is Caterpillar gaining the experience, not shipping the work off.",
     },
     {
       lead: "Compare in the open.",
-      text: "A working session, not a one-or-two-day workshop, on Dhamu's terms: Cursor against GitHub Copilot, Claude Code, and Codex, with benchmark material we bring and the evaluation metrics agreed up front, ROI and return on spend. We also want to see how your teams use their tools today, because some of what we would show does not map feature for feature.",
+      text: "A working session, not a one-or-two-day workshop, on Dhamu's terms: SpaceXAI against GitHub Copilot, Claude Code, and Codex, with benchmark material we bring and the evaluation metrics agreed up front, ROI and return on spend. We also want to see how your teams use their tools today, because some of what we would show does not map feature for feature.",
     },
     {
       lead: "Measure what matters.",
@@ -146,7 +203,7 @@ export const pilot = {
   constraints: [
     {
       title: "Build vs buy can be hybrid",
-      body: "Richard asked whether Cursor can integrate the agents his team built on Copilot; Swaran asked whether the Python automations and Copilot Studio agents can migrate over outright. The answer to both: mix and match, and migrate gradually, nothing thrown out overnight.",
+      body: "Richard asked whether SpaceXAI can integrate the agents his team built on Copilot; Swaran asked whether the Python automations and Copilot Studio agents can migrate over outright. The answer to both: mix and match, and migrate gradually, nothing thrown out overnight.",
     },
     {
       title: "Cost has to be governable",
@@ -161,7 +218,7 @@ export const pilot = {
     },
     {
       owner: "Sai Praveen",
-      what: "Set the architecture and security deep dive with Cat IT and Cursor.",
+      what: "Set the architecture and security deep dive with Cat IT and SpaceXAI.",
       when: "Now",
     },
     {
@@ -171,7 +228,7 @@ export const pilot = {
     },
     {
       owner: "Jason Wiker",
-      what: "Set up Cursor and Grok Bot access and credits for Swaran and Sai.",
+      what: "Set up SpaceXAI access and credits for Swaran and Sai: the Cursor desktop and Grok Bot.",
       when: "Now",
     },
     {
@@ -192,6 +249,38 @@ export const pilot = {
   ] satisfies NextStep[],
 };
 
+/** Support flow diagram: the pipeline Caterpillar sketched. */
+export const supportFlow = {
+  caption: "Ticket flow, as Caterpillar sketched it",
+  intake: {
+    label: "Ticket logs in Salesforce",
+    sub: "Every ticket, first stop",
+  },
+  agent: {
+    label: "An agent kicks off the prep",
+    chips: [
+      "First-response draft",
+      "Missing-info flag",
+      "History pull",
+      "Log-file analysis",
+      "Dispatch routing",
+      "Recurring-issue watch",
+    ],
+  },
+  outcomes: [
+    {
+      label: "Support engineer",
+      sub: "Starts prepped, not from scratch",
+    },
+    {
+      label: "Engineering",
+      sub: "Recurring issues, recommended",
+    },
+  ],
+  ladderCaption: "Swaran's build order",
+  ladder: ["Atoms", "Molecules", "Full support agent"],
+};
+
 export const support = {
   id: "support",
   kicker: "Priority one",
@@ -203,10 +292,10 @@ export const support = {
   ],
   solution: [
     {
-      text: "The pipeline Caterpillar sketched, in their order: when a ticket hits Salesforce an agent kicks off and does the prep, drafts the first response, flags missing information, pulls the history, analyzes the log file, routes the dispatch, and watches for recurring issues to hand engineering. Swaran's build model: atoms, then molecules, then a full support agent. His team runs Microsoft 365 Copilot and Copilot Studio today, with in-house micro-agents already working.",
+      text: "The pipeline above is Caterpillar's own sketch, in their order: when a ticket hits Salesforce an agent kicks off and does the prep, drafts the first response, flags missing information, pulls the history, analyzes the log file, routes the dispatch, and watches for recurring issues to hand engineering. Swaran's build model: atoms, then molecules, then a full support agent. His team runs Microsoft 365 Copilot and Copilot Studio today, with in-house micro-agents already working.",
     },
     {
-      text: "Caterpillar builds it; Cursor is the harness under it, in lockstep. Matt Mansfield and Richard are drafting the people-process-tools plan, Ritesh and Swaran sit down with Matt, the support director, Tuesday or Wednesday, and Swaran is writing the prioritized problem list, small pieces first. Ritesh's read on the agent-factory demo: exactly what he had in mind for support.",
+      text: "Caterpillar builds it; SpaceXAI is the harness under it, in lockstep. Matt Mansfield and Richard are drafting the people-process-tools plan, Ritesh and Swaran sit down with Matt, the support director, Tuesday or Wednesday, and Swaran is writing the prioritized problem list, small pieces first. Ritesh's read on the agent-factory demo: exactly what he had in mind for support.",
     },
     {
       text: "Also named on the calls, not yet lanes: Swaran's wider ship-to-customer stream (sales, first-time implementation, ongoing operations), change management for landing agents inside teams, vector search or a vector database over the support data, and migrating the existing Python automations and Copilot agents. Swaran keeps the bigger list; support starts first.",
@@ -225,11 +314,30 @@ export const support = {
     },
     {
       owner: "Matt Mansfield or Ritesh Gupta",
-      what: "Bring Cursor into the plan when it reaches tools.",
+      what: "Bring SpaceXAI into the plan when it reaches tools.",
       when: "Late Aug / early Sep",
     },
   ] satisfies NextStep[],
   note: "MineStar modernization follows as priority two." as string | null,
+};
+
+/** MineStar factory diagram: the loop plus the clock. */
+export const minestarLoop = {
+  caption: "The factory loop, module by module",
+  stages: [
+    { label: "Monolith", sub: "2 to 2.5M lines" },
+    { label: "Decompose", sub: "Into business functions" },
+    { label: "Modernize", sub: "Module by module" },
+    { label: "Validate", sub: "The gnarly part" },
+    { label: "Reinsert", sub: "Back into MineStar" },
+  ],
+  loopNote: "Repeat per module",
+  timelineCaption: "The clock",
+  timeline: [
+    { label: "Roadmap deep dive", sub: "September, SpaceXAI the week after" },
+    { label: "Field follow", sub: "Partner customers, Mar or Apr 2027" },
+    { label: "MineStar 2.0 GA", sub: "End of 2027" },
+  ],
 };
 
 export const minestar = {
@@ -239,14 +347,14 @@ export const minestar = {
   lede: "The site management system for autonomous mining machines, rebuilt in place before MineStar 2.0 ships.",
   problem: [
     "MineStar orchestrates autonomous machines against a digital twin of the mine. It is twenty years of tightly coupled code, two to two and a half million lines by Sai's count, much of it written by the engineers who needed it rather than software developers. Richard's words: a Jenga stack. Look at it funny and the whole thing breaks.",
-    "The deadline is fixed and Richard walked it backward: MineStar 2.0 general release at the end of 2027, field follow with partner customers around March or April, a long robotics validation cycle in between. That leaves less than eighteen months end to end, most of the modernization and feature work in the next six. And the in-house path is real: a family of agents his team built, in use by more than 400 people, decomposing the monolith toward microservices since last October. The question for Cursor is narrow: beat that path on speed and cost.",
+    "The deadline is fixed and Richard walked it backward: MineStar 2.0 general release at the end of 2027, field follow with partner customers around March or April, a long robotics validation cycle in between. That leaves less than eighteen months end to end, most of the modernization and feature work in the next six. And the in-house path is real: a family of agents his team built, in use by more than 400 people, decomposing the monolith toward microservices since last October. The question for SpaceXAI is narrow: beat that path on speed and cost.",
   ],
   solution: [
     {
-      text: "Richard set the structure himself. In September his team does the roadmap deep dive, the full picture 15 to 18 months out. The week after, Cursor sits down against that baseline: his team says what they plan to build, and where we think we do it faster or cheaper, we say so and take that piece on. Ritesh sets up both sessions.",
+      text: "Richard set the structure himself. In September his team does the roadmap deep dive, the full picture 15 to 18 months out. The week after, SpaceXAI sits down against that baseline: his team says what they plan to build, and where we think we do it faster or cheaper, we say so and take that piece on. Ritesh sets up both sessions.",
     },
     {
-      text: "Our proposal for the how: run Cursor inside the loop the team already proved. Decompose into business functions, modernize module by module, validate, put it back, with agents working the queue in parallel and engineers approving everything that ships. Mix and match with the agents already in use, incremental, no big bang.",
+      text: "Our proposal for the how: run SpaceXAI inside the loop the team already proved. Decompose into business functions, modernize module by module, validate, put it back, with agents working the queue in parallel and engineers approving everything that ships. Mix and match with the agents already in use, incremental, no big bang.",
     },
   ] satisfies Beat[],
   nextSteps: [
@@ -257,7 +365,7 @@ export const minestar = {
     },
     {
       owner: "Ritesh Gupta",
-      what: "Bring Cursor in the week after, scoped against that roadmap.",
+      what: "Bring SpaceXAI in the week after, scoped against that roadmap.",
       when: "September",
     },
   ] satisfies NextStep[],
@@ -281,7 +389,7 @@ export const footer = {
     ],
   },
   cursor: {
-    label: "Cursor",
+    label: "SpaceXAI",
     people: ["Jason Wiker", "Brian Fox", "Joe Masello"],
   },
   line: "Private. Prepared for the Caterpillar working group. Sourced from the working sessions of 11, 13, and 14 August 2026.",
