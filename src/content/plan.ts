@@ -33,6 +33,7 @@ export const nav = [
   { id: "plan", label: "The plan" },
   { id: "pilot", label: "The pilot" },
   { id: "support", label: "Support" },
+  { id: "stack", label: "The stack" },
   { id: "minestar", label: "MineStar" },
   { id: "actions", label: "Actions" },
 ] as const;
@@ -189,7 +190,7 @@ export const pilot = {
     },
     {
       lead: "Compare in the open.",
-      text: "A working session, not a one-or-two-day workshop, on Dhamu's terms: SpaceXAI against GitHub Copilot, Claude Code, and Codex, with benchmark material we bring and the evaluation metrics agreed up front, ROI and return on spend. We also want to see how your teams use their tools today, because some of what we would show does not map feature for feature.",
+      text: "A working session, not a one-or-two-day workshop, on Dhamu's terms: SpaceXAI against GitHub Copilot, Claude Code, and Codex, with benchmark material we bring and the evaluation metrics agreed up front, ROI and return on spend. We also want to see how your teams use their tools today, because some of what we would show, Grok Bot above all, does not map feature for feature.",
     },
     {
       lead: "Measure what matters.",
@@ -320,6 +321,76 @@ export const support = {
     },
   ] satisfies NextStep[],
   note: "MineStar modernization follows as priority two." as string | null,
+};
+
+/** Stack diagram: what sits under the support pipeline, with honest status chips. */
+export const stackDiagram = {
+  caption: "The stack, drawn",
+  layers: [
+    {
+      name: "The support pipeline",
+      sub: "Salesforce intake, prep agents, atoms to molecules",
+      status: "Cat-sketched",
+    },
+    {
+      name: "Grok Bot",
+      sub: "A factory of persistent agents, one layer above Cursor",
+      status: "Demoed 13 Aug",
+    },
+    {
+      name: "Cloud agents",
+      sub: "Take the handoff when a finding becomes a code fix",
+      status: "Pitched",
+    },
+  ],
+  aside: {
+    name: "Grok Voice",
+    sub: "Not demoed. The offer stands if a site line is ever wanted.",
+    status: "Parked",
+  },
+};
+
+export const stack = {
+  id: "stack",
+  kicker: "Under priority one",
+  title: "The stack under support",
+  lede: "What SpaceXAI would run beneath Richard's first pilot. Grok Bot is the piece Caterpillar has already seen and reacted to; cloud agents take the code-fix handoff; voice agents stay parked until someone asks for a site line.",
+  problem: [
+    "Our read of the build: Swaran's atoms and molecules need an operator. Something has to keep the small agents alive, hand them tickets, watch their output, and escalate what matters, around the clock. A chat window does not do that, and most of support is general-purpose knowledge work that never touches an IDE.",
+    "Caterpillar has seen the layer that does. Grok Bot was demoed on 13 August. Ritesh: \"what you're showing here is exactly what I had in mind when it comes to support.\" Sai's words: \"nothing less than a magic.\" Swaran asked for access before the call ended, and Dustin's question the next day was the right one, whether data leaves the four walls. Same answer as Cursor: it does not.",
+  ],
+  solution: [
+    {
+      lead: "Grok Bot, one layer up.",
+      text: "Jason's framing from the demo: not a chat you go into, a factory of agents you run. Persistent bots with their own computer and routines, doing general-purpose knowledge work in parallel, watching queues instead of waiting for prompts. Under the support pilot they are the operators of Caterpillar's own sketch: intake, log reading, history pulls, dispatch, each an agent that stays on.",
+    },
+    {
+      lead: "When a finding becomes a code fix.",
+      text: "A bot that traces a recurring issue to software hands it to a cloud agent and gets back a pull request for an engineer to judge. Run the grade rollback through this as a scenario, not a case study: telemetry watched overnight, the 7% combination flagged from data already gathered, a fix drafted by morning. That is the ceiling to aim at, and it is pitched, not promised.",
+    },
+    {
+      lead: "Voice, parked on purpose.",
+      text: "The entire voice record on these calls is one line from Joe at the demo: maybe next time we can show some of the voice agents as well. So that is exactly what it is, an offer. If Caterpillar ever wants a site support line, we demo voice agents at a working session. Until someone asks, voice is a pitch, not a plan.",
+    },
+  ] satisfies Beat[],
+  nextSteps: [
+    {
+      owner: "Jason Wiker",
+      what: "Grok Bot access, credits, and a short how-it-works for Swaran and Sai. Already on the live action list.",
+      when: "Now",
+    },
+    {
+      owner: "Jason Wiker",
+      what: "Cover Grok Bot at the working session as a new capability, not a feature bake-off.",
+      when: "At the session",
+    },
+    {
+      owner: "SpaceXAI",
+      what: "Demo voice agents only if Caterpillar asks for a site line.",
+      when: "Only if asked",
+    },
+  ] satisfies NextStep[],
+  note: "Not a third lane. Support stays priority one, MineStar priority two, and this stack reports to the first." as string | null,
 };
 
 /** MineStar factory diagram: the loop plus the clock. */

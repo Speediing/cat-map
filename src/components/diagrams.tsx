@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { gateSplit, minestarLoop, planPath, supportFlow } from "@/content/plan";
+import { gateSplit, minestarLoop, planPath, stackDiagram, supportFlow } from "@/content/plan";
 
 /**
  * Drawn-with-divs diagrams in the editorial system: hairlines, paper panels,
@@ -13,7 +13,8 @@ function DiagramPanel({
   children,
 }: {
   caption: string;
-  minWidth: string;
+  /** When set, the drawing keeps this width and scrolls sideways on small screens. */
+  minWidth?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -21,11 +22,15 @@ function DiagramPanel({
       <figcaption className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
         {caption}
       </figcaption>
-      <div className="nav-scroll -mx-1 overflow-x-auto px-1">
-        <div className="mt-4" style={{ minWidth }}>
-          {children}
+      {minWidth ? (
+        <div className="nav-scroll -mx-1 overflow-x-auto px-1">
+          <div className="mt-4" style={{ minWidth }}>
+            {children}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="mt-4">{children}</div>
+      )}
     </figure>
   );
 }
@@ -39,6 +44,23 @@ function ArrowRight({ className = "" }: { className?: string }) {
     >
       <path
         d="M0 4h20m0 0l-3.5-3M20 4l-3.5 3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+    </svg>
+  );
+}
+
+function ArrowDown({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 8 20"
+      aria-hidden
+      className={`h-5 w-2 shrink-0 text-ink-faint ${className}`}
+    >
+      <path
+        d="M4 0v16m0 0l-3-3.5M4 16l3-3.5"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.2"
@@ -204,6 +226,52 @@ export function SupportFlow() {
             </span>
           </Fragment>
         ))}
+      </div>
+    </DiagramPanel>
+  );
+}
+
+export function SupportStack() {
+  return (
+    <DiagramPanel caption={stackDiagram.caption}>
+      <div className="max-w-[36rem]">
+        {stackDiagram.layers.map((layer, index) => (
+          <Fragment key={layer.name}>
+            {index > 0 ? (
+              <div className="flex justify-center py-1">
+                <ArrowDown />
+              </div>
+            ) : null}
+            <div className="flex items-baseline justify-between gap-4 rounded-lg border border-hairline bg-white/70 px-4 py-3">
+              <div>
+                <div className="text-[13px] leading-tight font-medium">{layer.name}</div>
+                <div className="mt-0.5 text-[11px] leading-snug text-ink-faint">
+                  {layer.sub}
+                </div>
+              </div>
+              <span
+                className={`shrink-0 font-mono text-[10px] uppercase tracking-[0.08em] ${
+                  layer.status === "Demoed 13 Aug" ? "text-ink" : "text-ink-faint"
+                }`}
+              >
+                {layer.status}
+              </span>
+            </div>
+          </Fragment>
+        ))}
+        <div className="mt-4 flex items-baseline justify-between gap-4 rounded-lg border border-dashed border-hairline-strong px-4 py-3">
+          <div>
+            <div className="text-[13px] leading-tight font-medium text-ink-muted">
+              {stackDiagram.aside.name}
+            </div>
+            <div className="mt-0.5 text-[11px] leading-snug text-ink-faint">
+              {stackDiagram.aside.sub}
+            </div>
+          </div>
+          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+            {stackDiagram.aside.status}
+          </span>
+        </div>
       </div>
     </DiagramPanel>
   );

@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
-import { GateSplit, MinestarLoop, PlanPath, SupportFlow } from "@/components/diagrams";
+import {
+  GateSplit,
+  MinestarLoop,
+  PlanPath,
+  SupportFlow,
+  SupportStack,
+} from "@/components/diagrams";
 import { PlanBoard } from "@/components/plan-board";
 import {
   actionsSection,
@@ -9,6 +15,8 @@ import {
   hero,
   minestar,
   pilot,
+  site,
+  stack,
   support,
   type Beat as BeatText,
   type NextStep,
@@ -322,7 +330,8 @@ function SiteFooter() {
             <div className="flex items-center gap-2.5">
               <span aria-hidden className="h-2 w-2 rounded-[2px] bg-cat-yellow" />
               <span className="text-[13.5px] font-medium tracking-[-0.01em]">
-                Caterpillar <span className="text-ink-faint">×</span> Cursor
+                {site.wordmark.left} <span className="text-ink-faint">×</span>{" "}
+                {site.wordmark.right}
               </span>
             </div>
             <p className="mt-4 max-w-[26rem] text-[13px] leading-[1.6] text-ink-faint">
@@ -368,6 +377,7 @@ export default function Page() {
         <Glance />
         <PilotSection />
         <UseCaseSection data={support} diagram={<SupportFlow />} />
+        <UseCaseSection data={stack} diagram={<SupportStack />} />
         <UseCaseSection data={minestar} diagram={<MinestarLoop />} />
         <DrillSection
           id={actionsSection.id}
