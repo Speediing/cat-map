@@ -24,26 +24,27 @@ export type Beat = {
 export const site = {
   title: "Caterpillar × SpaceXAI",
   description:
-    "The pilot plan for Caterpillar and SpaceXAI: a 30-day trial across a product support agent framework and MineStar modernization, with owners, gates, and dates.",
+    "The mutual action plan for Caterpillar and SpaceXAI: a 30-day trial, support first then MineStar, and a live board of owners, statuses, and working dates.",
   wordmark: { left: "Caterpillar", right: "SpaceXAI" },
   navLabel: "Private · August 2026",
 };
 
 export const nav = [
-  { id: "plan", label: "The plan" },
+  { id: "plan", label: "At a glance" },
   { id: "pilot", label: "The pilot" },
   { id: "support", label: "Support" },
   { id: "stack", label: "Voice + Bot" },
   { id: "minestar", label: "MineStar" },
-  { id: "actions", label: "Actions" },
+  { id: "actions", label: "Live plan" },
 ] as const;
 
 export const hero = {
-  kicker: "The pilot plan · August 2026",
+  kicker: "The shared plan · August 2026",
   title: "Support first. Then MineStar.",
   standfirst:
-    "Caterpillar named the use cases and the order. SpaceXAI funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
+    "One page both teams work from. Caterpillar named the use cases and the order; SpaceXAI funds the 30-day trial, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
   meta: "Compiled from the working sessions of 11, 13, and 14 August 2026.",
+  cta: { label: "Open the live plan", href: "#actions" },
   art: {
     src: "/hero-truck.jpg",
     width: 1536,
@@ -440,9 +441,9 @@ export const minestar = {
 
 export const actionsSection = {
   id: "actions",
-  kicker: "The working plan",
+  kicker: "The mutual action plan",
   title: "Who does what, by when",
-  lede: "Live for the working group: every move with a status, an owner, and timing, plus a calendar of working dates. Edits save on change and survive refresh. Dates are working dates, not commitments, until the agreement signs.",
+  lede: "Both sides edit this board: every move with a status, an owner, and timing, plus a calendar of working dates. Changes save as they are made and everyone sees the same plan. Dates stay working dates, not commitments, until the agreement signs.",
   savedLabel: "Saved",
   savingLabel: "Saving",
   errorLabel: "Save failed, edit again to retry",
@@ -650,7 +651,7 @@ export const footer = {
     label: "SpaceXAI",
     people: ["Jason Wiker", "Brian Fox", "Joe Masello"],
   },
-  line: "Private. Prepared for the Caterpillar working group. Sourced from the working sessions of 11, 13, and 14 August 2026.",
+  line: "Private, for the working group on both sides. Sourced from the working sessions of 11, 13, and 14 August 2026. Edits to the live plan save for everyone.",
 };
 
 export const login = {

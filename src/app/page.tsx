@@ -42,6 +42,12 @@ function Hero() {
             {hero.standfirst}
           </p>
           <p className="mt-5 font-mono text-[11.5px] text-ink-faint">{hero.meta}</p>
+          <a
+            href={hero.cta.href}
+            className="mt-4 inline-block text-[13.5px] font-medium text-ink underline decoration-hairline-strong underline-offset-4 transition-colors hover:decoration-ink"
+          >
+            {hero.cta.label}
+          </a>
         </div>
         <div className="lg:-my-4">
           <Image
