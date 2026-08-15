@@ -52,23 +52,6 @@ function ArrowRight({ className = "" }: { className?: string }) {
   );
 }
 
-function ArrowDown({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 8 20"
-      aria-hidden
-      className={`h-5 w-2 shrink-0 text-ink-faint ${className}`}
-    >
-      <path
-        d="M4 0v16m0 0l-3-3.5M4 16l3-3.5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-    </svg>
-  );
-}
-
 function ArrowLeft({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -233,45 +216,51 @@ export function SupportFlow() {
 
 export function SupportStack() {
   return (
-    <DiagramPanel caption={stackDiagram.caption}>
-      <div className="max-w-[36rem]">
-        {stackDiagram.layers.map((layer, index) => (
-          <Fragment key={layer.name}>
-            {index > 0 ? (
-              <div className="flex justify-center py-1">
-                <ArrowDown />
+    <DiagramPanel caption={stackDiagram.caption} minWidth="44rem">
+      <div className="flex items-stretch gap-2.5">
+        {stackDiagram.rungs.map((rung, index) => (
+          <Fragment key={rung.name}>
+            {index > 0 ? <ArrowRight className="w-5 self-center" /> : null}
+            <div
+              className={`flex-1 rounded-lg border bg-white/70 p-3.5 ${
+                rung.status === "Demoed 13 Aug"
+                  ? "border-hairline-strong"
+                  : "border-dashed border-hairline-strong"
+              }`}
+            >
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+                  {rung.role}
+                </span>
+                <span
+                  className={`font-mono text-[10px] uppercase tracking-[0.08em] ${
+                    rung.status === "Demoed 13 Aug" ? "text-ink" : "text-ink-faint"
+                  }`}
+                >
+                  {rung.status}
+                </span>
               </div>
-            ) : null}
-            <div className="flex items-baseline justify-between gap-4 rounded-lg border border-hairline bg-white/70 px-4 py-3">
-              <div>
-                <div className="text-[13px] leading-tight font-medium">{layer.name}</div>
-                <div className="mt-0.5 text-[11px] leading-snug text-ink-faint">
-                  {layer.sub}
-                </div>
-              </div>
-              <span
-                className={`shrink-0 font-mono text-[10px] uppercase tracking-[0.08em] ${
-                  layer.status === "Demoed 13 Aug" ? "text-ink" : "text-ink-faint"
-                }`}
-              >
-                {layer.status}
-              </span>
+              <div className="mt-1.5 text-[13px] leading-tight font-medium">{rung.name}</div>
+              <p className="mt-1 text-[11px] leading-snug text-ink-faint">{rung.sub}</p>
             </div>
           </Fragment>
         ))}
-        <div className="mt-4 flex items-baseline justify-between gap-4 rounded-lg border border-dashed border-hairline-strong px-4 py-3">
-          <div>
-            <div className="text-[13px] leading-tight font-medium text-ink-muted">
-              {stackDiagram.aside.name}
-            </div>
-            <div className="mt-0.5 text-[11px] leading-snug text-ink-faint">
-              {stackDiagram.aside.sub}
-            </div>
-          </div>
-          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
-            {stackDiagram.aside.status}
-          </span>
-        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap items-center gap-2.5 border-t border-hairline pt-3.5">
+        <span className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
+          {stackDiagram.directionCaption}
+        </span>
+        {stackDiagram.direction.map((step, index) => (
+          <Fragment key={step}>
+            {index > 0 ? <ArrowRight className="w-5" /> : null}
+            <span className="rounded-[5px] border border-hairline bg-panel/50 px-2 py-1 text-[11.5px] text-ink-muted">
+              {step}
+            </span>
+          </Fragment>
+        ))}
+        <span className="ml-auto font-mono text-[10.5px] text-ink-faint">
+          {stackDiagram.footnote}
+        </span>
       </div>
     </DiagramPanel>
   );

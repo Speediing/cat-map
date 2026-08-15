@@ -323,38 +323,43 @@ export const support = {
   note: "MineStar modernization follows as priority two." as string | null,
 };
 
-/** Stack diagram: what sits under the support pipeline, with honest status chips. */
+/**
+ * Stack diagram: the three-rung row under the support pipeline.
+ * Status chips carry the honesty: demoed vs pitched vs never asked for.
+ */
 export const stackDiagram = {
   caption: "The stack, drawn",
-  layers: [
+  rungs: [
     {
-      name: "The support pipeline",
-      sub: "Salesforce intake, prep agents, atoms to molecules",
-      status: "Cat-sketched",
+      name: "Grok Voice",
+      role: "First line",
+      sub: "Voice Agent Builder: no-code phone agents with telephony and tools built in.",
+      status: "Pitched, not asked",
     },
     {
       name: "Grok Bot",
-      sub: "A factory of persistent agents, one layer above Cursor",
+      role: "Always on",
+      sub: "Persistent Bots with their own cloud computer, routines, and memory.",
       status: "Demoed 13 Aug",
     },
     {
-      name: "Cloud agents",
-      sub: "Take the handoff when a finding becomes a code fix",
+      name: "Cursor Cloud Agents",
+      role: "When it is code",
+      sub: "Take the handoff when a finding becomes a fix. Engineers judge the pull request.",
       status: "Pitched",
     },
   ],
-  aside: {
-    name: "Grok Voice",
-    sub: "Not demoed. The offer stands if a site line is ever wanted.",
-    status: "Parked",
-  },
+  directionCaption: "The direction Richard set",
+  direction: ["Reactive", "Proactive", "Predictive"],
+  footnote:
+    "The products are real. The Caterpillar wiring on this rung row is proposed, not agreed.",
 };
 
 export const stack = {
   id: "stack",
   kicker: "Under priority one",
   title: "The stack under support",
-  lede: "What SpaceXAI would run beneath Richard's first pilot. Grok Bot is the piece Caterpillar has already seen and reacted to; cloud agents take the code-fix handoff; voice agents stay parked until someone asks for a site line.",
+  lede: "Three rungs under Richard's first pilot: Grok Voice as the proposed first line, Grok Bot always on, Cursor Cloud Agents when it is code. The products are real; the Caterpillar wiring stays labeled proposed. Grok Bot is the rung Caterpillar has seen and reacted to.",
   problem: [
     "Our read of the build: Swaran's atoms and molecules need an operator. Something has to keep the small agents alive, hand them tickets, watch their output, and escalate what matters, around the clock. A chat window does not do that, and most of support is general-purpose knowledge work that never touches an IDE.",
     "Caterpillar has seen the layer that does. Grok Bot was demoed on 13 August. Ritesh: \"what you're showing here is exactly what I had in mind when it comes to support.\" Sai's words: \"nothing less than a magic.\" Swaran asked for access before the call ended, and Dustin's question the next day was the right one, whether data leaves the four walls. Same answer as Cursor: it does not.",
@@ -362,15 +367,15 @@ export const stack = {
   solution: [
     {
       lead: "Grok Bot, one layer up.",
-      text: "Jason's framing from the demo: not a chat you go into, a factory of agents you run. Persistent bots with their own computer and routines, doing general-purpose knowledge work in parallel, watching queues instead of waiting for prompts. Under the support pilot they are the operators of Caterpillar's own sketch: intake, log reading, history pulls, dispatch, each an agent that stays on.",
+      text: "Jason's framing from the demo: not a chat you go into, a factory of agents you run. Named, persistent Bots with their own cloud computer, routines, and memory; they keep context and logins, watch queues instead of waiting for prompts, and finish real work across tools. Under the support pilot they would operate Caterpillar's own sketch: intake, log reading, history pulls, dispatch. The product is in beta.",
     },
     {
       lead: "When a finding becomes a code fix.",
-      text: "A bot that traces a recurring issue to software hands it to a cloud agent and gets back a pull request for an engineer to judge. Run the grade rollback through this as a scenario, not a case study: telemetry watched overnight, the 7% combination flagged from data already gathered, a fix drafted by morning. That is the ceiling to aim at, and it is pitched, not promised.",
+      text: "A Bot that traces a recurring issue to software hands it to a Cloud Agent and gets back a pull request for an engineer to judge. Run the grade rollback through this as a scenario, not a case study: telemetry watched overnight, the 7% combination flagged from data already gathered, a fix drafted by morning. That is the proposed wiring and the ceiling to aim at, pitched, not promised.",
     },
     {
-      lead: "Voice, parked on purpose.",
-      text: "The entire voice record on these calls is one line from Joe at the demo: maybe next time we can show some of the voice agents as well. So that is exactly what it is, an offer. If Caterpillar ever wants a site support line, we demo voice agents at a working session. Until someone asks, voice is a pitch, not a plan.",
+      lead: "Voice, first line, only if asked.",
+      text: "Voice Agent Builder is a real product: no-code phone agents with telephony and tools built in, sub-second speech to speech, more than 25 languages. The Caterpillar wiring is only proposed: a site line a tech can phone or radio into, answered with MineStar context, closing simple issues and handing Matt's team a full brief. The entire record on these calls is Joe's one line, maybe next time we can show some of the voice agents. Until someone at Caterpillar asks for that line, voice stays a pitch, not a plan.",
     },
   ] satisfies Beat[],
   nextSteps: [
