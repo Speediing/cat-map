@@ -290,81 +290,6 @@ export function PlanBoard() {
     <div className="space-y-3">
       <PhasePath />
 
-      <figure className="rounded-xl border border-hairline bg-paper/80 p-5">
-        <figcaption className="flex flex-wrap items-baseline justify-between gap-2">
-          <span className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
-            {actionsSection.actionsCaption}
-          </span>
-          <span
-            className={`font-mono text-[11px] ${sync === "error" ? "text-orange" : "text-ink-faint"}`}
-          >
-            {syncLabel}
-          </span>
-        </figcaption>
-        <div className="nav-scroll -mx-1 overflow-x-auto px-1">
-          <ul className="mt-4" style={{ minWidth: "54rem" }}>
-            {doc.actions.map((action) => (
-              <li
-                key={action.id}
-                className="grid grid-cols-[13rem_minmax(0,1fr)_6rem_11rem_9.5rem] items-center gap-4 border-b border-hairline py-2.5 first:pt-0 last:border-0"
-              >
-                <div className="flex overflow-hidden rounded-md border border-hairline">
-                  {STATUS_OPTIONS.map((option) => (
-                    <button
-                      key={option.key}
-                      type="button"
-                      onClick={() => setAction(action.id, { stat: option.key })}
-                      className={`flex-1 px-1.5 py-1 text-[10.5px] whitespace-nowrap transition-colors ${
-                        action.stat === option.key
-                          ? option.key === "done"
-                            ? "bg-ink text-canvas"
-                            : option.key === "in_progress"
-                              ? "bg-orange/90 text-canvas"
-                              : "bg-panel text-ink"
-                          : "text-ink-faint hover:text-ink"
-                      }`}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-                <div
-                  className={`text-[13.5px] leading-[1.45] ${
-                    action.stat === "done" ? "text-ink-faint line-through" : "text-ink"
-                  }`}
-                >
-                  {action.act}
-                </div>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setAction(action.id, {
-                      side: action.side === "Caterpillar" ? "SpaceXAI" : "Caterpillar",
-                    })
-                  }
-                  title="Switch side"
-                  className="rounded-[5px] border border-hairline bg-panel/50 px-2 py-1 font-mono text-[10.5px] text-ink-muted transition-colors hover:border-hairline-strong"
-                >
-                  {action.side}
-                </button>
-                <input
-                  value={action.owner}
-                  onChange={(event) => setAction(action.id, { owner: event.target.value })}
-                  aria-label="Owner"
-                  className="w-full border-b border-transparent bg-transparent font-mono text-[11.5px] text-ink-muted focus:border-hairline-strong focus:outline-none"
-                />
-                <input
-                  value={action.when}
-                  onChange={(event) => setAction(action.id, { when: event.target.value })}
-                  aria-label="When"
-                  className="w-full border-b border-transparent bg-transparent font-mono text-[11.5px] text-ink-faint focus:border-hairline-strong focus:outline-none"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </figure>
-
       <figure className="overflow-hidden rounded-xl border border-hairline bg-paper/80">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-hairline px-5 pt-5 pb-4">
           <div className="min-w-0 flex-1">
@@ -383,13 +308,20 @@ export function PlanBoard() {
               className="mt-2 w-full max-w-[44rem] border-b border-transparent bg-transparent text-[13px] leading-[1.5] text-ink-muted focus:border-hairline-strong focus:outline-none"
             />
           </div>
-          <button
-            type="button"
-            onClick={addStep}
-            className="rounded-md border border-hairline bg-white/70 px-3 py-1.5 text-[12.5px] font-medium text-ink transition-colors hover:border-hairline-strong"
-          >
-            {actionsSection.addStepLabel}
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <span
+              className={`font-mono text-[11px] ${sync === "error" ? "text-orange" : "text-ink-faint"}`}
+            >
+              {syncLabel}
+            </span>
+            <button
+              type="button"
+              onClick={addStep}
+              className="rounded-md border border-hairline bg-white/70 px-3 py-1.5 text-[12.5px] font-medium text-ink transition-colors hover:border-hairline-strong"
+            >
+              {actionsSection.addStepLabel}
+            </button>
+          </div>
         </div>
 
         <div className="nav-scroll overflow-x-auto">
@@ -501,6 +433,74 @@ export function PlanBoard() {
               {actionsSection.memoryLabel}
             </span>
           ) : null}
+        </div>
+      </figure>
+
+      <figure className="rounded-xl border border-hairline bg-paper/80 p-5">
+        <figcaption className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
+          {actionsSection.actionsCaption}
+        </figcaption>
+        <div className="nav-scroll -mx-1 overflow-x-auto px-1">
+          <ul className="mt-4" style={{ minWidth: "54rem" }}>
+            {doc.actions.map((action) => (
+              <li
+                key={action.id}
+                className="grid grid-cols-[13rem_minmax(0,1fr)_6rem_11rem_9.5rem] items-center gap-4 border-b border-hairline py-2.5 first:pt-0 last:border-0"
+              >
+                <div className="flex overflow-hidden rounded-md border border-hairline">
+                  {STATUS_OPTIONS.map((option) => (
+                    <button
+                      key={option.key}
+                      type="button"
+                      onClick={() => setAction(action.id, { stat: option.key })}
+                      className={`flex-1 px-1.5 py-1 text-[10.5px] whitespace-nowrap transition-colors ${
+                        action.stat === option.key
+                          ? option.key === "done"
+                            ? "bg-ink text-canvas"
+                            : option.key === "in_progress"
+                              ? "bg-orange/90 text-canvas"
+                              : "bg-panel text-ink"
+                          : "text-ink-faint hover:text-ink"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+                <div
+                  className={`text-[13.5px] leading-[1.45] ${
+                    action.stat === "done" ? "text-ink-faint line-through" : "text-ink"
+                  }`}
+                >
+                  {action.act}
+                </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setAction(action.id, {
+                      side: action.side === "Caterpillar" ? "SpaceXAI" : "Caterpillar",
+                    })
+                  }
+                  title="Switch side"
+                  className="rounded-[5px] border border-hairline bg-panel/50 px-2 py-1 font-mono text-[10.5px] text-ink-muted transition-colors hover:border-hairline-strong"
+                >
+                  {action.side}
+                </button>
+                <input
+                  value={action.owner}
+                  onChange={(event) => setAction(action.id, { owner: event.target.value })}
+                  aria-label="Owner"
+                  className="w-full border-b border-transparent bg-transparent font-mono text-[11.5px] text-ink-muted focus:border-hairline-strong focus:outline-none"
+                />
+                <input
+                  value={action.when}
+                  onChange={(event) => setAction(action.id, { when: event.target.value })}
+                  aria-label="When"
+                  className="w-full border-b border-transparent bg-transparent font-mono text-[11.5px] text-ink-faint focus:border-hairline-strong focus:outline-none"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </figure>
     </div>
