@@ -74,25 +74,6 @@ function Glance() {
         <PlanPath />
       </div>
 
-      <div className="mt-3 grid gap-3 md:grid-cols-3">
-        {glance.clocks.map((clock) => (
-          <div
-            key={clock.label}
-            className="rounded-xl border border-hairline bg-paper/80 p-5"
-          >
-            <div className="text-[1.55rem] font-medium tracking-[-0.02em]">
-              {clock.value}
-            </div>
-            <div className="mt-1 text-[11px] uppercase tracking-[0.09em] text-ink-faint">
-              {clock.label}
-            </div>
-            <p className="mt-3 text-[13.5px] leading-[1.58] text-ink-muted">
-              {clock.body}
-            </p>
-          </div>
-        ))}
-      </div>
-
       <div className="mt-3 grid gap-3 lg:grid-cols-2">
         {glance.lanes.map((lane) => (
           <div
