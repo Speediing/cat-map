@@ -13,7 +13,7 @@ export type NextStep = {
 };
 
 export type Beat = {
-  /** Optional bolded lead-in, e.g. "Start on desktop." */
+  /** Optional bolded lead-in, e.g. "Use the window." */
   lead?: string;
   text: string;
 };
@@ -21,7 +21,7 @@ export type Beat = {
 export const site = {
   title: "Caterpillar × Cursor",
   description:
-    "The mutual action plan for the Caterpillar and Cursor pilot: a 30-day trial across MineStar modernization and product support, with owners, gates, and dates.",
+    "The mutual action plan for the Caterpillar and Cursor pilot: a 30-day trial across MineStar modernization and a product support agent framework, with owners, gates, and dates.",
   wordmark: { left: "Caterpillar", right: "Cursor" },
   navLabel: "Private · August 2026",
 };
@@ -37,7 +37,7 @@ export const hero = {
   kicker: "Mutual action plan · August 2026",
   title: "Thirty days to a verdict.",
   standfirst:
-    "Caterpillar named two lanes: modernize MineStar, and rebuild product support around agents. Cursor funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Legal and infrastructure run in parallel so neither waits on the other. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
+    "Caterpillar named two use cases: MineStar modernization, and an agent framework for product support. Cursor funds a 30-day trial across both, every model, every participant, no cost to Caterpillar. Legal and infrastructure run in parallel so neither waits on the other. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
   meta: "Compiled from the working sessions of 11 and 14 August 2026.",
 };
 
@@ -48,10 +48,10 @@ export const glance = {
     {
       value: "30 days",
       label: "The trial",
-      body: "Cursor-funded. All models, all participants, on real engineering work. It produces a viability verdict and a live token-spend baseline.",
+      body: "Cursor-funded. All models, all participants, on real engineering work. It produces a viability verdict and a real token-spend baseline.",
     },
     {
-      value: "~2 weeks",
+      value: "A couple of weeks",
       label: "The gate",
       body: "A formal trial evaluation agreement, headed to Cat legal. Cat policy allows no click-through terms, so nothing downloads before signature.",
     },
@@ -63,7 +63,7 @@ export const glance = {
   ],
   lanes: [
     {
-      label: "Lane 1",
+      label: "Use case 1",
       tag: null as string | null,
       title: "MineStar modernization",
       body: "Take the 20-year monolith apart into business functions, containerize, validate, reinsert. Cursor works as the factory; engineers approve every cutover.",
@@ -71,10 +71,10 @@ export const glance = {
       clock: "Roadmap deep dive in September",
     },
     {
-      label: "Lane 2",
-      tag: "Likely first",
+      label: "Use case 2",
+      tag: "Preferred first",
       title: "Product support",
-      body: "Reactive and manual today. A greenfield agent build takes it from reactive to proactive to predictive, with people staying on the outcomes.",
+      body: "Reactive and manual today. Greenfield build of an agent framework for data gathering and predictive analytics, moving support from reactive to proactive.",
       owner: "Matt Mansfield, with Richard Green",
       clock: "Outreach late Aug / early Sep",
     },
@@ -92,10 +92,10 @@ export const glance = {
       title: "Moving now, in parallel",
       items: [
         { what: "Trial evaluation agreement paperwork to Cat legal", owner: "Joe Masello" },
-        { what: "Network and SSO readiness with Brian Rossi", owner: "Dustin Ziegler" },
+        { what: "Infrastructure call with Brian Rossi, network and SSO", owner: "Dustin + Dhamu" },
         { what: "Benchmark and ROI material for the tool comparison", owner: "Jason Wiker" },
         { what: "Funding-model summary for Richard's CFO", owner: "Joe Masello" },
-        { what: "MSA track, checking prior SpaceX/Starlink paper as a base", owner: "Joe Masello" },
+        { what: "MSA track, checking existing Starlink paper as a base", owner: "Joe Masello" },
         { what: "September MineStar roadmap deep dive", owner: "Ritesh Gupta" },
       ],
     },
@@ -106,27 +106,27 @@ export const pilot = {
   id: "pilot",
   kicker: "The pilot",
   title: "One trial, built to end in evidence.",
-  lede: "Not a demo and not a workshop. Thirty days on your code, against the tools you already run, with the numbers your budget cycle needs.",
+  lede: "Not a demo and not a workshop. One 30-day trial on your code, against the tools you already run, with the numbers your budget cycle needs.",
   problem: [
     "Caterpillar cannot take this on impressions. Teams already run GitHub Copilot and an internal agentic framework that has been paying off since October, so the live question is build vs buy: is Cursor faster and cheaper on real work?",
-    "Procurement sets the tempo. Cat policy allows no click-through agreements, so nothing can be downloaded until a trial evaluation agreement is signed, and legal needs about two weeks. Meanwhile 2027 budgets are being planned now, on a calendar fiscal year. The trial has to produce numbers a CFO can plan with, not a feeling.",
+    "Procurement sets the tempo. Cat policy allows no click-through agreements, so nothing can be downloaded until a trial evaluation agreement is signed, and legal is the bottleneck, a couple of weeks. Meanwhile 2027 budgets are being planned now, on a calendar fiscal year. The trial has to produce numbers a CFO can plan with, not a feeling.",
   ],
   solution: [
     {
       lead: "Use the window.",
-      text: "While the agreement works through legal, everything else gets ready. Dustin Ziegler is looping Brian Rossi in cyber and infrastructure on network and SSO; SSO itself typically takes under a day once it starts. The NDA is already signed (it can fold into the MSA later), and Joe Masello is checking whether prior SpaceX/Starlink paper shortens the MSA redlines, which otherwise run a few weeks.",
+      text: "While the agreement works through legal, everything else gets ready. Dustin Ziegler and Dhamu Sankaran are setting up the infrastructure call with Brian Rossi to cover network and SSO; SSO itself typically takes under a day once it starts. The NDA is already signed (it can fold into the MSA later), and Joe Masello is checking whether existing Starlink paper shortens the MSA redlines, which otherwise run a few weeks.",
     },
     {
-      lead: "Start on desktop.",
-      text: "Day one needs no infrastructure. Participants download Cursor and sign in with their Cat email on the enterprise trial. Cloud agents stay a confirm, not an assumption: when wanted, the Anysphere-managed option gives unlimited VMs at no extra cost, reaching your VPC over AWS PrivateLink. Self-hosted under Caterpillar infrastructure also works, with more overhead.",
+      lead: "Where it runs is still open.",
+      text: "Desktop needs no infrastructure: download Cursor, sign in with a Cat email on the enterprise trial. Cloud agents can be Anysphere-managed, unlimited VMs at no extra cost, reaching your VPC over AWS PrivateLink, or self-hosted under Caterpillar infrastructure with more overhead. Which mix clears Caterpillar security is Dhamu's question to close, and the plan does not assume the answer.",
     },
     {
       lead: "Compare in the open.",
-      text: "One working session, not a two-day workshop. Cursor next to GitHub Copilot, Claude Code, and Codex, with the benchmark and competitive material we bring, plus use cases, ROI, and token spend. Grok Bot enters that conversation as what it is, an agent factory that orchestrates other agents, not a row in a feature matrix.",
+      text: "One working session, not a one-or-two-day workshop. Cursor next to GitHub Copilot, Claude Code, and Codex, with the benchmark and competitive material we bring, plus use cases, ROI, and token spend.",
     },
     {
       lead: "Measure what matters.",
-      text: "Thirty days, all token costs on us, across every model and participant. The output is a viability verdict and a real consumption baseline, the number that turns a placeholder budget line into a plan.",
+      text: "All token costs on us, across every model and participant. The output is a viability verdict and a real consumption baseline, the number that turns a placeholder budget line into a plan.",
     },
     {
       lead: "Keep help close.",
@@ -137,7 +137,7 @@ export const pilot = {
   constraints: [
     {
       title: "Build vs buy can be hybrid",
-      body: "Keep the internal agentic framework and the Copilot-based agents. Cursor sits underneath as the mature harness and spreads across the SDLC incrementally. Nothing gets ripped out and replaced.",
+      body: "Richard asked whether this replaces the internal agentic framework running since October, or the Copilot-based agents. It does not. Mix and match: Cursor sits underneath as the mature harness, adopted incrementally across the SDLC, nothing ripped out.",
     },
     {
       title: "Cost has to be governable",
@@ -148,10 +148,10 @@ export const pilot = {
     {
       owner: "Joe Masello",
       what: "Send the trial evaluation agreement paperwork. It gates every download and sign-in.",
-      when: "Underway",
+      when: "Now",
     },
     {
-      owner: "Dustin Ziegler",
+      owner: "Dustin Ziegler, Dhamu Sankaran",
       what: "Hold the infrastructure readiness call with Brian Rossi: network plus SSO.",
       when: "In parallel with legal",
     },
@@ -162,13 +162,13 @@ export const pilot = {
     },
     {
       owner: "Joe Masello",
-      what: "Check prior SpaceX/Starlink paper as a base for the MSA.",
-      when: "Underway",
+      what: "Check existing Starlink paper as a base for the MSA.",
+      when: "Now",
     },
     {
       owner: "Joe Masello",
       what: "Send the capabilities and funding-model summary Richard can take to his CFO.",
-      when: "Underway",
+      when: "Now",
     },
   ] satisfies NextStep[],
 };
@@ -184,10 +184,10 @@ export const minestar = {
   ],
   solution: [
     {
-      text: "Cursor as the factory under the lane the team already runs. Parallel agents map the monolith, extract business functions, containerize them, write the validation, and open pull requests. Engineers review and approve every cutover, and validated services go back into MineStar.",
+      text: "Our proposal: Cursor as the factory inside the modernization the team already runs. Parallel agents map the monolith, extract business functions, containerize them, write the validation, and open pull requests. Engineers review and approve every cutover, and validated services go back into MineStar.",
     },
     {
-      text: "Nothing gets ripped out. The internal framework and the Copilot-based agents keep working; Cursor takes the volume underneath as the harness. Adoption is incremental across the SDLC, sized against the 2.0 roadmap rather than a rewrite of the program.",
+      text: "The internal framework and the Copilot-based agents keep working; Cursor takes the volume underneath as the harness. Adoption is incremental across the SDLC, sized against the 2.0 roadmap in the September deep dive, not a rewrite of the program.",
     },
   ] satisfies Beat[],
   nextSteps: [
@@ -208,33 +208,20 @@ export const minestar = {
 export const support = {
   id: "support",
   kicker: "Use case 2",
-  title: "The support ladder",
-  lede: "Richard's first pick. Product support, taken from reactive to proactive to predictive with a greenfield agent build.",
+  title: "Product support agent framework",
+  lede: "Richard's preferred first pilot. Support is reactive and manual today; the goal is proactive, with agents doing the data gathering and predictive analytics.",
   problem: [
     "Support is fully reactive and fully manual. Engineers pull reports by hand and carry the context in their heads. When a 7% grade rollback showed up on 260-ton trucks, the answer was a manual audit of every mine site.",
-    "Nothing watches the data and brings findings to an engineer. Building that is greenfield work across people, process, and tools, and it is the lane Richard Green wants to pilot first.",
+    "Nothing watches the data and brings findings to an engineer. Building that is greenfield work across people, process, and tools, and it is the use case Richard Green wants to pilot first.",
   ],
-  solutionIntro:
-    "Matt Mansfield, product support director, owns the plan and is shaping it with Richard now. The build is one ladder, and agents do the climbing.",
-  rungs: [
+  solution: [
     {
-      name: "Grok Voice",
-      verb: "Answer",
-      body: "The site support line. A site phones or radios in, Voice answers with MineStar context, resolves what it can, and escalates the rest with a full brief.",
+      text: "Greenfield on purpose: people, process, and tools get designed rather than retrofitted. Richard Green and Matt Mansfield, product support director, are building the plan now. The goal is set: take support from reactive to proactive, with agents doing the data gathering and the predictive analytics.",
     },
     {
-      name: "Grok Bot",
-      verb: "Watch",
-      body: "Always-on teammates that watch telemetry, investigate anomalies in parallel, and file tickets with the evidence attached.",
+      text: "The 30-day trial is the proving ground: it shows whether the tooling holds up on representative work, and the consumption baseline gives the funding model real numbers. The detailed build gets scoped in Matt's plan, not guessed at here.",
     },
-    {
-      name: "Cursor Cloud Agents",
-      verb: "Fix",
-      body: "When the Bot finds a software fix, it hands off to a Cloud Agent, which returns a pull request. People stay on the outcome.",
-    },
-  ],
-  solutionOutro:
-    "Run the grade rollback through that ladder and it arrives as a ticket with evidence, not an audit assignment. Voice, Bot, and Cloud Agents are the how of this lane, not three separate pilots.",
+  ] satisfies Beat[],
   nextSteps: [
     {
       owner: "Matt Mansfield or Ritesh Gupta",
@@ -242,7 +229,7 @@ export const support = {
       when: "Late Aug / early Sep",
     },
   ] satisfies NextStep[],
-  note: "Both lanes likely land in the same window. Support may move first.",
+  note: "Both use cases likely land in the same window. Support may move first.",
 };
 
 export const footer = {
@@ -258,14 +245,14 @@ export const footer = {
       "Ritesh Gupta",
       "Swaran Unni",
       "Sai Praveen Gundlapalli",
-      "Phillip Jones",
+      "Phill Jones",
     ],
   },
   cursor: {
     label: "Cursor",
     people: ["Jason Wiker", "Brian Fox", "Joe Masello"],
   },
-  line: "Private. Prepared for the Caterpillar working group from the sessions of 11 and 14 August 2026.",
+  line: "Private. Prepared for the Caterpillar working group. Sourced from the working sessions of 11 and 14 August 2026.",
 };
 
 export const login = {

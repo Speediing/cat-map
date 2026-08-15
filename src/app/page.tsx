@@ -252,62 +252,30 @@ function PilotSection() {
   );
 }
 
-function MineStarSection() {
+function UseCaseSection({
+  data,
+}: {
+  data: {
+    id: string;
+    kicker: string;
+    title: string;
+    lede: string;
+    problem: string[];
+    solution: BeatText[];
+    nextSteps: NextStep[];
+    note: string | null;
+  };
+}) {
   return (
-    <DrillSection
-      id={minestar.id}
-      kicker={minestar.kicker}
-      title={minestar.title}
-      lede={minestar.lede}
-    >
+    <DrillSection id={data.id} kicker={data.kicker} title={data.title} lede={data.lede}>
       <BeatRow label="Problem">
-        <Paragraphs items={minestar.problem} />
+        <Paragraphs items={data.problem} />
       </BeatRow>
       <BeatRow label="Solution">
-        <SolutionBeats beats={minestar.solution} />
+        <SolutionBeats beats={data.solution} />
       </BeatRow>
       <BeatRow label="Next steps">
-        <NextStepsList steps={minestar.nextSteps} note={minestar.note} />
-      </BeatRow>
-    </DrillSection>
-  );
-}
-
-function SupportSection() {
-  return (
-    <DrillSection
-      id={support.id}
-      kicker={support.kicker}
-      title={support.title}
-      lede={support.lede}
-    >
-      <BeatRow label="Problem">
-        <Paragraphs items={support.problem} />
-      </BeatRow>
-      <BeatRow label="Solution">
-        <p className="text-[15px] leading-[1.65] text-ink-muted">{support.solutionIntro}</p>
-        <div className="mt-5 rounded-xl border border-hairline bg-paper/80">
-          {support.rungs.map((rung) => (
-            <div
-              key={rung.name}
-              className="grid gap-2 border-b border-hairline p-5 last:border-0 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-6"
-            >
-              <div>
-                <div className="text-[13.5px] font-medium">{rung.name}</div>
-                <div className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.09em] text-ink-faint">
-                  {rung.verb}
-                </div>
-              </div>
-              <p className="text-[14px] leading-[1.6] text-ink-muted">{rung.body}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-5 text-[15px] leading-[1.65] text-ink-muted">
-          {support.solutionOutro}
-        </p>
-      </BeatRow>
-      <BeatRow label="Next steps">
-        <NextStepsList steps={support.nextSteps} note={support.note} />
+        <NextStepsList steps={data.nextSteps} note={data.note} />
       </BeatRow>
     </DrillSection>
   );
@@ -367,8 +335,8 @@ export default function Page() {
         <Hero />
         <Glance />
         <PilotSection />
-        <MineStarSection />
-        <SupportSection />
+        <UseCaseSection data={minestar} />
+        <UseCaseSection data={support} />
       </main>
       <SiteFooter />
     </>
