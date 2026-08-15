@@ -501,19 +501,22 @@ export const livePlanPhases = {
 };
 
 /**
- * Published Cursor / SpaceXAI proof. Not Caterpillar results.
- * Metrics and quotes only from the named public posts.
+ * Published Cursor / SpaceXAI proof appendix. Metrics and quotes only from
+ * the named public posts. The For Caterpillar line on each tile is a mapping,
+ * not a Caterpillar number.
  */
 export const stories = {
   id: "stories",
   kicker: "Customer stories",
   title: "How peers evaluated Cursor and what they shipped.",
-  lede: "Verified from cursor.com/blog. Metrics below are from those published stories only.",
-  sourceLabel: "Published on cursor.com/blog",
+  lede: "Verified from published stories on cursor.com/blog and brex.com. Metrics are from those posts only. The Caterpillar line on each tile is the mapping, not a Cat number.",
+  forCatLabel: "For Caterpillar",
   items: [
     {
       company: "NVIDIA",
       title: "30-year interconnected codebases. 30,000 developers daily.",
+      forCat:
+        "Cat already partners with NVIDIA. Same shape as MineStar: decades of interconnected product-line code that no one person can hold in their head.",
       bullets: [
         "Large, interconnected product-line codebases that evolve quickly.",
         "30,000 developers using Cursor daily.",
@@ -527,8 +530,78 @@ export const stories = {
       linkLabel: "Read the story",
     },
     {
+      company: "Coinbase",
+      title:
+        "Idea to production down 90%. 1 to 2 engineers shipping what used to take a full team.",
+      forCat:
+        "The MineStar and support value case: get a change from idea to production without parking a full feature team on it.",
+      bullets: [
+        "2,400+ developers on Cursor.",
+        "Idea to production: 20 days to 1.8 days. Long-term target is 4 hours.",
+        "Idea to first PR: 8 days to under 30 minutes.",
+        "55% more PRs merged per engineer. 75% of PRs created by agents.",
+        "Feature work that needed a full team now done by 1 to 2 engineers.",
+      ],
+      quote:
+        "The product has become a mission control for agents rather than just a raw IDE.",
+      attribution: "Chintan Turakhia, Senior Director of Engineering, Coinbase",
+      href: "https://cursor.com/blog/coinbase",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Faire",
+      title: "Self-healing PRs. 2,000 automations a week. Double the PR throughput.",
+      forCat:
+        "Support and MineStar CI is the tax. A failed build gets triaged and patched by an agent instead of waiting on a human to read the logs.",
+      bullets: [
+        "When CI fails, a cloud agent triages the logs, diagnoses the issue, and pushes a fix.",
+        "More than 2,000 autonomous agent runs per week across 25+ automations.",
+        "Doubled weekly PR throughput.",
+        "An 18-month migration is now one engineer directing a fleet of cloud agents.",
+      ],
+      quote:
+        "Cursor's cloud offering is a lot better than running local agents with worktrees or 10 remote environments you're shelling into. It's a streamlined UX for managing multiple concurrent agents.",
+      attribution: "Luke Bjerring, Principal Engineer, Faire",
+      href: "https://cursor.com/blog/faire",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Brex",
+      title: "Micronaut migration: 50 services in a quarter, then 180 in a month.",
+      forCat:
+        "Cat's version is platform and framework upgrades across many services, without pausing a quarter of product work to do it by hand.",
+      bullets: [
+        "Manual pass: 3 engineers, one quarter, 50 services from Micronaut 3 to 4.",
+        "With self-hosted Cursor cloud agents: 1 engineer completed 180 services in 1 month.",
+        "32x per-capita acceleration. About 90% lower cost per service.",
+      ],
+      quote:
+        "This allowed a single engineer to migrate 180 microservices in just one month.",
+      attribution: "Brex engineering, Agent automations for big migrations",
+      href: "https://www.brex.com/journal/agent-automations-for-big-migrations",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Cursor",
+      title: "Every internal PR goes through Bugbot. Cloud agents review and autofix.",
+      forCat:
+        "What running this on ourselves looks like: every PR reviewed, agents propose the fix, humans still merge. The bar Cat can hold us to.",
+      bullets: [
+        "Bugbot runs on all internal Cursor code.",
+        "Autofix spawns a cloud agent to diagnose findings and propose a patch.",
+        "Over 35% of Bugbot Autofix changes are merged into the base PR.",
+        "More than 40% of internal PRs now come from cloud agents.",
+      ],
+      quote: "We also run Bugbot on all internal code at Cursor.",
+      attribution: "Cursor, Building a better Bugbot",
+      href: "https://cursor.com/blog/bugbot-autofix",
+      linkLabel: "Read the Bugbot Autofix post",
+    },
+    {
       company: "National Australia Bank",
       title: "Evaluated GitHub Copilot and Amazon Q. Standardized on Cursor.",
+      forCat:
+        "Closest analog to Cat evaluating Copilot. Legacy plus modernization, then standardize on one agent that knows the codebase.",
       bullets: [
         "Legacy monolith and mainframe modernization, 3x faster than expected.",
         "6,000 developers in the first cohort, expanding to 10,000.",
@@ -544,6 +617,8 @@ export const stories = {
     {
       company: "Box",
       title: "Enterprise security, privacy, and governance first.",
+      forCat:
+        "Brian Rossi's gate. Security, privacy, and governance have to clear before MineStar or support code is in scope.",
       bullets: [
         "Cursor stood out in a serious enterprise vendor review for data privacy and security controls.",
         "85% daily adoption.",
@@ -560,6 +635,8 @@ export const stories = {
   video: {
     company: "Video · Cursor",
     title: "How Intuit, DoorDash, and Atlassian are adopting AI coding.",
+    forCat:
+      "How three large product orgs actually adopted agents. Useful for how Cat would roll this past a pilot team.",
     lede: "Jordan Topoleski with Chris (Intuit), Ryan (DoorDash), and Tarun (Atlassian).",
     embedSrc: "https://www.youtube-nocookie.com/embed/aF-rolD9W7I",
     href: "https://www.youtube.com/watch?v=aF-rolD9W7I",

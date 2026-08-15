@@ -355,7 +355,6 @@ function StoriesSection() {
       title={stories.title}
       lede={stories.lede}
     >
-      <p className="mb-6 font-mono text-[11.5px] text-ink-faint">{stories.sourceLabel}</p>
       <div className="space-y-3">
         {stories.items.map((story) => (
           <article
@@ -365,9 +364,17 @@ function StoriesSection() {
             <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
               {story.company}
             </p>
-            <h3 className="mt-2 max-w-[36rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
+            <h3 className="mt-2 max-w-[40rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
               {story.title}
             </h3>
+            <div className="mt-4 rounded-lg border border-hairline bg-panel/55 px-3.5 py-3">
+              <p className="text-[10.5px] font-medium uppercase tracking-[0.09em] text-ink-faint">
+                {stories.forCatLabel}
+              </p>
+              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-muted">
+                {story.forCat}
+              </p>
+            </div>
             <ul className="mt-4 space-y-2">
               {story.bullets.map((bullet) => (
                 <li
@@ -407,10 +414,18 @@ function StoriesSection() {
           <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
             {stories.video.company}
           </p>
-          <h3 className="mt-2 max-w-[36rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
+          <h3 className="mt-2 max-w-[40rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
             {stories.video.title}
           </h3>
-          <p className="mt-2 text-[14px] leading-[1.55] text-ink-muted">{stories.video.lede}</p>
+          <div className="mt-4 rounded-lg border border-hairline bg-panel/55 px-3.5 py-3">
+            <p className="text-[10.5px] font-medium uppercase tracking-[0.09em] text-ink-faint">
+              {stories.forCatLabel}
+            </p>
+            <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-muted">
+              {stories.video.forCat}
+            </p>
+          </div>
+          <p className="mt-3 text-[14px] leading-[1.55] text-ink-muted">{stories.video.lede}</p>
           <div className="mt-4 overflow-hidden rounded-lg border border-hairline bg-panel/40">
             <div className="relative aspect-video">
               <iframe
