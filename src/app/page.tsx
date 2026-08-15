@@ -35,7 +35,7 @@ function Hero() {
       <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
         <div>
           <Kicker>{hero.kicker}</Kicker>
-          <h1 className="mt-4 max-w-[14ch] text-[2.6rem] leading-[1.04] font-medium tracking-[-0.035em] sm:text-[3.3rem]">
+          <h1 className="mt-4 max-w-[22ch] text-[2.4rem] leading-[1.06] font-medium tracking-[-0.035em] sm:text-[3.1rem]">
             {hero.title}
           </h1>
           <p className="mt-6 max-w-[40rem] text-[16px] leading-[1.62] text-ink-muted sm:text-[16.5px]">

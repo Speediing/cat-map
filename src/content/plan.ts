@@ -40,7 +40,7 @@ export const nav = [
 
 export const hero = {
   kicker: "Mutual action plan · August 2026",
-  title: "The next thirty days.",
+  title: "Proactive support. MineStar 2.0 on time.",
   standfirst:
     "Support first. Then MineStar. One page both teams work from: Caterpillar named that order, and SpaceXAI funds the 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
   meta: "Compiled from the working sessions of 11, 13, and 14 August 2026.",
