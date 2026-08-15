@@ -53,7 +53,7 @@ export const glance = {
     {
       value: "~2 weeks",
       label: "The gate",
-      body: "A formal trial evaluation agreement, now with Cat legal. Cat policy allows no click-through terms, so nothing downloads before signature.",
+      body: "A formal trial evaluation agreement, headed to Cat legal. Cat policy allows no click-through terms, so nothing downloads before signature.",
     },
     {
       value: "End of 2027",
@@ -114,7 +114,7 @@ export const pilot = {
   solution: [
     {
       lead: "Use the window.",
-      text: "While the agreement sits with legal, everything else gets ready. Dustin Ziegler is looping Brian Rossi in cyber and infrastructure on network and SSO; SSO itself typically takes under a day once it starts. The NDA is already signed (it can fold into the MSA later), and Joe Masello is checking whether prior SpaceX/Starlink paper shortens the MSA redlines, which otherwise run a few weeks.",
+      text: "While the agreement works through legal, everything else gets ready. Dustin Ziegler is looping Brian Rossi in cyber and infrastructure on network and SSO; SSO itself typically takes under a day once it starts. The NDA is already signed (it can fold into the MSA later), and Joe Masello is checking whether prior SpaceX/Starlink paper shortens the MSA redlines, which otherwise run a few weeks.",
     },
     {
       lead: "Start on desktop.",
@@ -256,7 +256,6 @@ export const footer = {
       "Brian Rossi",
       "Matt Mansfield",
       "Ritesh Gupta",
-      "Andy Lofgreen",
       "Swaran Unni",
       "Sai Praveen Gundlapalli",
       "Phillip Jones",
