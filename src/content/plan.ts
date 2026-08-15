@@ -511,6 +511,12 @@ export const stories = {
   title: "How peers evaluated Cursor and what they shipped.",
   lede: "Verified from published stories on cursor.com/blog and brex.com. Metrics are from those posts only. The Caterpillar line on each tile is the mapping, not a Cat number.",
   forCatLabel: "For Caterpillar",
+  art: {
+    src: "/spacex-cat-rocket.jpg",
+    width: 1536,
+    height: 1024,
+    alt: "Watercolor of a white rocket on a yellow launch pad beside a yellow haul truck in the dust",
+  },
   items: [
     {
       company: "NVIDIA",

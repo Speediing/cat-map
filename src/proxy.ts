@@ -20,6 +20,7 @@ const PUBLIC_PATHS = new Set([
   "/favicon.ico",
   "/icon.svg",
   "/hero-truck.jpg",
+  "/spacex-cat-rocket.jpg",
 ]);
 
 function isConfigured(): boolean {
