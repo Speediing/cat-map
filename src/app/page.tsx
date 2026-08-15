@@ -11,11 +11,13 @@ import { PlanBoard } from "@/components/plan-board";
 import {
   actionsSection,
   footer,
+  gartner,
   glance,
   hero,
   minestar,
   pilot,
   site,
+  stories,
   support,
   type Beat as BeatText,
   type NextStep,
@@ -345,6 +347,160 @@ function UseCaseSection({
   );
 }
 
+function ProofArtBreak() {
+  return (
+    <div className="border-t border-hairline" aria-hidden>
+      <div className="mx-auto max-w-3xl px-6 py-10 sm:px-10 sm:py-14">
+        <Image
+          src={stories.art.src}
+          width={stories.art.width}
+          height={stories.art.height}
+          alt={stories.art.alt}
+          sizes="(min-width: 768px) 48rem, 100vw"
+          className="h-auto w-full select-none mix-blend-multiply"
+        />
+      </div>
+    </div>
+  );
+}
+
+function StoriesSection() {
+  return (
+    <DrillSection
+      id={stories.id}
+      kicker={stories.kicker}
+      title={stories.title}
+      lede={stories.lede}
+    >
+      <div className="space-y-3">
+        {stories.items.map((story) => (
+          <article
+            key={story.company}
+            className="rounded-xl border border-hairline bg-paper/80 p-5 sm:p-6"
+          >
+            <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
+              {story.company}
+            </p>
+            <h3 className="mt-2 max-w-[40rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
+              {story.title}
+            </h3>
+            <div className="mt-4 rounded-lg border border-hairline bg-panel/55 px-3.5 py-3">
+              <p className="text-[10.5px] font-medium uppercase tracking-[0.09em] text-ink-faint">
+                {stories.forCatLabel}
+              </p>
+              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-muted">
+                {story.forCat}
+              </p>
+            </div>
+            <ul className="mt-4 space-y-2">
+              {story.bullets.map((bullet) => (
+                <li
+                  key={bullet}
+                  className="flex gap-3 text-[14px] leading-[1.55] text-ink-muted"
+                >
+                  <span
+                    aria-hidden
+                    className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[1px] border border-hairline-strong"
+                  />
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+            <blockquote className="mt-5 border-l-2 border-hairline-strong pl-4">
+              <p className="text-[14.5px] leading-[1.6] text-ink">
+                &ldquo;{story.quote}&rdquo;
+              </p>
+              <footer className="mt-2 font-mono text-[11.5px] text-ink-faint">
+                {story.attribution}
+              </footer>
+            </blockquote>
+            {story.href ? (
+              <a
+                href={story.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-[13.5px] font-medium text-ink underline decoration-hairline-strong underline-offset-4 transition-colors hover:decoration-ink"
+              >
+                {story.linkLabel}
+              </a>
+            ) : null}
+          </article>
+        ))}
+
+        <article className="rounded-xl border border-hairline bg-paper/80 p-5 sm:p-6">
+          <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
+            {stories.video.company}
+          </p>
+          <h3 className="mt-2 max-w-[40rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
+            {stories.video.title}
+          </h3>
+          <div className="mt-4 rounded-lg border border-hairline bg-panel/55 px-3.5 py-3">
+            <p className="text-[10.5px] font-medium uppercase tracking-[0.09em] text-ink-faint">
+              {stories.forCatLabel}
+            </p>
+            <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-muted">
+              {stories.video.forCat}
+            </p>
+          </div>
+          <p className="mt-3 text-[14px] leading-[1.55] text-ink-muted">{stories.video.lede}</p>
+          <div className="mt-4 overflow-hidden rounded-lg border border-hairline bg-panel/40">
+            <div className="relative aspect-video">
+              <iframe
+                src={stories.video.embedSrc}
+                title={stories.video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
+          <a
+            href={stories.video.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-[13.5px] font-medium text-ink underline decoration-hairline-strong underline-offset-4 transition-colors hover:decoration-ink"
+          >
+            {stories.video.linkLabel}
+          </a>
+        </article>
+      </div>
+    </DrillSection>
+  );
+}
+
+function GartnerSection() {
+  return (
+    <section id={gartner.id} className="border-t border-hairline">
+      <div className="mx-auto max-w-6xl px-6 py-14 sm:px-10 sm:py-16">
+        <Kicker>{gartner.kicker}</Kicker>
+        <h2 className="mt-3 max-w-[34ch] text-[1.55rem] leading-[1.12] font-medium tracking-[-0.03em] sm:text-[1.85rem]">
+          {gartner.title}
+        </h2>
+        <p className="mt-3 max-w-[42rem] text-[14.5px] leading-[1.6] text-ink-muted">
+          {gartner.lede}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {gartner.links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-hairline bg-paper/80 px-3.5 py-2 text-[13px] font-medium text-ink transition-colors hover:border-hairline-strong"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <p className="mt-6 max-w-[52rem] text-[11.5px] leading-[1.55] text-ink-faint">
+          {gartner.disclaimer}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function SiteFooter() {
   return (
     <footer className="border-t border-hairline">
@@ -410,6 +566,9 @@ export default function Page() {
         >
           <PlanBoard />
         </DrillSection>
+        <ProofArtBreak />
+        <StoriesSection />
+        <GartnerSection />
       </main>
       <SiteFooter />
     </>

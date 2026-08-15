@@ -36,6 +36,8 @@ export const nav = [
   { id: "stack", label: "Voice + Bot" },
   { id: "minestar", label: "MineStar" },
   { id: "actions", label: "Live plan" },
+  { id: "stories", label: "Stories" },
+  { id: "gartner", label: "Gartner" },
 ] as const;
 
 export const hero = {
@@ -432,9 +434,240 @@ export const actionsSection = {
   errorLabel: "Save failed, edit again to retry",
   memoryLabel: "Temporary storage. Set POSTGRES_URL for the shared database.",
   actionsCaption: "The action list",
-  ganttCaption: "Working dates",
+  pathCaption: "The two phases",
+  pathNote: "Phase 2 is gated. Agreement and readiness both required.",
+  ganttCaption: "From this week to the verdict",
   ganttBadge: "Not yet agreed",
   todayLabel: "Today",
+  addStepLabel: "+ Add step",
+  stepLabel: "Step",
+};
+
+/**
+ * Phase cards above the live gantt. Same owners as the seed and glance,
+ * laid out as a two-phase path (agreement + readiness, then the trial).
+ */
+export const livePlanPhases = {
+  phase1: {
+    kicker: "Phase 1 · Now",
+    title: "Agreement + readiness",
+    when: "Paper and readiness in parallel. Nothing waits twice.",
+    tracks: [
+      {
+        who: "Joe + Cat legal",
+        what: "Trial evaluation agreement, terms, and success criteria",
+      },
+      {
+        who: "Dustin + Dhamu + Rossi",
+        what: "Infrastructure and SSO readiness call",
+      },
+      {
+        who: "Sai Praveen",
+        what: "Architecture and security deep dive with Cat IT",
+      },
+      {
+        who: "Swaran Unni",
+        what: "Prioritized support problem list, small pieces first",
+      },
+    ],
+  },
+  gate: {
+    label: "Both gates",
+    items: ["Trial agreement signed", "Readiness confirmed"],
+  },
+  phase2: {
+    kicker: "Phase 2 · After both gates",
+    title: "30-day trial",
+    when: "Starts at signature. SpaceXAI-funded, all models, everyone in.",
+    tracks: [
+      {
+        who: "Onboarding",
+        what: "Access, installs behind SSO, and a shared Slack channel",
+      },
+      {
+        who: "Cadence",
+        what: "Short weekly status; Jason, Brian, and Joe on call",
+      },
+      {
+        who: "Evaluation",
+        what: "Desktop-first trial against Copilot and the tools you run",
+      },
+      {
+        who: "The verdict",
+        what: "Viability plus a real consumption baseline for funding",
+      },
+    ],
+  },
+};
+
+/**
+ * Published Cursor / SpaceXAI proof appendix. Metrics and quotes only from
+ * the named public posts. The For Caterpillar line on each tile is a mapping,
+ * not a Caterpillar number.
+ */
+export const stories = {
+  id: "stories",
+  kicker: "Customer stories",
+  title: "How peers evaluated Cursor and what they shipped.",
+  lede: "Verified from published stories on cursor.com/blog and brex.com. Metrics are from those posts only. The Caterpillar line on each tile is the mapping, not a Cat number.",
+  forCatLabel: "For Caterpillar",
+  art: {
+    src: "/spacex-cat-rocket.jpg",
+    width: 1536,
+    height: 1024,
+    alt: "Watercolor of a white rocket on a yellow launch pad beside a yellow haul truck in the dust",
+  },
+  items: [
+    {
+      company: "NVIDIA",
+      title: "30-year interconnected codebases. 30,000 developers daily.",
+      forCat:
+        "Cat already partners with NVIDIA. Same shape as MineStar: decades of interconnected product-line code that no one person can hold in their head.",
+      bullets: [
+        "Large, interconnected product-line codebases that evolve quickly.",
+        "30,000 developers using Cursor daily.",
+        "3x committed code, with bug rates flat.",
+        "SDLC beyond generation: review, test, and debug.",
+      ],
+      quote:
+        "Each of NVIDIA's product lines has a complex codebase that is evolving quickly. It's very hard for developers to stay on top of these changes and understand the entirety of the codebase. This is where Cursor really shines.",
+      attribution: "Wei Luo, VP of Engineering, NVIDIA",
+      href: "https://cursor.com/blog/nvidia",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Coinbase",
+      title:
+        "Idea to production down 90%. 1 to 2 engineers shipping what used to take a full team.",
+      forCat:
+        "The MineStar and support value case: get a change from idea to production without parking a full feature team on it.",
+      bullets: [
+        "2,400+ developers on Cursor.",
+        "Idea to production: 20 days to 1.8 days. Long-term target is 4 hours.",
+        "Idea to first PR: 8 days to under 30 minutes.",
+        "55% more PRs merged per engineer. 75% of PRs created by agents.",
+        "Feature work that needed a full team now done by 1 to 2 engineers.",
+      ],
+      quote:
+        "The product has become a mission control for agents rather than just a raw IDE.",
+      attribution: "Chintan Turakhia, Senior Director of Engineering, Coinbase",
+      href: "https://cursor.com/blog/coinbase",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Faire",
+      title: "Self-healing PRs. 2,000 automations a week. Double the PR throughput.",
+      forCat:
+        "Support and MineStar CI is the tax. A failed build gets triaged and patched by an agent instead of waiting on a human to read the logs.",
+      bullets: [
+        "When CI fails, a cloud agent triages the logs, diagnoses the issue, and pushes a fix.",
+        "More than 2,000 autonomous agent runs per week across 25+ automations.",
+        "Doubled weekly PR throughput.",
+        "An 18-month migration is now one engineer directing a fleet of cloud agents.",
+      ],
+      quote:
+        "Cursor's cloud offering is a lot better than running local agents with worktrees or 10 remote environments you're shelling into. It's a streamlined UX for managing multiple concurrent agents.",
+      attribution: "Luke Bjerring, Principal Engineer, Faire",
+      href: "https://cursor.com/blog/faire",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Brex",
+      title: "Micronaut migration: 50 services in a quarter, then 180 in a month.",
+      forCat:
+        "Cat's version is platform and framework upgrades across many services, without pausing a quarter of product work to do it by hand.",
+      bullets: [
+        "Manual pass: 3 engineers, one quarter, 50 services from Micronaut 3 to 4.",
+        "With self-hosted Cursor cloud agents: 1 engineer completed 180 services in 1 month.",
+        "32x per-capita acceleration. About 90% lower cost per service.",
+      ],
+      quote:
+        "This allowed a single engineer to migrate 180 microservices in just one month.",
+      attribution: "Brex engineering, Agent automations for big migrations",
+      href: "https://www.brex.com/journal/agent-automations-for-big-migrations",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Cursor",
+      title: "Every internal PR goes through Bugbot. Cloud agents review and autofix.",
+      forCat:
+        "What running this on ourselves looks like: every PR reviewed, agents propose the fix, humans still merge. The bar Cat can hold us to.",
+      bullets: [
+        "Bugbot runs on all internal Cursor code.",
+        "Autofix spawns a cloud agent to diagnose findings and propose a patch.",
+        "Over 35% of Bugbot Autofix changes are merged into the base PR.",
+        "More than 40% of internal PRs now come from cloud agents.",
+      ],
+      quote: "We also run Bugbot on all internal code at Cursor.",
+      attribution: "Cursor, Building a better Bugbot",
+      href: "https://cursor.com/blog/bugbot-autofix",
+      linkLabel: "Read the Bugbot Autofix post",
+    },
+    {
+      company: "National Australia Bank",
+      title: "Evaluated GitHub Copilot and Amazon Q. Standardized on Cursor.",
+      forCat:
+        "Closest analog to Cat evaluating Copilot. Legacy plus modernization, then standardize on one agent that knows the codebase.",
+      bullets: [
+        "Legacy monolith and mainframe modernization, 3x faster than expected.",
+        "6,000 developers in the first cohort, expanding to 10,000.",
+        "BizCalc Silverlight monolith: pre-dev in 1 week vs 2 months; full migration expected 2 months vs 6.",
+        "Assembly mainframe 3x faster. Greenfield payment app 3 weeks vs 4 months.",
+      ],
+      quote:
+        "Using plugin-based coding assistants is like trying to bolt AI onto your workflow from the outside. With Cursor, the agent understands our codebase and works the way NAB works.",
+      attribution: "Chris De Lorenzo, Principal Engineer",
+      href: "https://cursor.com/blog/nab",
+      linkLabel: "Read the story",
+    },
+    {
+      company: "Box",
+      title: "Enterprise security, privacy, and governance first.",
+      forCat:
+        "Brian Rossi's gate. Security, privacy, and governance have to clear before MineStar or support code is in scope.",
+      bullets: [
+        "Cursor stood out in a serious enterprise vendor review for data privacy and security controls.",
+        "85% daily adoption.",
+        "30-50% roadmap throughput.",
+        "Migrations 80-90% faster.",
+      ],
+      quote:
+        "We vet developer tools very seriously. Cursor stood out from other vendors for its data privacy and security controls.",
+      attribution: "Swaroop Butala, Senior Director of Engineering",
+      href: "https://cursor.com/blog/box",
+      linkLabel: "Read the story",
+    },
+  ],
+  video: {
+    company: "Video · Cursor",
+    title: "How Intuit, DoorDash, and Atlassian are adopting AI coding.",
+    forCat:
+      "How three large product orgs actually adopted agents. Useful for how Cat would roll this past a pilot team.",
+    lede: "Jordan Topoleski with Chris (Intuit), Ryan (DoorDash), and Tarun (Atlassian).",
+    embedSrc: "https://www.youtube-nocookie.com/embed/aF-rolD9W7I",
+    href: "https://www.youtube.com/watch?v=aF-rolD9W7I",
+    linkLabel: "Watch on YouTube",
+  },
+};
+
+export const gartner = {
+  id: "gartner",
+  kicker: "Analyst",
+  title:
+    "Cursor is a Leader in the 2026 Gartner Magic Quadrant for Enterprise AI Coding Agents.",
+  lede: "Furthest on Completeness of Vision. Report date 20 May 2026. Authors: Philip Walsh, Nitish Tyagi, Keith Holloway, Matt Brasier, Neha Agarwal.",
+  links: [
+    {
+      label: "Read the complimentary Gartner report",
+      href: "https://cursor.com/lp/2026-gartner-mq",
+    },
+    {
+      label: "Read the Cursor announcement",
+      href: "https://cursor.com/blog/cursor-leads-gartner-mq-2026",
+    },
+  ],
+  disclaimer:
+    "Gartner, Magic Quadrant for Enterprise AI Coding Agents, Philip Walsh, Nitish Tyagi, Keith Holloway, Matt Brasier, Neha Agarwal, 20 May 2026. Gartner does not endorse any vendor, product or service depicted in its research publications, and does not advise technology users to select only those vendors with the highest ratings or other designation. Gartner research publications consist of the opinions of Gartner's research organization and should not be construed as statements of fact. Gartner disclaims all warranties, expressed or implied, with respect to this research, including any warranties of merchantability or fitness for a particular purpose. GARTNER is a registered trademark and service mark of Gartner, Inc. and/or its affiliates in the U.S. and internationally, and MAGIC QUADRANT is a registered trademark of Gartner, Inc. and/or its affiliates and are used herein with permission. All rights reserved.",
 };
 
 /**
