@@ -22,7 +22,7 @@ export type Beat = {
 };
 
 export const site = {
-  title: "Caterpillar × SpaceXAI",
+  title: "Caterpillar × SpaceXAI · Mutual action plan",
   description:
     "The mutual action plan for Caterpillar and SpaceXAI: a 30-day trial, support first then MineStar, and a live board of owners, statuses, and working dates.",
   wordmark: { left: "Caterpillar", right: "SpaceXAI" },
@@ -39,10 +39,10 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  kicker: "The shared plan · August 2026",
-  title: "Support first. Then MineStar.",
+  kicker: "Mutual action plan · August 2026",
+  title: "The next thirty days.",
   standfirst:
-    "One page both teams work from. Caterpillar named the use cases and the order; SpaceXAI funds the 30-day trial, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
+    "Support first. Then MineStar. One page both teams work from: Caterpillar named that order, and SpaceXAI funds the 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
   meta: "Compiled from the working sessions of 11, 13, and 14 August 2026.",
   cta: { label: "Open the live plan", href: "#actions" },
   art: {
