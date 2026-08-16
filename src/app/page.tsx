@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { LogoLockup } from "@/components/logo-lockup";
+import { LivingArt3D } from "@/components/living-art-3d";
 import { SiteNav } from "@/components/site-nav";
 import {
   GateSplit,
@@ -16,7 +17,6 @@ import {
   hero,
   minestar,
   pilot,
-  site,
   stories,
   support,
   type Beat as BeatText,
@@ -35,8 +35,11 @@ function Hero() {
   return (
     <section id="top" className="mx-auto max-w-6xl px-6 pt-10 pb-10 sm:px-10 sm:pt-14">
       <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
-        <div>
-          <Kicker>{hero.kicker}</Kicker>
+        <div className="min-w-0">
+          <LogoLockup size="hero" />
+          <div className="mt-5">
+            <Kicker>{hero.kicker}</Kicker>
+          </div>
           <h1 className="mt-4 max-w-[22ch] text-[2.4rem] leading-[1.06] font-medium tracking-[-0.035em] sm:text-[3.1rem]">
             {hero.title}
           </h1>
@@ -52,14 +55,14 @@ function Hero() {
           </a>
         </div>
         <div className="lg:-my-4">
-          <Image
+          <LivingArt3D
             src={hero.art.src}
             width={hero.art.width}
             height={hero.art.height}
             alt={hero.art.alt}
             priority
             sizes="(min-width: 1024px) 45vw, 100vw"
-            className="h-auto w-full select-none mix-blend-multiply"
+            mood="rocket"
           />
         </div>
       </div>
@@ -351,13 +354,13 @@ function ProofArtBreak() {
   return (
     <div className="border-t border-hairline" aria-hidden>
       <div className="mx-auto max-w-3xl px-6 py-10 sm:px-10 sm:py-14">
-        <Image
+        <LivingArt3D
           src={stories.art.src}
           width={stories.art.width}
           height={stories.art.height}
           alt={stories.art.alt}
           sizes="(min-width: 768px) 48rem, 100vw"
-          className="h-auto w-full select-none mix-blend-multiply"
+          mood="truck"
         />
       </div>
     </div>
@@ -506,14 +509,8 @@ function SiteFooter() {
     <footer className="border-t border-hairline">
       <div className="mx-auto max-w-6xl px-6 py-12 sm:px-10 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,0.7fr)]">
-          <div>
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden className="h-2 w-2 rounded-[2px] bg-cat-yellow" />
-              <span className="text-[13.5px] font-medium tracking-[-0.01em]">
-                {site.wordmark.left} <span className="text-ink-faint">×</span>{" "}
-                {site.wordmark.right}
-              </span>
-            </div>
+          <div className="min-w-0">
+            <LogoLockup size="compact" />
             <p className="mt-4 max-w-[26rem] text-[13px] leading-[1.6] text-ink-faint">
               {footer.line}
             </p>
