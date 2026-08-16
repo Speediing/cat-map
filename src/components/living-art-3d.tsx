@@ -100,8 +100,8 @@ export function LivingArt3D({
 
       const scene: Scene = new THREE.Scene();
       const aspect = width / height;
-      const camera: PerspectiveCamera = new THREE.PerspectiveCamera(32, aspect, 0.1, 20);
-      camera.position.set(0, 0.05, 2.55);
+      const camera: PerspectiveCamera = new THREE.PerspectiveCamera(36, aspect, 0.1, 20);
+      camera.position.set(0, 0.02, 2.35);
 
       renderer = new THREE.WebGLRenderer({
         canvas,
@@ -131,7 +131,8 @@ export function LivingArt3D({
       texture.colorSpace = THREE.SRGBColorSpace;
       texture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
 
-      const geo = new THREE.PlaneGeometry(aspect * 1.55, 1.55, 24, 16);
+      const planeH = 1.28;
+      const geo = new THREE.PlaneGeometry(aspect * planeH, planeH, 24, 16);
       const pos = geo.attributes.position;
       for (let i = 0; i < pos.count; i++) {
         const x = pos.getX(i);
@@ -156,10 +157,13 @@ export function LivingArt3D({
       group.add(mesh);
       scene.add(group);
 
-      const restRotX = mood === "rocket" ? 0.16 : 0.12;
-      const restRotY = mood === "rocket" ? -0.28 : 0.22;
+      // Rest pose: enough tilt to read as 3D, soft enough that the full plate stays in frame.
+      const restRotX = mood === "rocket" ? 0.11 : 0.1;
+      const restRotY = mood === "rocket" ? -0.14 : 0.14;
       group.rotation.x = restRotX;
       group.rotation.y = restRotY;
+      // Bias slightly so the rocket (left of the plate) stays visible under Y tilt.
+      if (mood === "rocket") group.position.x = 0.06;
 
       onResize = () => {
         if (!renderer) return;
@@ -194,11 +198,11 @@ export function LivingArt3D({
           const reset = c > 0.84 ? easeInOut((c - 0.84) / 0.16) : 0;
           const amt = Math.max(launch, hold) * (1 - reset);
 
-          group.position.y = amt * 0.42;
-          group.position.z = amt * 0.28;
-          group.rotation.x = restRotX - amt * 0.22 + idleX + parX;
+          group.position.y = amt * 0.32;
+          group.position.z = amt * 0.2;
+          group.rotation.x = restRotX - amt * 0.16 + idleX + parX;
           group.rotation.y = restRotY + idleY + parY;
-          group.rotation.z = -amt * 0.06;
+          group.rotation.z = -amt * 0.05;
         } else {
           const c = (t % 5.4) / 5.4;
           const go = easeInOut(Math.min(1, c / 0.5));
