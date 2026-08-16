@@ -432,7 +432,11 @@ export function PlanBoard() {
             <span className="ml-auto font-mono text-[11px] text-ink-faint">
               {actionsSection.memoryLabel}
             </span>
-          ) : null}
+          ) : (
+            <span className="ml-auto font-mono text-[11px] text-ink-faint">
+              {actionsSection.persistedLabel}
+            </span>
+          )}
         </div>
       </figure>
 

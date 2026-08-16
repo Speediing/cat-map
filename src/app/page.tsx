@@ -16,6 +16,7 @@ import {
   glance,
   hero,
   minestar,
+  partnership,
   pilot,
   stories,
   support,
@@ -243,6 +244,19 @@ function NextStepsList({ steps, note }: { steps: NextStep[]; note?: string | nul
 function PilotSection() {
   return (
     <DrillSection id={pilot.id} kicker={pilot.kicker} title={pilot.title} lede={pilot.lede}>
+      <div className="mb-10 max-w-[44rem] rounded-xl border border-hairline bg-paper/80 p-5 sm:p-6">
+        <Kicker>{partnership.kicker}</Kicker>
+        <h3 className="mt-2 text-[1.15rem] font-medium tracking-[-0.02em]">
+          {partnership.title}
+        </h3>
+        <div className="mt-3 space-y-3">
+          {partnership.body.map((paragraph) => (
+            <p key={paragraph.slice(0, 32)} className="text-[14.5px] leading-[1.6] text-ink-muted">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
       <BeatRow label="Problem">
         <Paragraphs items={pilot.problem} />
       </BeatRow>
@@ -381,9 +395,19 @@ function StoriesSection() {
             key={story.company}
             className="rounded-xl border border-hairline bg-paper/80 p-5 sm:p-6"
           >
-            <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
-              {story.company}
-            </p>
+            <div className="flex items-center gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element -- local mono SVGs */}
+              <img
+                src={story.logo}
+                alt=""
+                width={88}
+                height={28}
+                className="h-6 w-auto max-w-[5.5rem] object-contain object-left"
+              />
+              <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
+                {story.company}
+              </p>
+            </div>
             <h3 className="mt-2 max-w-[40rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
               {story.title}
             </h3>
@@ -431,9 +455,19 @@ function StoriesSection() {
         ))}
 
         <article className="rounded-xl border border-hairline bg-paper/80 p-5 sm:p-6">
-          <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
-            {stories.video.company}
-          </p>
+          <div className="flex items-center gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element -- local mono SVGs */}
+            <img
+              src={stories.video.logo}
+              alt=""
+              width={88}
+              height={28}
+              className="h-6 w-auto max-w-[5.5rem] object-contain object-left"
+            />
+            <p className="text-[11px] font-medium uppercase tracking-[0.09em] text-orange">
+              {stories.video.company}
+            </p>
+          </div>
           <h3 className="mt-2 max-w-[40rem] text-[1.2rem] leading-[1.2] font-medium tracking-[-0.02em]">
             {stories.video.title}
           </h3>
