@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { login, site } from "@/content/plan";
+import { login } from "@/content/plan";
 import { loginAction, type LoginState } from "./actions";
 
 const initialState: LoginState = { error: null };
@@ -14,9 +14,7 @@ export default function LoginPage() {
       <div className="mx-auto w-full max-w-md">
         <div className="flex items-center gap-2.5">
           <span aria-hidden className="h-2 w-2 rounded-[2px] bg-cat-yellow" />
-          <span className="text-[14px] font-medium tracking-[-0.01em]">
-            {site.wordmark.left} × {site.wordmark.right}
-          </span>
+          <span className="text-[14px] font-medium tracking-[-0.01em]">Private</span>
         </div>
 
         <p className="mt-10 text-[12px] uppercase tracking-[0.08em] text-orange">
