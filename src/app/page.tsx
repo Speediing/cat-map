@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { LogoLockup } from "@/components/logo-lockup";
+import { LivingArt3D } from "@/components/living-art-3d";
 import { SiteNav } from "@/components/site-nav";
 import {
   GateSplit,
@@ -55,14 +55,14 @@ function Hero() {
           </a>
         </div>
         <div className="lg:-my-4">
-          <Image
+          <LivingArt3D
             src={hero.art.src}
             width={hero.art.width}
             height={hero.art.height}
             alt={hero.art.alt}
             priority
             sizes="(min-width: 1024px) 45vw, 100vw"
-            className="h-auto w-full select-none mix-blend-multiply"
+            mood="rocket"
           />
         </div>
       </div>
@@ -354,13 +354,13 @@ function ProofArtBreak() {
   return (
     <div className="border-t border-hairline" aria-hidden>
       <div className="mx-auto max-w-3xl px-6 py-10 sm:px-10 sm:py-14">
-        <Image
+        <LivingArt3D
           src={stories.art.src}
           width={stories.art.width}
           height={stories.art.height}
           alt={stories.art.alt}
           sizes="(min-width: 768px) 48rem, 100vw"
-          className="h-auto w-full select-none mix-blend-multiply"
+          mood="truck"
         />
       </div>
     </div>
