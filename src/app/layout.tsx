@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { site } from "@/content/plan";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +12,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/** Public HTML metadata — must stay anonymous before auth (view-source, unfurls). */
+const PUBLIC_TITLE = "Private";
+const PUBLIC_DESCRIPTION = "Password required.";
+
 export const metadata: Metadata = {
-  title: site.title,
-  description: site.description,
+  title: PUBLIC_TITLE,
+  description: PUBLIC_DESCRIPTION,
   robots: { index: false, follow: false },
+  openGraph: {
+    title: PUBLIC_TITLE,
+    description: PUBLIC_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: PUBLIC_TITLE,
+    description: PUBLIC_DESCRIPTION,
+  },
 };
 
 export const viewport: Viewport = {
