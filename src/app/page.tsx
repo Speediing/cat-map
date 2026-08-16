@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LogoLockup } from "@/components/logo-lockup";
 import { SiteNav } from "@/components/site-nav";
 import {
   GateSplit,
@@ -16,7 +17,6 @@ import {
   hero,
   minestar,
   pilot,
-  site,
   stories,
   support,
   type Beat as BeatText,
@@ -36,7 +36,10 @@ function Hero() {
     <section id="top" className="mx-auto max-w-6xl px-6 pt-10 pb-10 sm:px-10 sm:pt-14">
       <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
         <div>
-          <Kicker>{hero.kicker}</Kicker>
+          <LogoLockup size="hero" />
+          <div className="mt-5">
+            <Kicker>{hero.kicker}</Kicker>
+          </div>
           <h1 className="mt-4 max-w-[22ch] text-[2.4rem] leading-[1.06] font-medium tracking-[-0.035em] sm:text-[3.1rem]">
             {hero.title}
           </h1>
@@ -507,13 +510,7 @@ function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-12 sm:px-10 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,0.7fr)]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden className="h-2 w-2 rounded-[2px] bg-cat-yellow" />
-              <span className="text-[13.5px] font-medium tracking-[-0.01em]">
-                {site.wordmark.left} <span className="text-ink-faint">×</span>{" "}
-                {site.wordmark.right}
-              </span>
-            </div>
+            <LogoLockup size="compact" />
             <p className="mt-4 max-w-[26rem] text-[13px] leading-[1.6] text-ink-faint">
               {footer.line}
             </p>
