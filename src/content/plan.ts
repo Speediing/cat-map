@@ -96,9 +96,9 @@ export const glance = {
     },
     {
       label: "Priority 2",
-      tag: null as string | null,
+      tag: "Caterpillar's original plan" as string | null,
       title: "MineStar modernization",
-      body: "A 20-year monolith, two to two and a half million lines, moving to microservices. Richard's team is on it with in-house agents 400 people use. The ask: faster, at lower cost.",
+      body: "Caterpillar's plan today: a 20-year monolith, two to two and a half million lines, moving to microservices. Richard's team has been on it with in-house agents 400 people use since last October. The ask of SpaceXAI: faster, at lower cost.",
       owner: "Richard Green's team",
       clock: "Deep dive in September · GA end of 2027",
     },
@@ -149,6 +149,15 @@ export const gateSplit = {
       "The 30-day clock starts",
     ],
   },
+};
+
+export const partnership = {
+  kicker: "Partnership details",
+  title: "How the trial is set up.",
+  body: [
+    "SpaceXAI funds the 30-day trial: all models, all participants, no cost to Caterpillar. Pricing for anything after that stays on the paper Joe is moving; this page does not invent a number.",
+    "Named field side for Caterpillar: Jason Wiker, Brian Fox, and Joe Masello. Post-sales support that comes with the commercial agreement is the same bench: a named field engineer, onboarding, and help through the trial and after, not a separate paid add-on invented here.",
+  ],
 };
 
 export const pilot = {
@@ -394,12 +403,12 @@ export const minestarLoop = {
 
 export const minestar = {
   id: "minestar",
-  kicker: "Priority two",
+  kicker: "Priority two · Caterpillar's original plan",
   title: "MineStar modernization",
-  lede: "The site management system for autonomous mining machines, rebuilt in place before MineStar 2.0 ships.",
+  lede: "Caterpillar's plan today for the site management system behind autonomous mining machines, rebuilt in place before MineStar 2.0 ships.",
   problem: [
     "MineStar orchestrates autonomous machines against a digital twin of the mine. It is twenty years of tightly coupled code, two to two and a half million lines by Sai's count, much of it written by the engineers who needed it rather than software developers. Richard's words: a Jenga stack. Look at it funny and the whole thing breaks.",
-    "The deadline is fixed and Richard walked it backward: MineStar 2.0 general release at the end of 2027, field follow with partner customers around March or April, a long robotics validation cycle in between. That leaves less than eighteen months end to end, most of the modernization and feature work in the next six. And the in-house path is real: a family of agents his team built, in use by more than 400 people, decomposing the monolith toward microservices since last October. The question for SpaceXAI is narrow: beat that path on speed and cost.",
+    "The deadline is fixed and Richard walked it backward: MineStar 2.0 general release at the end of 2027, field follow with partner customers around March or April, a long robotics validation cycle in between. That leaves less than eighteen months end to end, most of the modernization and feature work in the next six. And Caterpillar's original plan is already running: a family of agents his team built, in use by more than 400 people, decomposing the monolith toward microservices since last October. The question for SpaceXAI is narrow: beat that path on speed and cost.",
   ],
   solution: [
     {
@@ -432,6 +441,7 @@ export const actionsSection = {
   savedLabel: "Saved",
   savingLabel: "Saving",
   errorLabel: "Save failed, edit again to retry",
+  persistedLabel: "Saved for everyone",
   memoryLabel: "Temporary storage. Set POSTGRES_URL for the shared database.",
   actionsCaption: "The action list",
   pathCaption: "The two phases",
@@ -520,6 +530,7 @@ export const stories = {
   items: [
     {
       company: "NVIDIA",
+      logo: "/logos/stories/nvidia.svg",
       title: "30-year interconnected codebases. 30,000 developers daily.",
       forCat:
         "Cat already partners with NVIDIA. Same shape as MineStar: decades of interconnected product-line code that no one person can hold in their head.",
@@ -537,6 +548,7 @@ export const stories = {
     },
     {
       company: "Coinbase",
+      logo: "/logos/stories/coinbase.svg",
       title:
         "Idea to production down 90%. 1 to 2 engineers shipping what used to take a full team.",
       forCat:
@@ -556,6 +568,7 @@ export const stories = {
     },
     {
       company: "Faire",
+      logo: "/logos/stories/faire.svg",
       title: "Self-healing PRs. 2,000 automations a week. Double the PR throughput.",
       forCat:
         "Support and MineStar CI is the tax. A failed build gets triaged and patched by an agent instead of waiting on a human to read the logs.",
@@ -573,6 +586,7 @@ export const stories = {
     },
     {
       company: "Brex",
+      logo: "/logos/stories/brex.svg",
       title: "Micronaut migration: 50 services in a quarter, then 180 in a month.",
       forCat:
         "Cat's version is platform and framework upgrades across many services, without pausing a quarter of product work to do it by hand.",
@@ -589,6 +603,7 @@ export const stories = {
     },
     {
       company: "Cursor",
+      logo: "/logos/stories/cursor.svg",
       title: "Every internal PR goes through Bugbot. Cloud agents review and autofix.",
       forCat:
         "What running this on ourselves looks like: every PR reviewed, agents propose the fix, humans still merge. The bar Cat can hold us to.",
@@ -605,6 +620,7 @@ export const stories = {
     },
     {
       company: "National Australia Bank",
+      logo: "/logos/stories/nab.svg",
       title: "Evaluated GitHub Copilot and Amazon Q. Standardized on Cursor.",
       forCat:
         "Closest analog to Cat evaluating Copilot. Legacy plus modernization, then standardize on one agent that knows the codebase.",
@@ -622,6 +638,7 @@ export const stories = {
     },
     {
       company: "Box",
+      logo: "/logos/stories/box.svg",
       title: "Enterprise security, privacy, and governance first.",
       forCat:
         "Brian Rossi's gate. Security, privacy, and governance have to clear before MineStar or support code is in scope.",
@@ -640,6 +657,7 @@ export const stories = {
   ],
   video: {
     company: "Video · Cursor",
+    logo: "/logos/stories/cursor.svg",
     title: "How Intuit, DoorDash, and Atlassian are adopting AI coding.",
     forCat:
       "How three large product orgs actually adopted agents. Useful for how Cat would roll this past a pilot team.",
