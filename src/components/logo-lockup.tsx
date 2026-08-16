@@ -6,56 +6,75 @@ type LogoLockupProps = {
   className?: string;
 };
 
-const sizes = {
-  hero: {
-    cat: { src: "/logos/cat.svg", width: 179, height: 32, alt: "Caterpillar" },
-    spacexai: {
-      src: "/logos/spacexai.svg",
-      width: 213,
-      height: 26,
-      alt: "SpaceXAI",
-    },
-    gap: "gap-3",
-    times: "text-[15px]",
-  },
-  compact: {
-    cat: { src: "/logos/cat-mark.svg", width: 33, height: 20, alt: "Caterpillar" },
-    spacexai: {
-      src: "/logos/spacexai.svg",
-      width: 148,
-      height: 18,
-      alt: "SpaceXAI",
-    },
-    gap: "gap-2",
-    times: "text-[12px]",
-  },
-} as const;
-
-export function LogoLockup({ size = "compact", className = "" }: LogoLockupProps) {
-  const s = sizes[size];
+function Mark({
+  src,
+  width,
+  height,
+  alt,
+}: {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}) {
   return (
-    <span className={`inline-flex items-center ${s.gap} ${className}`}>
-      <Image
-        src={s.cat.src}
-        width={s.cat.width}
-        height={s.cat.height}
-        alt={s.cat.alt}
-        className="select-none"
-        style={{ height: s.cat.height, width: "auto" }}
-        unoptimized
-      />
-      <span aria-hidden className={`${s.times} font-medium leading-none text-ink-faint`}>
-        ×
-      </span>
-      <Image
-        src={s.spacexai.src}
-        width={s.spacexai.width}
-        height={s.spacexai.height}
-        alt={s.spacexai.alt}
-        className="select-none"
-        style={{ height: s.spacexai.height, width: "auto" }}
-        unoptimized
-      />
+    <Image
+      src={src}
+      width={width}
+      height={height}
+      alt={alt}
+      className="select-none"
+      style={{ height, width: "auto" }}
+      unoptimized
+    />
+  );
+}
+
+function Times({ className }: { className: string }) {
+  return (
+    <span aria-hidden className={`font-medium leading-none text-ink-faint ${className}`}>
+      ×
     </span>
+  );
+}
+
+/**
+ * Responsive lockup:
+ * - Hero mobile: CAT short mark + scaled SpaceXAI wordmark (one clean line at 390px)
+ * - Hero sm+: full CATERPILLAR wordmark + SpaceXAI wordmark
+ * - Compact mobile (nav): CAT mark + SpaceXAI icon so the sticky bar stays slim
+ * - Compact sm+: CAT mark + compact SpaceXAI wordmark
+ */
+export function LogoLockup({ size = "compact", className = "" }: LogoLockupProps) {
+  if (size === "hero") {
+    return (
+      <>
+        <span className={`inline-flex items-center gap-2.5 sm:hidden ${className}`}>
+          <Mark src="/logos/cat-mark.svg" width={46} height={28} alt="Caterpillar" />
+          <Times className="text-[13px]" />
+          <Mark src="/logos/spacexai.svg" width={156} height={19} alt="SpaceXAI" />
+        </span>
+        <span className={`hidden items-center gap-3 sm:inline-flex ${className}`}>
+          <Mark src="/logos/cat.svg" width={179} height={32} alt="Caterpillar" />
+          <Times className="text-[15px]" />
+          <Mark src="/logos/spacexai.svg" width={213} height={26} alt="SpaceXAI" />
+        </span>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <span className={`inline-flex items-center gap-1.5 sm:hidden ${className}`}>
+        <Mark src="/logos/cat-mark.svg" width={30} height={18} alt="Caterpillar" />
+        <Times className="text-[11px]" />
+        <Mark src="/logos/spacexai-icon.svg" width={42} height={16} alt="SpaceXAI" />
+      </span>
+      <span className={`hidden items-center gap-2 sm:inline-flex ${className}`}>
+        <Mark src="/logos/cat-mark.svg" width={33} height={20} alt="Caterpillar" />
+        <Times className="text-[12px]" />
+        <Mark src="/logos/spacexai.svg" width={140} height={17} alt="SpaceXAI" />
+      </span>
+    </>
   );
 }

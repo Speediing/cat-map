@@ -35,11 +35,11 @@ export function SiteNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-canvas/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center gap-5 px-6 py-3 sm:px-10">
+      <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-2.5 sm:gap-5 sm:px-10 sm:py-3">
         <a href="#top" className="shrink-0" aria-label="Caterpillar × SpaceXAI">
           <LogoLockup size="compact" />
         </a>
-        <nav className="nav-scroll flex min-w-0 flex-1 items-center justify-start gap-4 overflow-x-auto sm:justify-end sm:gap-6">
+        <nav className="nav-scroll flex min-w-0 flex-1 items-center justify-start gap-3.5 overflow-x-auto sm:justify-end sm:gap-6">
           {nav.map((item) => (
             <a
               key={item.id}

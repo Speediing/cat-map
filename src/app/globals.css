@@ -59,3 +59,54 @@ section[id] {
 .nav-scroll::-webkit-scrollbar {
   display: none;
 }
+
+/* Watercolor stills: slow drift, print coming alive. */
+.living-art__img {
+  transform-origin: 50% 55%;
+  will-change: transform;
+}
+
+.living-art--truck .living-art__img {
+  animation: living-drift-truck 28s ease-in-out infinite;
+}
+
+.living-art--rocket .living-art__img {
+  animation: living-drift-rocket 32s ease-in-out infinite;
+}
+
+@keyframes living-drift-truck {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(0.6%, -0.5%, 0) scale(1.015);
+  }
+  70% {
+    transform: translate3d(-0.4%, 0.35%, 0) scale(1.01);
+  }
+}
+
+@keyframes living-drift-rocket {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  45% {
+    transform: translate3d(-0.35%, -0.85%, 0) scale(1.02);
+  }
+  75% {
+    transform: translate3d(0.45%, -0.25%, 0) scale(1.012);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .living-art__img {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .living-art__gl {
+    display: none !important;
+  }
+}
