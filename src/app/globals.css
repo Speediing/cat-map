@@ -60,43 +60,51 @@ section[id] {
   display: none;
 }
 
-/* Watercolor stills: slow drift, print coming alive. */
+/* CSS fallback when WebGL is unavailable: subject-scale travel / lift. */
 .living-art__img {
-  transform-origin: 50% 55%;
+  transform-origin: 50% 60%;
+}
+
+.living-art__img--animate {
   will-change: transform;
 }
 
-.living-art--truck .living-art__img {
-  animation: living-drift-truck 28s ease-in-out infinite;
+.living-art--truck .living-art__img--animate {
+  animation: living-truck-roll 5.5s ease-in-out infinite;
 }
 
-.living-art--rocket .living-art__img {
-  animation: living-drift-rocket 32s ease-in-out infinite;
+.living-art--rocket .living-art__img--animate {
+  animation: living-rocket-launch 6s ease-in-out infinite;
+  transform-origin: 30% 85%;
 }
 
-@keyframes living-drift-truck {
-  0%,
+@keyframes living-truck-roll {
+  0% {
+    transform: translate3d(4%, 0, 0) scale(1.08);
+  }
+  55% {
+    transform: translate3d(-12%, 1.5%, 0) scale(1.1);
+  }
+  82% {
+    transform: translate3d(-12%, 1.5%, 0) scale(1.1);
+  }
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  40% {
-    transform: translate3d(0.6%, -0.5%, 0) scale(1.015);
-  }
-  70% {
-    transform: translate3d(-0.4%, 0.35%, 0) scale(1.01);
+    transform: translate3d(4%, 0, 0) scale(1.08);
   }
 }
 
-@keyframes living-drift-rocket {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
+@keyframes living-rocket-launch {
+  0% {
+    transform: translate3d(0, 6%, 0) scale(1.06) rotate(0deg);
   }
-  45% {
-    transform: translate3d(-0.35%, -0.85%, 0) scale(1.02);
+  50% {
+    transform: translate3d(1%, -18%, 0) scale(1.1) rotate(-2.5deg);
   }
   75% {
-    transform: translate3d(0.45%, -0.25%, 0) scale(1.012);
+    transform: translate3d(1%, -18%, 0) scale(1.1) rotate(-2.5deg);
+  }
+  100% {
+    transform: translate3d(0, 6%, 0) scale(1.06) rotate(0deg);
   }
 }
 
