@@ -451,22 +451,22 @@ export const pocCalendar = {
     {
       week: "Week 0",
       title: "Clear the gates",
-      text: "Confirm the agreement, architecture, security, infrastructure, and SSO. Then enable access and installs.",
+      text: "Joe and Cat legal move the trial agreement while Sai, Cat IT, Dustin, Dhamu, and Brian Rossi settle architecture, security, infrastructure, and SSO. Jason, Brian Fox, and Joe prepare access, installs behind SSO, and the shared Slack channel. The week ends with the agreement and readiness gates cleared so the 30-day clock can start.",
     },
     {
       week: "Week 1",
       title: "Start real work",
-      text: "Onboard, then begin with the prioritized product support problems, small pieces first.",
+      text: "Caterpillar's AI team and engineers start with Swaran's prioritized product support problems, small pieces first. Jason, Brian Fox, and Joe enable the builders, stay close in Slack, and begin the recurring cadence. The team leaves with the first support work moving on Caterpillar's code and tools.",
     },
     {
       week: "Week 2",
       title: "Deepen one path",
-      text: "Caterpillar builds the support pieces on its code and tools, with SpaceXAI working alongside.",
+      text: "Caterpillar keeps building the support pieces with SpaceXAI alongside and compares the work with the tools already in use. If the support path holds and the trial reaches it, Richard's team and Ritesh can bring in a MineStar piece. The team leaves with evidence from real work and a clearer read on build versus buy.",
     },
     {
       week: "Weeks 3 and 4",
       title: "Prove and decide",
-      text: "Compare with the tools already in use. Finish with a viability verdict and a real consumption baseline.",
+      text: "Caterpillar and the SpaceXAI field team review the work through the recurring cadence and judge it against the agreed evaluation metrics. They compare viability, ROI, and return on spend with the tools already in use. The final readout is a viability verdict and a real consumption baseline for the CFO and 2027 budget.",
     },
   ],
 };
@@ -477,22 +477,22 @@ export const pocSuccessCriteria = {
     {
       requirement: "Access works",
       evidence:
-        "Architecture, security, infrastructure, and SSO are confirmed. Participants can sign in and install behind SSO.",
+        "The trial agreement is signed, readiness is confirmed, and participants can sign in with Caterpillar email and install behind SSO. The architecture and security review has also settled where the agents run.",
     },
     {
       requirement: "Real support work moves",
       evidence:
-        "Caterpillar builds prioritized product support pieces on its code and tools, with SpaceXAI working alongside.",
+        "Caterpillar's builders can show prioritized product support pieces completed on their code and tools, not a demo environment. The work is reviewed by Caterpillar engineers, with Jason, Brian Fox, and Joe supporting through Slack and the recurring cadence.",
     },
     {
       requirement: "The comparison is usable",
       evidence:
-        "Results are judged against the tools already in use with evaluation metrics agreed up front.",
+        "The same real support work is judged against the tools already in use with evaluation metrics agreed up front. The readout shows the work produced, how the teams used the tools, and the resulting ROI and return-on-spend case.",
     },
     {
       requirement: "The trial supports a decision",
       evidence:
-        "The team finishes with a viability verdict and a real consumption baseline for funding.",
+        "The final readout states whether SpaceXAI held up on real work and whether it is faster or cheaper than Caterpillar's current path. It includes a real consumption baseline the CFO can use in the 2027 budget.",
     },
   ],
 };
