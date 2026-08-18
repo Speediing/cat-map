@@ -502,6 +502,58 @@ export const pocSuccessCriteria = {
   ],
 };
 
+export const mapMustHaves = {
+  caption: "What the plan has to hold",
+  note: "Nine things the mutual plan needs before anyone calls the pilot passed.",
+  items: [
+    {
+      requirement: "Shared objective",
+      evidence:
+        "The outcome Caterpillar is buying, in its words: is SpaceXAI faster and cheaper than the in-house agents more than 400 people already use, plus Copilot, on real product-support work. Richard's phrase is a justify-your-existence discussion. The 2027 plan needs a number, not an impression.",
+    },
+    {
+      requirement: "Success criteria",
+      evidence:
+        "Pilot passed means the four outcomes above hold: support closes faster, cost per accepted change drops, the same people get more done, and finance can use a real 2027 consumption number. Richard and Jamie sign off. Sai asked for these criteria in the trial paper, not after the fact.",
+    },
+    {
+      requirement: "Owners on both sides",
+      evidence:
+        "Caterpillar: Richard and Jamie on the decision, Sai on architecture and security, Dhamu and Dustin with Brian Rossi on infrastructure and SSO, Swaran and Ritesh on support, Matt Mansfield on the support plan. SpaceXAI: Joe Masello, Jason Wiker, and Brian Fox. Cat builds. SpaceXAI supplies the platform and stays in lockstep.",
+    },
+    {
+      requirement: "Timeline",
+      evidence:
+        "Work the paper and readiness now. The 30-day clock starts at signature, not before. Week 0 clears gates. Weeks 1 to 4 run 101, 201, and 301 on live support work. MineStar stays a September deep dive and only enters the trial if support holds. The MSA runs behind the trial. It does not gate it.",
+    },
+    {
+      requirement: "Pilot scope",
+      evidence:
+        "In: 30 days, named product-support work Caterpillar already owns, desktop plus whatever architecture Cat IT writes down, scored against Copilot and the in-house agents. Out: click-through installs, public downloads, assuming SaaS, and MineStar as the first lane. Cloud or self-hosted agents only if confirmed.",
+    },
+    {
+      requirement: "Tech and security",
+      evidence:
+        "Sai's rule: model traffic stays on Caterpillar's network unless Cat IT writes an exception. The deep dive ends with a path in writing, SaaS, tunnel, or Cat Cloud. Brian Rossi owns infrastructure, guardrails, repo access, and SSO. Salesforce, internal databases, and Snowflake take the most time if the platform sits outside Cat Cloud.",
+    },
+    {
+      requirement: "Legal and buy",
+      evidence:
+        "No click-through. A trial evaluation agreement has to be signed before anything installs. Legal is the bottleneck, a couple of weeks. The NDA is signed and folds into the MSA later. Joe is checking Cat policy with the sourcing director and whether existing Starlink paper can carry parts of the MSA. 2027 placeholders can go in before a deal is signed. The baseline makes them real.",
+    },
+    {
+      requirement: "Decision trigger",
+      evidence:
+        "If the four outcomes hold, Richard or Jamie can take a viability verdict and a real consumption number into the 2027 plan. That readout is on the calendar before week 4, and they can give it without SpaceXAI in the room. If the outcomes do not hold, the trial ends as a hybrid stay or a hold, not a quiet drift into another workshop.",
+    },
+    {
+      requirement: "Risks",
+      evidence:
+        "Legal can slip the clock. Architecture can stay open and kill the trial at readout. MineStar can pull the cohort off support too early. Copilot and the in-house agents already work, so the bar is a comparison, not a demo. Mitigation: paper and Rossi work in parallel, support stays lane one, and an open architecture question is a fail.",
+    },
+  ],
+};
+
 /**
  * Published Cursor / SpaceXAI proof appendix. Metrics and quotes only from
  * the named public posts. The For Caterpillar line on each tile is a mapping,
