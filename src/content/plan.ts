@@ -477,27 +477,27 @@ export const pocCalendar = {
 };
 
 export const pocSuccessCriteria = {
-  caption: "How we know it worked",
+  caption: "What the trial has to prove",
   items: [
     {
-      requirement: "Access works",
+      requirement: "Support closes faster",
       evidence:
-        "The trial agreement is signed, readiness is confirmed, and participants can sign in with Caterpillar email and install behind SSO. The architecture and security review has also settled where the agents run.",
+        "On named product-support tickets Caterpillar already owns, time from pickup to a reviewer-accepted change beats the current Copilot and in-house path. Caterpillar picks the tickets and the clock at kickoff.",
     },
     {
-      requirement: "Enablement transfers",
+      requirement: "Cost per change drops",
       evidence:
-        "Caterpillar's builders complete Cursor 101, then Cursor 201, and use both on prioritized product support pieces. In the Cursor 301 reverse demo, they show the work on their code and tools and explain how they reviewed it safely.",
+        "The same work costs less to a shipped change than the tools already in use, or produces more accepted output per dollar. That is the return-on-spend number Sai asked to put in the paper.",
     },
     {
-      requirement: "The comparison is usable",
+      requirement: "Same people, more done",
       evidence:
-        "The same real support work is judged against the tools already in use with evaluation metrics agreed up front. The readout shows the work produced, how the teams used the tools, and the resulting ROI and return-on-spend case.",
+        "The named builders clear more reviewed support work in the trial window than they did on the prior path, without adding headcount. MineStar stays out unless the support path holds.",
     },
     {
-      requirement: "The trial supports a decision",
+      requirement: "2027 can use it",
       evidence:
-        "The final readout states whether SpaceXAI held up on real work and whether it is faster or cheaper than Caterpillar's current path. It includes a real consumption baseline the CFO can use in the 2027 budget.",
+        "The readout leaves a real consumption baseline, not a placeholder, that finance can put in the 2027 plan. Richard's justify-your-existence discussion uses that number.",
     },
   ],
 };
