@@ -24,7 +24,7 @@ export type Beat = {
 export const site = {
   title: "Caterpillar × SpaceXAI · Mutual action plan",
   description:
-    "The mutual action plan for Caterpillar and SpaceXAI: a 30-day trial, support first then MineStar, and a live board of owners, statuses, and working dates.",
+    "The mutual action plan for Caterpillar and SpaceXAI: a 30-day trial, support first then MineStar, with a compact POC calendar and decision criteria.",
   wordmark: { left: "Caterpillar", right: "SpaceXAI" },
   navLabel: "Private · August 2026",
 };
@@ -35,7 +35,7 @@ export const nav = [
   { id: "support", label: "Support" },
   { id: "stack", label: "Voice + Bot" },
   { id: "minestar", label: "MineStar" },
-  { id: "actions", label: "Live plan" },
+  { id: "actions", label: "POC" },
   { id: "stories", label: "Stories" },
   { id: "gartner", label: "Gartner" },
 ] as const;
@@ -46,7 +46,7 @@ export const hero = {
   standfirst:
     "Support first. Then MineStar. One page both teams work from: Caterpillar named that order, and SpaceXAI funds the 30-day trial across both, every model, every participant, no cost to Caterpillar. Paper, infrastructure, and the Cat Cloud question move in parallel so nothing waits twice. The trial ends with a verdict and a number: does this hold up on real work, and what does it cost to run.",
   meta: "Compiled from the working sessions of 11, 13, and 14 August 2026.",
-  cta: { label: "Open the live plan", href: "#actions" },
+  cta: { label: "See the POC", href: "#actions" },
   art: {
     src: "/spacex-cat-rocket.jpg",
     width: 1536,
@@ -435,79 +435,66 @@ export const minestar = {
 
 export const actionsSection = {
   id: "actions",
-  kicker: "The mutual action plan",
-  title: "Who does what, by when",
-  lede: "Both sides edit this board: every move with a status, an owner, and timing, plus a calendar of working dates. Changes save as they are made and everyone sees the same plan. Dates stay working dates, not commitments, until the agreement signs.",
-  savedLabel: "Saved",
-  savingLabel: "Saving",
-  errorLabel: "Save failed, edit again to retry",
-  persistedLabel: "Saved for everyone",
-  memoryLabel: "Temporary storage. Set POSTGRES_URL for the shared database.",
-  actionsCaption: "The action list",
-  pathCaption: "The two phases",
-  pathNote: "Phase 2 is gated. Agreement and readiness both required.",
-  ganttCaption: "From this week to the verdict",
-  ganttBadge: "Not yet agreed",
-  todayLabel: "Today",
-  addStepLabel: "+ Add step",
-  stepLabel: "Step",
+  kicker: "Proof of concept",
+  title: "A short path to a real verdict",
+  lede: "The 30-day POC starts after signature, moves onto Caterpillar's real work, and ends with evidence for the build-versus-buy decision.",
 };
 
 /**
- * Phase cards above the live gantt. Same owners as the seed and glance,
- * laid out as a two-phase path (agreement + readiness, then the trial).
+ * The POC calendar uses relative weeks because the 30-day clock starts only
+ * after signature. Every line comes from the Cat plan above.
  */
-export const livePlanPhases = {
-  phase1: {
-    kicker: "Phase 1 · Now",
-    title: "Agreement + readiness",
-    when: "Paper and readiness in parallel. Nothing waits twice.",
-    tracks: [
-      {
-        who: "Joe + Cat legal",
-        what: "Trial evaluation agreement, terms, and success criteria",
-      },
-      {
-        who: "Dustin + Dhamu + Rossi",
-        what: "Infrastructure and SSO readiness call",
-      },
-      {
-        who: "Sai Praveen",
-        what: "Architecture and security deep dive with Cat IT",
-      },
-      {
-        who: "Swaran Unni",
-        what: "Prioritized support problem list, small pieces first",
-      },
-    ],
-  },
-  gate: {
-    label: "Both gates",
-    items: ["Trial agreement signed", "Readiness confirmed"],
-  },
-  phase2: {
-    kicker: "Phase 2 · After both gates",
-    title: "30-day trial",
-    when: "Starts at signature. SpaceXAI-funded, all models, everyone in.",
-    tracks: [
-      {
-        who: "Onboarding",
-        what: "Access, installs behind SSO, and a shared Slack channel",
-      },
-      {
-        who: "Cadence",
-        what: "Short weekly status; Jason, Brian, and Joe on call",
-      },
-      {
-        who: "Evaluation",
-        what: "Desktop-first trial against Copilot and the tools you run",
-      },
-      {
-        who: "The verdict",
-        what: "Viability plus a real consumption baseline for funding",
-      },
-    ],
-  },
+export const pocCalendar = {
+  caption: "What the 30-day POC looks like",
+  note: "Relative weeks only. The clock starts after the trial agreement is signed.",
+  weeks: [
+    {
+      week: "Week 0",
+      title: "Clear the gates",
+      text: "Confirm the agreement, architecture, security, infrastructure, and SSO. Then enable access and installs.",
+    },
+    {
+      week: "Week 1",
+      title: "Start real work",
+      text: "Onboard, then begin with the prioritized product support problems, small pieces first.",
+    },
+    {
+      week: "Week 2",
+      title: "Deepen one path",
+      text: "Caterpillar builds the support pieces on its code and tools, with SpaceXAI working alongside.",
+    },
+    {
+      week: "Weeks 3 and 4",
+      title: "Prove and decide",
+      text: "Compare with the tools already in use. Finish with a viability verdict and a real consumption baseline.",
+    },
+  ],
+};
+
+export const pocSuccessCriteria = {
+  caption: "How we know it worked",
+  items: [
+    {
+      requirement: "Access works",
+      evidence:
+        "Architecture, security, infrastructure, and SSO are confirmed. Participants can sign in and install behind SSO.",
+    },
+    {
+      requirement: "Real support work moves",
+      evidence:
+        "Caterpillar builds prioritized product support pieces on its code and tools, with SpaceXAI working alongside.",
+    },
+    {
+      requirement: "The comparison is usable",
+      evidence:
+        "Results are judged against the tools already in use with evaluation metrics agreed up front.",
+    },
+    {
+      requirement: "The trial supports a decision",
+      evidence:
+        "The team finishes with a viability verdict and a real consumption baseline for funding.",
+    },
+  ],
 };
 
 /**
@@ -885,7 +872,7 @@ export const footer = {
     label: "SpaceXAI",
     people: ["Jason Wiker", "Brian Fox", "Joe Masello"],
   },
-  line: "Private, for the working group on both sides. Sourced from the working sessions of 11, 13, and 14 August 2026. Edits to the live plan save for everyone.",
+  line: "Private, for the working group on both sides. Sourced from the working sessions of 11, 13, and 14 August 2026.",
 };
 
 export const login = {
