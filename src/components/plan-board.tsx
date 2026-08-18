@@ -1,4 +1,4 @@
-import { pocCalendar, pocSuccessCriteria } from "@/content/plan";
+import { mapMustHaves, pocCalendar, pocSuccessCriteria } from "@/content/plan";
 
 function PocCalendar() {
   return (
@@ -49,6 +49,33 @@ export function PlanBoard() {
             <li
               key={item.requirement}
               className="grid gap-1.5 border-t border-hairline p-5 first:border-t-0 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(even)]:border-l"
+            >
+              <h3 className="text-[13px] font-medium text-ink">{item.requirement}</h3>
+              <p className="text-[13px] leading-[1.6] text-ink-muted">{item.evidence}</p>
+            </li>
+          ))}
+        </ul>
+      </figure>
+
+      <figure className="overflow-hidden rounded-xl border border-hairline bg-paper/80">
+        <figcaption className="flex flex-wrap items-baseline justify-between gap-2 border-b border-hairline px-5 py-4">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.09em] text-ink-faint">
+              {mapMustHaves.caption}
+            </p>
+            <p className="mt-1.5 text-[12.5px] leading-[1.5] text-ink-muted">
+              {mapMustHaves.note}
+            </p>
+          </div>
+          <span className="font-mono text-[10px] text-ink-faint">
+            Requirement · On this plan
+          </span>
+        </figcaption>
+        <ul className="grid sm:grid-cols-2">
+          {mapMustHaves.items.map((item) => (
+            <li
+              key={item.requirement}
+              className="grid gap-1.5 border-t border-hairline p-5 first:border-t-0 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(even)]:border-l"
             >
               <h3 className="text-[13px] font-medium text-ink">{item.requirement}</h3>
               <p className="text-[13px] leading-[1.6] text-ink-muted">{item.evidence}</p>
