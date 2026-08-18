@@ -21,6 +21,9 @@ function PocCalendar() {
               {item.week}
             </span>
             <h3 className="mt-2 text-[15px] font-medium text-ink">{item.title}</h3>
+            <p className="mt-2 inline-block rounded-md border border-hairline bg-panel/55 px-2.5 py-1.5 font-mono text-[10.5px] leading-[1.45] text-ink-muted">
+              {item.session}
+            </p>
             <p className="mt-2 text-[13px] leading-[1.6] text-ink-muted">{item.text}</p>
           </li>
         ))}

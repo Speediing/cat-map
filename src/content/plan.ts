@@ -451,21 +451,26 @@ export const pocCalendar = {
     {
       week: "Week 0",
       title: "Clear the gates",
+      session: "Setup · Access, SSO, and installs",
       text: "Joe and Cat legal move the trial agreement while Sai, Cat IT, Dustin, Dhamu, and Brian Rossi settle architecture, security, infrastructure, and SSO. Jason, Brian Fox, and Joe prepare access, installs behind SSO, and the shared Slack channel. The week ends with the agreement and readiness gates cleared so the 30-day clock can start.",
     },
     {
       week: "Week 1",
       title: "Start real work",
+      session:
+        "Cursor 101 with Jason, Brian Fox, and Joe · Tab, inline edit, Agent and Plan mode, context, safe review",
       text: "Caterpillar's AI team and engineers start with Swaran's prioritized product support problems, small pieces first. Jason, Brian Fox, and Joe enable the builders, stay close in Slack, and begin the recurring cadence. The team leaves with the first support work moving on Caterpillar's code and tools.",
     },
     {
       week: "Week 2",
       title: "Deepen one path",
+      session: "Cursor 201 · Cloud Agents, rules and skills, automations",
       text: "Caterpillar keeps building the support pieces with SpaceXAI alongside and compares the work with the tools already in use. If the support path holds and the trial reaches it, Richard's team and Ritesh can bring in a MineStar piece. The team leaves with evidence from real work and a clearer read on build versus buy.",
     },
     {
       week: "Weeks 3 and 4",
       title: "Prove and decide",
+      session: "Cursor 301 · Caterpillar reverse demos on its real support work",
       text: "Caterpillar and the SpaceXAI field team review the work through the recurring cadence and judge it against the agreed evaluation metrics. They compare viability, ROI, and return on spend with the tools already in use. The final readout is a viability verdict and a real consumption baseline for the CFO and 2027 budget.",
     },
   ],
@@ -480,9 +485,9 @@ export const pocSuccessCriteria = {
         "The trial agreement is signed, readiness is confirmed, and participants can sign in with Caterpillar email and install behind SSO. The architecture and security review has also settled where the agents run.",
     },
     {
-      requirement: "Real support work moves",
+      requirement: "Enablement transfers",
       evidence:
-        "Caterpillar's builders can show prioritized product support pieces completed on their code and tools, not a demo environment. The work is reviewed by Caterpillar engineers, with Jason, Brian Fox, and Joe supporting through Slack and the recurring cadence.",
+        "Caterpillar's builders complete Cursor 101, then Cursor 201, and use both on prioritized product support pieces. In the Cursor 301 reverse demo, they show the work on their code and tools and explain how they reviewed it safely.",
     },
     {
       requirement: "The comparison is usable",
