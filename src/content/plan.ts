@@ -477,27 +477,27 @@ export const pocCalendar = {
 };
 
 export const pocSuccessCriteria = {
-  caption: "How we know it worked",
+  caption: "What the trial has to prove",
   items: [
     {
-      requirement: "Access works",
+      requirement: "Real work ships",
       evidence:
-        "The trial agreement is signed, readiness is confirmed, and participants can sign in with Caterpillar email and install behind SSO. The architecture and security review has also settled where the agents run.",
+        "Named Caterpillar builders take live product-support work they would have done anyway, review it themselves, and keep or reject it. Finishing 101 or 201 is not the proof. A reverse demo on that work is.",
     },
     {
-      requirement: "Enablement transfers",
+      requirement: "Scored head to head",
       evidence:
-        "Caterpillar's builders complete Cursor 101, then Cursor 201, and use both on prioritized product support pieces. In the Cursor 301 reverse demo, they show the work on their code and tools and explain how they reviewed it safely.",
+        "The same tickets run against the in-house agents, Copilot, and SpaceXAI. Metrics are agreed before the clock starts: time to a reviewed change, rework, and whether a Cat reviewer would ship it. The readout is a comparison, not a demo reel.",
     },
     {
-      requirement: "The comparison is usable",
+      requirement: "Architecture settled",
       evidence:
-        "The same real support work is judged against the tools already in use with evaluation metrics agreed up front. The readout shows the work produced, how the teams used the tools, and the resulting ROI and return-on-spend case.",
+        "Sai's rule stands: model traffic stays on Caterpillar's network unless Cat IT writes an exception. The deep dive ends with a path in writing, SaaS, tunnel, or Cat Cloud. An open question at readout is a fail.",
     },
     {
-      requirement: "The trial supports a decision",
+      requirement: "Buyer can sell it",
       evidence:
-        "The final readout states whether SpaceXAI held up on real work and whether it is faster or cheaper than Caterpillar's current path. It includes a real consumption baseline the CFO can use in the 2027 budget.",
+        "Richard or Jamie can give the justify-your-existence readout without SpaceXAI in the room: a viability verdict and a real consumption number the 2027 plan can use. That meeting is on the calendar before week 4.",
     },
   ],
 };
