@@ -480,24 +480,24 @@ export const pocSuccessCriteria = {
   caption: "What the trial has to prove",
   items: [
     {
-      requirement: "Real work ships",
+      requirement: "Support closes faster",
       evidence:
-        "Named Caterpillar builders take live product-support work they would have done anyway, review it themselves, and keep or reject it. Finishing 101 or 201 is not the proof. A reverse demo on that work is.",
+        "On named product-support tickets Caterpillar already owns, time from pickup to a reviewer-accepted change beats the current Copilot and in-house path. Caterpillar picks the tickets and the clock at kickoff.",
     },
     {
-      requirement: "Scored head to head",
+      requirement: "Cost per change drops",
       evidence:
-        "The same tickets run against the in-house agents, Copilot, and SpaceXAI. Metrics are agreed before the clock starts: time to a reviewed change, rework, and whether a Cat reviewer would ship it. The readout is a comparison, not a demo reel.",
+        "The same work costs less to a shipped change than the tools already in use, or produces more accepted output per dollar. That is the return-on-spend number Sai asked to put in the paper.",
     },
     {
-      requirement: "Architecture settled",
+      requirement: "Same people, more done",
       evidence:
-        "Sai's rule stands: model traffic stays on Caterpillar's network unless Cat IT writes an exception. The deep dive ends with a path in writing, SaaS, tunnel, or Cat Cloud. An open question at readout is a fail.",
+        "The named builders clear more reviewed support work in the trial window than they did on the prior path, without adding headcount. MineStar stays out unless the support path holds.",
     },
     {
-      requirement: "Buyer can sell it",
+      requirement: "2027 can use it",
       evidence:
-        "Richard or Jamie can give the justify-your-existence readout without SpaceXAI in the room: a viability verdict and a real consumption number the 2027 plan can use. That meeting is on the calendar before week 4.",
+        "The readout leaves a real consumption baseline, not a placeholder, that finance can put in the 2027 plan. Richard's justify-your-existence discussion uses that number.",
     },
   ],
 };
