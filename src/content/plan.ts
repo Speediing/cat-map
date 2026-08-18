@@ -435,9 +435,79 @@ export const minestar = {
 
 export const actionsSection = {
   id: "actions",
-  kicker: "Proof of concept",
-  title: "A short path to a real verdict",
-  lede: "The 30-day POC starts after signature, moves onto Caterpillar's real work, and ends with evidence for the build-versus-buy decision.",
+  kicker: "The mutual action plan",
+  title: "Who does what, by when",
+  lede: "Both sides edit this board: every move with a status, an owner, and timing, plus a calendar of working dates. Changes save as they are made and everyone sees the same plan. Dates stay working dates, not commitments, until the agreement signs.",
+  savedLabel: "Saved for everyone",
+  savingLabel: "Saving",
+  errorLabel: "Save failed, edit again to retry",
+  memoryLabel: "Temporary storage. Set POSTGRES_URL for the shared database.",
+  actionsCaption: "The action list",
+  pathCaption: "The two phases",
+  pathNote: "Phase 2 is gated. Agreement and readiness both required.",
+  ganttCaption: "From this week to the verdict",
+  ganttBadge: "Working dates · Not yet agreed",
+  todayLabel: "Today",
+  addStepLabel: "+ Add step",
+  addActionLabel: "+ Add action",
+  stepLabel: "Step",
+};
+
+/**
+ * Phase cards above the live gantt. Same owners as the seed and glance,
+ * laid out as a two-phase path (agreement + readiness, then the trial).
+ */
+export const livePlanPhases = {
+  phase1: {
+    kicker: "Phase 1 · Now",
+    title: "Agreement + readiness",
+    when: "Paper and readiness in parallel. Nothing waits twice.",
+    tracks: [
+      {
+        who: "Joe + Cat legal",
+        what: "Trial evaluation agreement, terms, and success criteria",
+      },
+      {
+        who: "Dustin + Dhamu + Rossi",
+        what: "Infrastructure and SSO readiness call",
+      },
+      {
+        who: "Sai Praveen",
+        what: "Architecture and security deep dive with Cat IT",
+      },
+      {
+        who: "Swaran Unni",
+        what: "Prioritized support problem list, small pieces first",
+      },
+    ],
+  },
+  gate: {
+    label: "Both gates",
+    items: ["Trial agreement signed", "Readiness confirmed"],
+  },
+  phase2: {
+    kicker: "Phase 2 · After both gates",
+    title: "30-day trial",
+    when: "Starts at signature. SpaceXAI-funded, all models, everyone in.",
+    tracks: [
+      {
+        who: "Onboarding",
+        what: "Access, installs behind SSO, and a shared Slack channel",
+      },
+      {
+        who: "Cadence",
+        what: "Short weekly status; Jason, Brian, and Joe on call",
+      },
+      {
+        who: "Evaluation",
+        what: "Desktop-first trial against Copilot and the tools you run",
+      },
+      {
+        who: "The verdict",
+        what: "Viability plus a real consumption baseline for funding",
+      },
+    ],
+  },
 };
 
 /**
