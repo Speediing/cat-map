@@ -454,60 +454,34 @@ export const actionsSection = {
 };
 
 /**
- * Phase cards above the live gantt. Same owners as the seed and glance,
- * laid out as a two-phase path (agreement + readiness, then the trial).
+ * The POC calendar uses relative weeks because the 30-day clock starts only
+ * after signature. Every line comes from the Cat plan above.
  */
-export const livePlanPhases = {
-  phase1: {
-    kicker: "Phase 1 · Now",
-    title: "Agreement + readiness",
-    when: "Paper and readiness in parallel. Nothing waits twice.",
-    tracks: [
-      {
-        who: "Joe + Cat legal",
-        what: "Trial evaluation agreement, terms, and success criteria",
-      },
-      {
-        who: "Dustin + Dhamu + Rossi",
-        what: "Infrastructure and SSO readiness call",
-      },
-      {
-        who: "Sai Praveen",
-        what: "Architecture and security deep dive with Cat IT",
-      },
-      {
-        who: "Swaran Unni",
-        what: "Prioritized support problem list, small pieces first",
-      },
-    ],
-  },
-  gate: {
-    label: "Both gates",
-    items: ["Trial agreement signed", "Readiness confirmed"],
-  },
-  phase2: {
-    kicker: "Phase 2 · After both gates",
-    title: "30-day trial",
-    when: "Starts at signature. SpaceXAI-funded, all models, everyone in.",
-    tracks: [
-      {
-        who: "Onboarding",
-        what: "Access, installs behind SSO, and a shared Slack channel",
-      },
-      {
-        who: "Cadence",
-        what: "Short weekly status; Jason, Brian, and Joe on call",
-      },
-      {
-        who: "Evaluation",
-        what: "Desktop-first trial against Copilot and the tools you run",
-      },
-      {
-        who: "The verdict",
-        what: "Viability plus a real consumption baseline for funding",
-      },
-    ],
-  },
+export const pocCalendar = {
+  caption: "What the 30-day POC looks like",
+  note: "Relative weeks only. The clock starts after the trial agreement is signed.",
+  weeks: [
+    {
+      week: "Week 0",
+      title: "Clear the gates",
+      text: "Confirm the agreement, architecture, security, infrastructure, and SSO. Then enable access and installs.",
+    },
+    {
+      week: "Week 1",
+      title: "Start real work",
+      text: "Onboard, then begin with the prioritized product support problems, small pieces first.",
+    },
+    {
+      week: "Week 2",
+      title: "Deepen one path",
+      text: "Caterpillar builds the support pieces on its code and tools, with SpaceXAI working alongside.",
+    },
+    {
+      week: "Weeks 3 and 4",
+      title: "Prove and decide",
+      text: "Compare with the tools already in use. Finish with a viability verdict and a real consumption baseline.",
+    },
+  ],
 };
 
 /**
