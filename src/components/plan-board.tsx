@@ -11,17 +11,17 @@ function PocCalendar() {
           {pocCalendar.note}
         </p>
       </figcaption>
-      <ol className="grid sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="grid md:grid-cols-2">
         {pocCalendar.weeks.map((item) => (
           <li
             key={item.week}
-            className="border-t border-hairline p-4 first:border-t-0 sm:[&:nth-child(2)]:border-t-0 lg:border-t-0 lg:border-l lg:first:border-l-0"
+            className="border-t border-hairline p-5 first:border-t-0 md:[&:nth-child(2)]:border-t-0 md:[&:nth-child(even)]:border-l"
           >
             <span className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-orange">
               {item.week}
             </span>
-            <h3 className="mt-2 text-[14px] font-medium text-ink">{item.title}</h3>
-            <p className="mt-1.5 text-[12.5px] leading-[1.5] text-ink-muted">{item.text}</p>
+            <h3 className="mt-2 text-[15px] font-medium text-ink">{item.title}</h3>
+            <p className="mt-2 text-[13px] leading-[1.6] text-ink-muted">{item.text}</p>
           </li>
         ))}
       </ol>
@@ -45,10 +45,10 @@ export function PlanBoard() {
           {pocSuccessCriteria.items.map((item) => (
             <li
               key={item.requirement}
-              className="grid gap-1 border-t border-hairline p-4 first:border-t-0 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(even)]:border-l"
+              className="grid gap-1.5 border-t border-hairline p-5 first:border-t-0 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(even)]:border-l"
             >
               <h3 className="text-[13px] font-medium text-ink">{item.requirement}</h3>
-              <p className="text-[12.5px] leading-[1.5] text-ink-muted">{item.evidence}</p>
+              <p className="text-[13px] leading-[1.6] text-ink-muted">{item.evidence}</p>
             </li>
           ))}
         </ul>
